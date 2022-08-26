@@ -1,12 +1,10 @@
 <?php
 
 // create custom plugin settings menu
-add_action('admin_menu', 'baw_create_menu');
+add_action('admin_menu', 'exb_create_menu');
 
-function baw_create_menu() {
-
+function exb_create_menu() {
     add_submenu_page('options-general.php', 'ExpressBar', 'ExpressBar', 'administrator', 'expressbar', 'exb_settings_page');
-
     //call register settings function
     add_action( 'admin_init', 'register_mysettings' );
 }

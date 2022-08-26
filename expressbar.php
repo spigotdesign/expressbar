@@ -110,7 +110,6 @@ if ( ! function_exists('dwpb')) {
 		$dwpb_link_color = exb_get_option('dwpb_link_color');
 		$dwpb_link_style = exb_get_option('dwpb_link_style');
 		$dwpb_button_color = exb_get_option('dwpb_button_color');
-
 		$dwpb_custon_style = exb_get_option('dwpb_custon_style');
 
 		$dwpb_link = '';

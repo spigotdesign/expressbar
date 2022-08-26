@@ -1,46 +1,37 @@
 .settings_page_expressbar .hide {
-  display: none;
+	display: none;
 }
-
 .settings_page_expressbar select {
-  width: 25em;
+	width: 25em;
 }
-
 .settings_page_expressbar #dwpb {
-  top: 0;
-  z-index: 999999;
+	top: 0;
+	z-index: 999999;
 }
-
 .settings_page_expressbar .exb-action,
 .settings_page_expressbar .dwpb-close {
-  top: 5px;
-  background: transparent !important;
+	top: 5px;
+	background: transparent !important;
 }
-
 .settings_page_expressbar .exb-action:before,
 .settings_page_expressbar .dwpb-close:before {
-  content: "\f343";
+	content: '\f343';
 }
-
 .settings_page_expressbar #dwpb.ramain-top {
-  position: fixed;
+	position: fixed;
 }
-
 .settings_page_expressbar .wp-picker-holder {
-  position: absolute;
-  z-index: 9999;
+	position: absolute;
+	z-index: 9999;
 }
-
 .settings_page_expressbar .submit {
-  float: left;
-  margin-right: 10px;
+	float: left;
+	margin-right: 10px;
 }
-
 .settings_page_expressbar .ajax-load {
-  padding-left: 5px;
+	padding-left: 5px;
 }
-
 .settings_page_expressbar .ajax-load img,
 .settings_page_expressbar .ajax-load span {
-  display: none;
+	display: none;
 }
