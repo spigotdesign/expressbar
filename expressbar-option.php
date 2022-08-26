@@ -21,10 +21,10 @@ function register_mysettings() {
 		'dwpb_push_page',
 		'dwpb_show_bottom',
 
-		'dwpb_responsive_extra_small',
-		'dwpb_responsive_small',
-		'dwpb_responsive_medium',
-		'dwpb_responsive_large',
+		'exb_responsive_extra_small',
+		'exb_responsive_small',
+		'exb_responsive_medium',
+		'exb_responsive_large',
 
 		'dwpb_front_page',
 		'dwpb_archives',
@@ -176,37 +176,37 @@ function exb_settings_page() {
 				<th scope="row"><?php _e('Hide ExpressBar','dwpb') ?></th>
 				<td>
 					<?php
-						$dwpb_responsive_extra_small = get_option('dwpb_responsive_extra_small');
-						$dwpb_responsive_extra_small_select = '';
-						if ( $dwpb_responsive_extra_small ) {
-							$dwpb_responsive_extra_small_select = 'checked';
+						$exb_responsive_extra_small = get_option('exb_responsive_extra_small');
+						$exb_responsive_extra_small_select = '';
+						if ( $exb_responsive_extra_small ) {
+							$exb_responsive_extra_small_select = 'checked';
 						}
 
-						$dwpb_responsive_small = get_option('dwpb_responsive_small');
-						$dwpb_responsive_small_select = '';
-						if ( $dwpb_responsive_small ) {
-							$dwpb_responsive_small_select = 'checked';
+						$exb_responsive_small = get_option('exb_responsive_small');
+						$exb_responsive_small_select = '';
+						if ( $exb_responsive_small ) {
+							$exb_responsive_small_select = 'checked';
 						}
 
-						$dwpb_responsive_medium = get_option('dwpb_responsive_medium');
-						$dwpb_responsive_medium_select = '';
-						if ( $dwpb_responsive_medium ) {
-							$dwpb_responsive_medium_select = 'checked';
+						$exb_responsive_medium = get_option('exb_responsive_medium');
+						$exb_responsive_medium_select = '';
+						if ( $exb_responsive_medium ) {
+							$exb_responsive_medium_select = 'checked';
 						}
 
-						$dwpb_responsive_large = get_option('dwpb_responsive_large');
-						$dwpb_responsive_large_select = '';
-						if ( $dwpb_responsive_large ) {
-							$dwpb_responsive_large_select = 'checked';
+						$exb_responsive_large = get_option('exb_responsive_large');
+						$exb_responsive_large_select = '';
+						if ( $exb_responsive_large ) {
+							$exb_responsive_large_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_responsive_extra_small" value="true" <?php echo $dwpb_responsive_extra_small_select; ?> > <?php _e('Phones < 768px','dwpb') ?> </label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_extra_small" value="true" <?php echo $exb_responsive_extra_small_select; ?> > <?php _e('Phones < 768px','dwpb') ?> </label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_responsive_small" value="true" <?php echo $dwpb_responsive_small_select; ?> ><?php _e('768px &le; Tablets < 992px ','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_small" value="true" <?php echo $exb_responsive_small_select; ?> ><?php _e('768px &le; Tablets < 992px ','dwpb') ?></label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_responsive_medium" value="true" <?php echo $dwpb_responsive_medium_select; ?> ><?php _e('992 &le; Desktops < 1200 ','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_medium" value="true" <?php echo $exb_responsive_medium_select; ?> ><?php _e('992 &le; Desktops < 1200 ','dwpb') ?></label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_responsive_large" value="true" <?php echo $dwpb_responsive_large_select; ?> ><?php _e('Desktops (≥1200px)','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_large" value="true" <?php echo $exb_responsive_large_select; ?> ><?php _e('Desktops (≥1200px)','dwpb') ?></label>
 				</td>
 			</tr>
 			<tr>

@@ -8,7 +8,7 @@ Author: Spigot Design
 Author URI: https://spigotdesign.com
 */
 
-if ( ! function_exists('dwpb')) {
+if ( ! function_exists('exb')) {
 
 	define( 'EXB_FOLDER', plugin_dir_path(__FILE__) );
 	define( 'EXB_PATH', plugin_dir_url(__FILE__) );
@@ -30,13 +30,11 @@ if ( ! function_exists('dwpb')) {
 			$exb_push_page = exb_get_option('dwpb_push_page');
 			$dwpb_ramain_top = exb_get_option('dwpb_ramain_top');
 			$dwpb_show_bottom = exb_get_option('dwpb_show_bottom');
-
 			$dwpb_close = exb_get_option('dwpb_close');
-
-			$dwpb_responsive_extra_small = exb_get_option('dwpb_responsive_extra_small');
-			$dwpb_responsive_small = exb_get_option('dwpb_responsive_small');
-			$dwpb_responsive_medium = exb_get_option('dwpb_responsive_medium');
-			$dwpb_responsive_large = exb_get_option('dwpb_responsive_large');
+			$exb_responsive_extra_small = exb_get_option('exb_responsive_extra_small');
+			$exb_responsive_small = exb_get_option('exb_responsive_small');
+			$exb_responsive_medium = exb_get_option('exb_responsive_medium');
+			$exb_responsive_large = exb_get_option('exb_responsive_large');
 
 			$current_theme = wp_get_theme();
 
@@ -60,10 +58,10 @@ if ( ! function_exists('dwpb')) {
 
 			if ( $dwpb_ramain_top == 'ramain-top' ) $classes[] = 'dwpb-ramain-top';
 
-			if ($dwpb_responsive_extra_small) $classes[] = 'dwpb_responsive_extra_small';
-			if ($dwpb_responsive_small) $classes[] = 'dwpb_responsive_small';
-			if ($dwpb_responsive_medium) $classes[] = 'exb_responsive_medium';
-			if ($dwpb_responsive_large) $classes[] = 'dwpb_responsive_large';
+			if ($exb_responsive_extra_small) $classes[] = 'exb_responsive_extra_small';
+			if ($exb_responsive_small) $classes[] = 'exb_responsive_small';
+			if ($exb_responsive_medium) $classes[] = 'exb_responsive_medium';
+			if ($exb_responsive_large) $classes[] = 'exb_responsive_large';
 
 
 
