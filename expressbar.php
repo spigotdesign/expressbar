@@ -52,10 +52,6 @@ if ( ! function_exists('exb')) {
 				$classes[] = 'dwpb-show-bottom'; 
 			}
 
-			if ( $current_theme == 'Twenty Fourteen' ) {
-				$classes[] = 'dwpb-twenty-fourteen'; 	
-			}
-
 			if ( $dwpb_ramain_top == 'ramain-top' ) $classes[] = 'dwpb-ramain-top';
 
 			if ($exb_responsive_extra_small) $classes[] = 'exb_responsive_extra_small';
@@ -210,12 +206,12 @@ if ( ! function_exists('exb')) {
 
 					$exb_bar_text = exb_get_option('exb_bar_text');
 					if ( $exb_bar_text == '' ) {
-						$exb_bar_text = __('Hello. Add your message here.','dwpb');
+						$exb_bar_text = __('Hello. Add your message here.','expressbar');
 					}
 
 					$dwpbcd_text = exb_get_option('dwpbcd_text');
 					if ( $dwpbcd_text == '' ) {
-						$dwpbcd_text = __('Hello. Add your message here.','dwpb');
+						$dwpbcd_text = __('Hello. Add your message here.','expressbar');
 					}
 				?>
 

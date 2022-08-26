@@ -77,10 +77,10 @@ function exb_settings_page() {
 
 	<?php do_action( 'dwpb_previvew' ); ?>
     <div id="dwpb-steps">
-		<h3><?php _e('General Settings','dwpb') ?></h3>
+		<h3><?php _e('General Settings','expressbar') ?></h3>
 		<table class="form-table">
 			<tr>
-				<th scope="row"><?php _e('Enable ExpressBar?','dwpb') ?></th>
+				<th scope="row"><?php _e('Enable ExpressBar?','expressbar') ?></th>
 				<td>
 					<?php
 						$dwpb_enable = get_option('dwpb_enable');
@@ -89,13 +89,13 @@ function exb_settings_page() {
 							$dwpb_enable_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_enable" value="no" checked><?php _e('No','dwpb') ?></label>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_enable" value="yes" <?php echo $dwpb_enable_select; ?> ><?php _e('Yes','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpb_enable" value="no" checked><?php _e('No','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpb_enable" value="yes" <?php echo $dwpb_enable_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><?php _e('Start on','dwpb') ?></th>
+				<th scope="row"><?php _e('Start on','expressbar') ?></th>
 				<td>
 					<input class="regular-text dwpb_time_picker" type="text" name="dwpb_start" value="<?php echo get_option('dwpb_start'); ?>" />
 					<span class="description"><?php _e('Leave blank if you want to start the bar immediately!') ?></span>
@@ -103,7 +103,7 @@ function exb_settings_page() {
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><?php _e('Stop on','dwpb') ?></th>
+				<th scope="row"><?php _e('Stop on','expressbar') ?></th>
 				<td>
 					<input class="regular-text dwpb_time_picker" type="text" name="dwpb_end" value="<?php echo get_option('dwpb_end'); ?>" />
 					<span class="description"><?php _e('Leave blank if you do not want to close the bar!') ?></span>
@@ -111,7 +111,7 @@ function exb_settings_page() {
 			</tr>
 
 			<tr>
-				<th scope="row"><?php _e('Allow to Close ExpressBar ?','dwpb') ?></th>
+				<th scope="row"><?php _e('Allow to Close ExpressBar ?','expressbar') ?></th>
 				<td>
 					<?php
 						$dwpb_close = get_option('dwpb_close');
@@ -120,13 +120,13 @@ function exb_settings_page() {
 							$dwpb_close_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_close" value="no" checked><?php _e('No','dwpb') ?></label>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_close" value="yes" <?php echo $dwpb_close_select; ?> ><?php _e('Yes','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpb_close" value="no" checked><?php _e('No','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpb_close" value="yes" <?php echo $dwpb_close_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr>
 
 			<tr>
-				<th scope="row"><?php _e('Remain at top of page?','dwpb') ?></th>
+				<th scope="row"><?php _e('Remain at top of page?','expressbar') ?></th>
 				<td>
 					<?php
 						$dwpb_ramain_top = get_option('dwpb_ramain_top');
@@ -135,13 +135,13 @@ function exb_settings_page() {
 							$dwpb_ramain_top_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input class="ramain-top" type="radio" name="dwpb_ramain_top" value="ramain-top" checked><?php _e('No','dwpb') ?></label>
-					<label style="margin-right: 50px;"><input class="fixtop" type="radio" name="dwpb_ramain_top" value="fixtop" <?php echo $dwpb_ramain_top_select; ?> ><?php _e('Yes','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input class="ramain-top" type="radio" name="dwpb_ramain_top" value="ramain-top" checked><?php _e('No','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input class="fixtop" type="radio" name="dwpb_ramain_top" value="fixtop" <?php echo $dwpb_ramain_top_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr>
 
 			<tr>
-				<th scope="row"><?php _e('Push page down?','dwpb') ?></th>
+				<th scope="row"><?php _e('Push page down?','expressbar') ?></th>
 				<td>
 					<?php
 						$dwpb_push_page = get_option('dwpb_push_page');
@@ -150,14 +150,14 @@ function exb_settings_page() {
 							$dwpb_push_page_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input class="no-push" type="radio" name="dwpb_push_page" value="no-push" checked > <?php _e('No','dwpb') ?> </label>
+					<label style="margin-right: 50px;"><input class="no-push" type="radio" name="dwpb_push_page" value="no-push" checked > <?php _e('No','expressbar') ?> </label>
 
-					<label style="margin-right: 50px;"><input class="push-page" type="radio" name="dwpb_push_page" value="push" <?php echo $dwpb_push_page_select; ?> ><?php _e('Yes','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input class="push-page" type="radio" name="dwpb_push_page" value="push" <?php echo $dwpb_push_page_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr>
 
 			<!-- <tr>
-				<th scope="row"><?php _e('Show promobar at bottom','dwpb') ?></th>
+				<th scope="row"><?php _e('Show promobar at bottom','expressbar') ?></th>
 				<td>
 					<?php
 						$dwpb_show_bottom = get_option('dwpb_show_bottom');
@@ -166,14 +166,14 @@ function exb_settings_page() {
 							$dwpb_show_bottom_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input class="no-push" type="radio" name="dwpb_show_bottom" value="no" checked > <?php _e('No','dwpb') ?> </label>
+					<label style="margin-right: 50px;"><input class="no-push" type="radio" name="dwpb_show_bottom" value="no" checked > <?php _e('No','expressbar') ?> </label>
 
-					<label style="margin-right: 50px;"><input class="push-page" type="radio" name="dwpb_show_bottom" value="yes" <?php echo $dwpb_show_bottom_select; ?> ><?php _e('Yes','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input class="push-page" type="radio" name="dwpb_show_bottom" value="yes" <?php echo $dwpb_show_bottom_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr> -->
 
 			<tr>
-				<th scope="row"><?php _e('Hide ExpressBar','dwpb') ?></th>
+				<th scope="row"><?php _e('Hide ExpressBar','expressbar') ?></th>
 				<td>
 					<?php
 						$exb_responsive_extra_small = get_option('exb_responsive_extra_small');
@@ -200,13 +200,13 @@ function exb_settings_page() {
 							$exb_responsive_large_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_extra_small" value="true" <?php echo $exb_responsive_extra_small_select; ?> > <?php _e('Phones < 768px','dwpb') ?> </label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_extra_small" value="true" <?php echo $exb_responsive_extra_small_select; ?> > <?php _e('Phones < 768px','expressbar') ?> </label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_small" value="true" <?php echo $exb_responsive_small_select; ?> ><?php _e('768px &le; Tablets < 992px ','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_small" value="true" <?php echo $exb_responsive_small_select; ?> ><?php _e('768px &le; Tablets < 992px ','expressbar') ?></label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_medium" value="true" <?php echo $exb_responsive_medium_select; ?> ><?php _e('992 &le; Desktops < 1200 ','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_medium" value="true" <?php echo $exb_responsive_medium_select; ?> ><?php _e('992 &le; Desktops < 1200 ','expressbar') ?></label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_large" value="true" <?php echo $exb_responsive_large_select; ?> ><?php _e('Desktops (≥1200px)','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_responsive_large" value="true" <?php echo $exb_responsive_large_select; ?> ><?php _e('Desktops (≥1200px)','expressbar') ?></label>
 				</td>
 			</tr>
 			<tr>
@@ -216,7 +216,7 @@ function exb_settings_page() {
 			</tr>
 
 			<tr>
-				<th scope="row"><?php _e('Show ExpressBar on','dwpb') ?></th>
+				<th scope="row"><?php _e('Show ExpressBar on','expressbar') ?></th>
 				<td>
 					<?php
 						$dwpb_front_page = get_option('dwpb_front_page');
@@ -249,15 +249,15 @@ function exb_settings_page() {
 							$dwpb_single_page_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_front_page" value="true" <?php echo $dwpb_front_page_select; ?> > <?php _e('Front Page','dwpb') ?> </label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_front_page" value="true" <?php echo $dwpb_front_page_select; ?> > <?php _e('Front Page','expressbar') ?> </label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_archives" value="true" <?php echo $dwpb_archives_select; ?> ><?php _e('Archives','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_archives" value="true" <?php echo $dwpb_archives_select; ?> ><?php _e('Archives','expressbar') ?></label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_tags" value="true" <?php echo $dwpb_tags_select; ?> ><?php _e('Tags','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_tags" value="true" <?php echo $dwpb_tags_select; ?> ><?php _e('Tags','expressbar') ?></label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_single_post" value="true" <?php echo $dwpb_single_post_select; ?> ><?php _e(' Single Posts','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_single_post" value="true" <?php echo $dwpb_single_post_select; ?> ><?php _e(' Single Posts','expressbar') ?></label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_single_page" value="true" <?php echo $dwpb_single_page_select; ?> ><?php _e('Single Pages','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_single_page" value="true" <?php echo $dwpb_single_page_select; ?> ><?php _e('Single Pages','expressbar') ?></label>
 				</td>
 			</tr>
 			<tr>
@@ -267,31 +267,31 @@ function exb_settings_page() {
 			</tr>
 		</table>
 
-		<h3><?php _e('Text Message Settings','dwpb') ?></h3>
+		<h3><?php _e('Text Message Settings','expressbar') ?></h3>
 		<table class="form-table">
 			<tr valign="top">
-				<th scope="row"><?php _e('Text Message','dwpb') ?></th>
+				<th scope="row"><?php _e('Text Message','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="exb_bar_text" placeholder="<?php _e('Hello. Add your message here.','dwpb'); ?>" value="<?php echo get_option('exb_bar_text'); ?>" />
+					<input class="regular-text" type="text" name="exb_bar_text" placeholder="<?php _e('Hello. Add your message here.','expressbar'); ?>" value="<?php echo get_option('exb_bar_text'); ?>" />
 				</td>
 			</tr>
 
 			<tr>
-				<th scope="row"><?php _e('Link Text','dwpb') ?></th>
+				<th scope="row"><?php _e('Link Text','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="dwpb_link_text" placeholder="<?php _e('Add your link text here.','dwpb'); ?>" value="<?php echo get_option('dwpb_link_text'); ?>" />
+					<input class="regular-text" type="text" name="dwpb_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo get_option('dwpb_link_text'); ?>" />
 				</td>
 			</tr>
 
 			<tr class="dwpb-link-url">
-				<th scope="row"><?php _e('Link URL','dwpb') ?></th>
+				<th scope="row"><?php _e('Link URL','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="dwpb_link_url" placeholder="<?php _e('http://yoursite.com','dwpb'); ?>" value="<?php echo get_option('dwpb_link_url'); ?>" />
+					<input class="regular-text" type="text" name="dwpb_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo get_option('dwpb_link_url'); ?>" />
 				</td>
 			</tr>
 
 			<tr class="dwpb-link-target">
-				<th scope="row"><?php _e('Open link in a new tab?','dwpb') ?></th>
+				<th scope="row"><?php _e('Open link in a new tab?','expressbar') ?></th>
 				<td>
 					<?php
 						$dwpb_link_target = get_option('dwpb_link_target');
@@ -300,17 +300,17 @@ function exb_settings_page() {
 							$dwpb_link_target_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_target" value="_self" checked> <?php _e('No','dwpb'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_target" value="_self" checked> <?php _e('No','expressbar'); ?> </label>
 
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_target" value="_blank" <?php echo $dwpb_link_target_select; ?>> <?php _e('Yes','dwpb'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_target" value="_blank" <?php echo $dwpb_link_target_select; ?>> <?php _e('Yes','expressbar'); ?> </label>
 				</td>
 			</tr>
 		</table>
 
-		<h3><?php _e('Countdown Settings','dwpb') ?></h3>
+		<h3><?php _e('Countdown Settings','expressbar') ?></h3>
 		<table class="form-table">
 			<tr>
-				<th scope="row"><?php _e('Use Countdown?','dwpb') ?></th>
+				<th scope="row"><?php _e('Use Countdown?','expressbar') ?></th>
 				<td>
 					<?php
 						$dwpbcd_use = get_option('dwpbcd_use');
@@ -319,9 +319,9 @@ function exb_settings_page() {
 							$dwpbcd_use_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_use" value="no" checked> <?php _e('No','dwpb'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_use" value="no" checked> <?php _e('No','expressbar'); ?> </label>
 
-					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_use" value="yes" <?php echo $dwpbcd_use_select; ?> > <?php _e('Yes','dwpb'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_use" value="yes" <?php echo $dwpbcd_use_select; ?> > <?php _e('Yes','expressbar'); ?> </label>
 				</td>
 			</tr>
 
@@ -333,7 +333,7 @@ function exb_settings_page() {
 				}
 			?>
 			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
-				<th scope="row"><?php _e('Countdown Time to','dwpb') ?></th>
+				<th scope="row"><?php _e('Countdown Time to','expressbar') ?></th>
 				<td>
 					<input class="regular-text dwpb_time_picker" type="text" name="dwpbcd_time_left" value="<?php echo get_option('dwpbcd_time_left'); ?>" />
 					<span class="description"><?php _e('This time is based on the server time of your site!') ?></span>
@@ -341,28 +341,28 @@ function exb_settings_page() {
 			</tr>
 
 			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
-				<th scope="row"><?php _e('Countdown Text','dwpb') ?></th>
+				<th scope="row"><?php _e('Countdown Text','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="dwpbcd_text" placeholder="<?php _e('Hello. Add your message here.','dwpb'); ?>" value="<?php echo get_option('dwpbcd_text'); ?>" />
+					<input class="regular-text" type="text" name="dwpbcd_text" placeholder="<?php _e('Hello. Add your message here.','expressbar'); ?>" value="<?php echo get_option('dwpbcd_text'); ?>" />
 				</td>
 			</tr>
 
 			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
-				<th scope="row"><?php _e('Countdown Link Text','dwpb') ?></th>
+				<th scope="row"><?php _e('Countdown Link Text','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="dwpbcd_link_text" placeholder="<?php _e('Add your link text here.','dwpb'); ?>" value="<?php echo get_option('dwpbcd_link_text'); ?>" />
+					<input class="regular-text" type="text" name="dwpbcd_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo get_option('dwpbcd_link_text'); ?>" />
 				</td>
 			</tr>
 
 			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
-				<th scope="row"><?php _e('Countdown Link URL','dwpb') ?></th>
+				<th scope="row"><?php _e('Countdown Link URL','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="dwpbcd_link_url" placeholder="<?php _e('http://yoursite.com','dwpb'); ?>" value="<?php echo get_option('dwpbcd_link_url'); ?>" />
+					<input class="regular-text" type="text" name="dwpbcd_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo get_option('dwpbcd_link_url'); ?>" />
 				</td>
 			</tr>
 
 			<tr class="dwpb-link-target dwpbcd <?php echo $dwpbcd_hide ?>">
-				<th scope="row"><?php _e('Open link in a new tab?','dwpb') ?></th>
+				<th scope="row"><?php _e('Open link in a new tab?','expressbar') ?></th>
 				<td>
 					<?php
 						$dwpbcd_link_target = get_option('dwpbcd_link_target');
@@ -371,13 +371,13 @@ function exb_settings_page() {
 							$dwpbcd_link_target_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_link_target" value="_self" checked> <?php _e('No','dwpb'); ?> </label>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_link_target" value="_blank" <?php echo $dwpbcd_link_target_select; ?>> <?php _e('Yes','dwpb'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_link_target" value="_self" checked> <?php _e('No','expressbar'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_link_target" value="_blank" <?php echo $dwpbcd_link_target_select; ?>> <?php _e('Yes','expressbar'); ?> </label>
 				</td>
 			</tr>
 		</table>
 
-		<h3><?php _e('Style settings','dwpb') ?></h3>
+		<h3><?php _e('Style settings','expressbar') ?></h3>
 		<table class="form-table">
 
 			<tr valign="top">
@@ -387,7 +387,7 @@ function exb_settings_page() {
 						$dwpb_background_color = '#3B3B4F';
 					}
 				?>
-				<th scope="row"><?php _e('Background Color','dwpb') ?></th>
+				<th scope="row"><?php _e('Background Color','expressbar') ?></th>
 				<td><input class="regular-text color_picker dwpb_background_color" type="text" name="dwpb_background_color" value="<?php echo $dwpb_background_color; ?>" /></td>
 			</tr>
 
@@ -398,9 +398,9 @@ function exb_settings_page() {
 						$dwpb_background_image = '';
 					}
 				?>
-				<th scope="row"><?php _e('Background Image','dwpb') ?></th>
+				<th scope="row"><?php _e('Background Image','expressbar') ?></th>
 				<td>
-					<input class="regular-text dwpb_background_image" type="text" name="dwpb_background_image" value="<?php echo $dwpb_background_image; ?>" placeholder="<?php _e('http://www.yoursite.com/image.jpg','dwpb'); ?>" />
+					<input class="regular-text dwpb_background_image" type="text" name="dwpb_background_image" value="<?php echo $dwpb_background_image; ?>" placeholder="<?php _e('http://www.yoursite.com/image.jpg','expressbar'); ?>" />
 					<span class="description"><?php _e('Support image formats:: jpg, png, gif') ?></span>
 				</td>
 			</tr>
@@ -412,7 +412,7 @@ function exb_settings_page() {
 						$dwpb_font_color = '#fff';
 					}
 				?>
-				<th scope="row"><?php _e('Text Color','dwpb') ?></th>
+				<th scope="row"><?php _e('Text Color','expressbar') ?></th>
 				<td><input class="regular-text color_picker dwpb_font_color" type="text" name="dwpb_font_color" value="<?php echo $dwpb_font_color; ?>" /></td>
 			</tr>
 
@@ -423,7 +423,7 @@ function exb_settings_page() {
 						$dwpb_border_color = '';
 					}
 				?>
-				<th scope="row"><?php _e('Bar Border Color','dwpb') ?></th>
+				<th scope="row"><?php _e('Bar Border Color','expressbar') ?></th>
 				<td><input class="regular-text color_picker dwpb_border_color" type="text" name="dwpb_border_color" value="<?php echo $dwpb_border_color; ?>" /></td>
 			</tr>
 
@@ -434,12 +434,12 @@ function exb_settings_page() {
 						$dwpb_link_color = '#fff';
 					}
 				?>
-				<th scope="row"><?php _e('Link Color','dwpb') ?></th>
+				<th scope="row"><?php _e('Link Color','expressbar') ?></th>
 				<td><input class="regular-text color_picker dwpb_link_color" type="text" name="dwpb_link_color" value="<?php echo $dwpb_link_color; ?>" /></td>
 			</tr>
 
 			<tr class="dwpb-link-style">
-				<th scope="row"><?php _e('Link style','dwpb') ?></th>
+				<th scope="row"><?php _e('Link style','expressbar') ?></th>
 				<td>
 					<?php
 						$dwpb_link_style = get_option('dwpb_link_style');
@@ -448,8 +448,8 @@ function exb_settings_page() {
 							$dwpb_link_style_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_style" value="dwpb-button" checked ><?php _e('Button','dwpb') ?></label>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_style" value="" <?php echo $dwpb_link_style_select; ?> ><?php _e('Hyperlink','dwpb') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_style" value="dwpb-button" checked ><?php _e('Button','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_style" value="" <?php echo $dwpb_link_style_select; ?> ><?php _e('Hyperlink','expressbar') ?></label>
 				</td>
 			</tr>
 
@@ -467,12 +467,12 @@ function exb_settings_page() {
 						$dwpb_button_color = '#333';
 					}
 				?>
-				<th scope="row"><?php _e('Button Color','dwpb') ?></th>
+				<th scope="row"><?php _e('Button Color','expressbar') ?></th>
 				<td><input class="regular-text color_picker dwpb_button_color" type="text" name="dwpb_button_color" value="<?php echo $dwpb_button_color; ?>" /></td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><?php _e('Custom style','dwpb') ?></th>
+				<th scope="row"><?php _e('Custom style','expressbar') ?></th>
 				<td>
 					<textarea name="dwpb_custon_style" rows="5" cols="100"><?php echo get_option('dwpb_custon_style'); ?></textarea>
 				</td>
@@ -496,7 +496,7 @@ if( ! function_exists('dwpb_reset_cookie') ) {
 	function dwpb_reset_cookie() {
 		$ajax_referer = check_ajax_referer( '_dwpb_reset_cookie', 'nonce', false );
 		if( ! wp_verify_nonce( $_POST['nonce'], '_dwpb_reset_cookie' ) || ! $ajax_referer ) {
-			wp_send_json_error( __('Are you cheating huh?','dwpb') );
+			wp_send_json_error( __('Are you cheating huh?','expressbar') );
 		}
 
 		$dwpb_reset_cookie_value = get_option( 'dwpb_reset_cookie', 2 );
