@@ -23,7 +23,7 @@
 		});
 
 		// link text
-		$('[name=dwpb_link_text]').keyup(function(){
+		$('[name=exb_link_text]').keyup(function(){
 			var val = $(this).val();
 			var link_style = $('[name=dwpb_link_style]:checked').val();
 			var dwpb_link_url = $('[name=dwpb_link_url]').val();

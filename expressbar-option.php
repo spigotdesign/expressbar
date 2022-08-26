@@ -11,7 +11,7 @@ function exb_create_menu() {
 
 
 function register_mysettings() {
-	$dwpb_settings_array = array(
+	$exb_settings_array = array(
 		//General Setting
 		'dwpb_enable',
 		'dwpb_start',
@@ -36,15 +36,15 @@ function register_mysettings() {
 
 		//Configure ExpressBar coutdown
 		'dwpbcd_time_left',
-		'dwpbcd_text',
-		'dwpbcd_link_text',
-		'dwpbcd_link_url',
+		//'dwpbcd_text',
+		//'dwpbcd_link_text',
+		//'dwpbcd_link_url',
 		'dwpbcd_link_target',
 
 		//Configure ExpressBar
-		'exb_bar_text',
-		'dwpb_link_text',
-		'dwpb_link_url',
+		//'exb_bar_text' ,
+		//'exb_link_text',
+		//'dwpb_link_url',
 		'dwpb_link_target',
 
 		//Choose the Style
@@ -58,13 +58,44 @@ function register_mysettings() {
 		'dwpb_link_style',
 		'dwpb_button_color',
 
-		//Custom
-		'dwpb_custon_style'
 	);
-	foreach ($dwpb_settings_array as $value) {
-		register_setting( 'dwpb-settings-group', $value );
+
+	foreach ($exb_settings_array as $value) {
+		register_setting( 'exb-settings-group', $value );
+	}
+
+	$args = array(
+		'type' => 'string', 
+		'sanitize_callback' => 'sanitize_text_field',
+		'default' => NULL,
+	);
+
+	$exb_textfield_array = array(
+		'exb_bar_text',
+		'exb_link_text',
+		'dwpb_link_url',
+		'dwpbcd_text',
+		'dwpbcd_link_text',
+		'dwpbcd_link_url',
+	);
+	
+	foreach ($exb_textfield_array as $value) {
+		register_setting( 'exb-settings-group', $value, $args );
 	}
 }
+
+/**
+* Registers a text field setting for Wordpress 4.7 and higher.
+**/
+function register_my_setting() {
+    $args = array(
+            'type' => 'string', 
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => NULL,
+            );
+    register_setting( 'exb-settings-group', 'exb_bar_text', $args ); 
+} 
+add_action( 'admin_init', 'register_my_setting' );
 
 function exb_settings_page() {
 ?>
@@ -72,8 +103,8 @@ function exb_settings_page() {
 <h2>ExpressBar Settings</h2>
 
 <form method="post" action="options.php">
-    <?php settings_fields( 'dwpb-settings-group' ); ?>
-    <?php do_settings_sections( 'dwpb-settings-group' ); ?>
+    <?php settings_fields( 'exb-settings-group' ); ?>
+    <?php do_settings_sections( 'exb-settings-group' ); ?>
 
 	<?php do_action( 'dwpb_previvew' ); ?>
     <div id="dwpb-steps">
@@ -279,7 +310,7 @@ function exb_settings_page() {
 			<tr>
 				<th scope="row"><?php _e('Link Text','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="dwpb_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo get_option('dwpb_link_text'); ?>" />
+					<input class="regular-text" type="text" name="exb_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo get_option('exb_link_text');  ?>" />
 				</td>
 			</tr>
 
@@ -471,12 +502,7 @@ function exb_settings_page() {
 				<td><input class="regular-text color_picker dwpb_button_color" type="text" name="dwpb_button_color" value="<?php echo $dwpb_button_color; ?>" /></td>
 			</tr>
 
-			<tr valign="top">
-				<th scope="row"><?php _e('Custom style','expressbar') ?></th>
-				<td>
-					<textarea name="dwpb_custon_style" rows="5" cols="100"><?php echo get_option('dwpb_custon_style'); ?></textarea>
-				</td>
-			</tr>
+			
 		</table>
 	</div>
     <?php submit_button(); ?>

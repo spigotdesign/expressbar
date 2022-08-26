@@ -27,6 +27,7 @@ if ( ! function_exists('exb')) {
 
 	if ( ! function_exists( 'exb_body_class' )) {
 		function exb_body_class($classes) {
+			$exb_enabled = exb_get_option('dwpb_enable');
 			$exb_push_page = exb_get_option('dwpb_push_page');
 			$dwpb_ramain_top = exb_get_option('dwpb_ramain_top');
 			$dwpb_show_bottom = exb_get_option('dwpb_show_bottom');
@@ -37,7 +38,7 @@ if ( ! function_exists('exb')) {
 			$exb_responsive_large = exb_get_option('exb_responsive_large');
 
 			$current_theme = wp_get_theme();
-
+			if($exb_enabled == 'yes') {
 			if ( $exb_push_page == 'push') {
 				$classes[] = 'exb-push-page';
 			} else {
@@ -52,6 +53,8 @@ if ( ! function_exists('exb')) {
 				$classes[] = 'dwpb-show-bottom'; 
 			}
 
+
+
 			if ( $dwpb_ramain_top == 'ramain-top' ) $classes[] = 'dwpb-ramain-top';
 
 			if ($exb_responsive_extra_small) $classes[] = 'exb_responsive_extra_small';
@@ -59,7 +62,7 @@ if ( ! function_exists('exb')) {
 			if ($exb_responsive_medium) $classes[] = 'exb_responsive_medium';
 			if ($exb_responsive_large) $classes[] = 'exb_responsive_large';
 
-
+		};
 
 
 			return $classes;
@@ -91,7 +94,7 @@ if ( ! function_exists('exb')) {
 		$dwpbcd_link_url = exb_get_option('dwpbcd_link_url');
 		$dwpbcd_link_target = exb_get_option('dwpbcd_link_target');
 
-		$dwpb_link_text = exb_get_option('dwpb_link_text');
+		$exb_link_text = exb_get_option('exb_link_text');
 		$dwpb_link_url = exb_get_option('dwpb_link_url');
 		$dwpb_link_target = exb_get_option('dwpb_link_target');
 
@@ -107,8 +110,8 @@ if ( ! function_exists('exb')) {
 		$dwpb_custon_style = exb_get_option('dwpb_custon_style');
 
 		$dwpb_link = '';
-		if ( $dwpb_link_text != '' ) {
-			$dwpb_link = ' <a class="'. $dwpb_link_style .'" href="'.$dwpb_link_url.' " target="'. $dwpb_link_target .'"" >'.$dwpb_link_text.'</a>';
+		if ( $exb_link_text != '' ) {
+			$dwpb_link = ' <a class="'. $dwpb_link_style .'" href="'.$dwpb_link_url.' " target="'. $dwpb_link_target .'"" >'.$exb_link_text.'</a>';
 		}
 
 		$dwpbcd_link = '';

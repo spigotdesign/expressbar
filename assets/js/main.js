@@ -66,7 +66,7 @@
 		if ( $('body').hasClass('exb-allow-close') ) {
 			function remove_promobar() {
 				$('#dwpb, .dwpb-close').remove();
-				$('body').removeClass('exb-cover-page dwpb-ramain-top exb-open exb-push-page dwpb-twenty-fourteen');
+				$('body').removeClass('exb-cover-page dwpb-ramain-top exb-open exb-push-page');
 			}
 
 			$('.dwpb-close').click(function(){
