@@ -6,3 +6,6 @@ node_modules
 package-lock.json
 composer.lock
 
+/.DS_Store
+/assets/.DS_Store
+/assets/scss/.DS_Store
