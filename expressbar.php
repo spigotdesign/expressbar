@@ -39,29 +39,26 @@ if ( ! function_exists('exb')) {
 
 			$current_theme = wp_get_theme();
 			if($exb_enabled == 'yes') {
-			if ( $exb_push_page == 'push') {
-				$classes[] = 'exb-push-page';
-			} else {
-				$classes[] = 'exb-cover-page';
-			}
+				if ( $exb_push_page == 'push') {
+					$classes[] = 'exb-push-page';
+				} else {
+					$classes[] = 'exb-cover-page';
+				}
 
-			if ( $dwpb_close == 'yes' ) {
-				$classes[] = 'exb-allow-close';
-			}
+				if ( $dwpb_close == 'yes' ) {
+					$classes[] = 'exb-allow-close';
+				}
 
-			if ( $dwpb_show_bottom == 'yes') {
-				$classes[] = 'dwpb-show-bottom'; 
-			}
+				if ( $dwpb_show_bottom == 'yes') {
+					$classes[] = 'dwpb-show-bottom'; 
+				}
 
+				if ( $dwpb_ramain_top == 'ramain-top' ) $classes[] = 'dwpb-ramain-top';
 
-
-			if ( $dwpb_ramain_top == 'ramain-top' ) $classes[] = 'dwpb-ramain-top';
-
-			if ($exb_responsive_extra_small) $classes[] = 'exb_responsive_extra_small';
-			if ($exb_responsive_small) $classes[] = 'exb_responsive_small';
-			if ($exb_responsive_medium) $classes[] = 'exb_responsive_medium';
-			if ($exb_responsive_large) $classes[] = 'exb_responsive_large';
-
+				if ($exb_responsive_extra_small) $classes[] = 'exb_responsive_extra_small';
+				if ($exb_responsive_small) $classes[] = 'exb_responsive_small';
+				if ($exb_responsive_medium) $classes[] = 'exb_responsive_medium';
+				if ($exb_responsive_large) $classes[] = 'exb_responsive_large';
 		};
 
 
@@ -72,7 +69,7 @@ if ( ! function_exists('exb')) {
 
 	function dwpb() {
 		$current_theme = wp_get_theme();
-		$is_front_page = exb_get_option('dwpb_front_page', false);
+		$is_front_page = exb_get_option('exb_front_page', false);
 		$is_archives = exb_get_option('dwpb_archives', false);
 		$is_tags = exb_get_option('dwpb_tags', false);
 		$is_single_post = exb_get_option('dwpb_single_post', false);
@@ -255,7 +252,7 @@ if ( ! function_exists('exb')) {
 
 	// Enqueue scripts
 	function dwpb_scripts() {
-		$is_front_page = exb_get_option('dwpb_front_page', false);
+		$is_front_page = exb_get_option('exb_front_page', false);
 		$is_archives = exb_get_option('dwpb_archives', false);
 		$is_tags = exb_get_option('dwpb_tags', false);
 		$is_single_post = exb_get_option('dwpb_single_post', false);
