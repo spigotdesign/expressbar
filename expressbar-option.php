@@ -26,7 +26,7 @@ function register_mysettings() {
 		'exb_responsive_medium',
 		'exb_responsive_large',
 
-		'dwpb_front_page',
+		'exb_front_page',
 		'dwpb_archives',
 		'dwpb_tags',
 		'dwpb_single_post',
@@ -250,10 +250,10 @@ function exb_settings_page() {
 				<th scope="row"><?php _e('Show ExpressBar on','expressbar') ?></th>
 				<td>
 					<?php
-						$dwpb_front_page = get_option('dwpb_front_page');
-						$dwpb_front_page_select = '';
-						if ( $dwpb_front_page ) {
-							$dwpb_front_page_select = 'checked';
+						$exb_front_page = get_option('exb_front_page');
+						$exb_front_page_select = '';
+						if ( $exb_front_page ) {
+							$exb_front_page_select = 'checked';
 						}
 
 						$dwpb_archives = get_option('dwpb_archives');
@@ -280,7 +280,7 @@ function exb_settings_page() {
 							$dwpb_single_page_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_front_page" value="true" <?php echo $dwpb_front_page_select; ?> > <?php _e('Front Page','expressbar') ?> </label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_front_page" value="true" <?php echo $exb_front_page_select; ?> > <?php _e('Front Page','expressbar') ?> </label>
 
 					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_archives" value="true" <?php echo $dwpb_archives_select; ?> ><?php _e('Archives','expressbar') ?></label>
 
