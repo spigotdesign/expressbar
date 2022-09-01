@@ -29,6 +29,7 @@ if ( ! function_exists('exb')) {
 		function exb_body_class($classes) {
 			$exb_enabled = exb_get_option('dwpb_enable');
 			$exb_push_page = exb_get_option('dwpb_push_page');
+			$exb_sticky_header = exb_get_option('exb_sticky_header');
 			$dwpb_ramain_top = exb_get_option('dwpb_ramain_top');
 			$dwpb_show_bottom = exb_get_option('dwpb_show_bottom');
 			$dwpb_close = exb_get_option('dwpb_close');
@@ -51,6 +52,10 @@ if ( ! function_exists('exb')) {
 
 				if ( $dwpb_show_bottom == 'yes') {
 					$classes[] = 'dwpb-show-bottom'; 
+				}
+				
+				if ( $exb_sticky_header== 'yes') {
+					$classes[] = 'sticky-header'; 
 				}
 
 				if ( $dwpb_ramain_top == 'ramain-top' ) $classes[] = 'dwpb-ramain-top';

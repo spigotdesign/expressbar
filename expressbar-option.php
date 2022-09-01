@@ -20,6 +20,7 @@ function register_mysettings() {
 		'dwpb_ramain_top',
 		'dwpb_push_page',
 		'dwpb_show_bottom',
+		'exb_sticky_header',
 
 		'exb_responsive_extra_small',
 		'exb_responsive_small',
@@ -184,6 +185,21 @@ function exb_settings_page() {
 					<label style="margin-right: 50px;"><input class="no-push" type="radio" name="dwpb_push_page" value="no-push" checked > <?php _e('No','expressbar') ?> </label>
 
 					<label style="margin-right: 50px;"><input class="push-page" type="radio" name="dwpb_push_page" value="push" <?php echo $dwpb_push_page_select; ?> ><?php _e('Yes','expressbar') ?></label>
+				</td>
+			</tr>
+			
+			<tr>
+				<th scope="row"><?php _e('Sticky header?','expressbar') ?></th>
+				<td>
+					<?php
+						$exb_sticky_header = get_option('exb_sticky_header');
+						$exb_sticky_header_select = '';
+						if ( $exb_sticky_header == 'yes' ) {
+							$exb_sticky_header_select = 'checked';
+						}
+					?>
+					<label style="margin-right: 50px;"><input type="radio" name="exb_sticky_header" value="no" checked><?php _e('No','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="exb_sticky_header" value="yes" <?php echo $exb_sticky_header_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr>
 
