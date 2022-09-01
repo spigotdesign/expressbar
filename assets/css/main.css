@@ -3,20 +3,20 @@ body.exb-push-page {
   top: 0;
   transition: top 0.5s;
 }
-body.exb-push-page.exb-open {
+body.exb-push-page.expressbar-open {
   top: 43px;
 }
-body.exb-push-page.exb-open #dwpb {
+body.exb-push-page.expressbar-open #dwpb {
   top: 0 !important;
 }
 
 body.exb-push-page.admin-bar #wpadminbar {
   transition: top 0.5s;
 }
-body.exb-push-page.admin-bar.exb-open #wpadminbar {
+body.exb-push-page.admin-bar.expressbar-open #wpadminbar {
   top: 43px;
 }
-body.exb-cover-page.exb-open #dwpb {
+body.exb-cover-page.expressbar-open #dwpb {
   top: 0 !important;
 }
 body.exb-allow-close .dwpb-close {
@@ -24,7 +24,7 @@ body.exb-allow-close .dwpb-close {
   color: transparent;
   transition: color 0.5s 0.3s;
 }
-body.exb-allow-close.exb-open .dwpb-close {
+body.exb-allow-close.expressbar-open .dwpb-close {
   color: #fff;
 }
 
@@ -51,7 +51,7 @@ body.exb-allow-close.exb-open .dwpb-close {
   transition: 0.5s;
 }
 
-.exb-open #dwpb {
+.expressbar-open #dwpb {
   z-index: 999999;
 }
 
@@ -157,12 +157,12 @@ body.exb-allow-close.exb-open .dwpb-close {
   content: "\f347";
 }
 
-.exb-open .exb-action, .exb-open .dwpb-close {
+.expressbar-open .exb-action, .expressbar-open .dwpb-close {
   top: 5px;
   border-radius: 50%;
   background: transparent !important;
 }
-.exb-open .exb-action:before, .exb-open .dwpb-close:before {
+.expressbar-open .exb-action:before, .expressbar-open .dwpb-close:before {
   content: "\f343";
 }
 

@@ -153,7 +153,7 @@ if ( ! function_exists('exb')) {
 			<?php if( $dwpb_font_color != '' ) : ?>
 			#dwpb,
 			.exb-action,
-			body.exb-allow-close.exb-open .dwpb-close {
+			body.exb-allow-close.expressbar-open .dwpb-close {
 				color: <?php echo $dwpb_font_color; ?>;
 			}
 			<?php endif; ?>
