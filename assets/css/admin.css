@@ -6,7 +6,7 @@
   width: 25em;
 }
 
-.settings_page_expressbar #dwpb {
+.settings_page_expressbar #expressbar {
   top: 0;
   z-index: 999999;
 }
@@ -22,7 +22,7 @@
   content: "\f343";
 }
 
-.settings_page_expressbar #dwpb.ramain-top {
+.settings_page_expressbar #expressbar.ramain-top {
   position: fixed;
 }
 

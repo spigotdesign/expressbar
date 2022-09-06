@@ -130,20 +130,20 @@ if ( ! function_exists('exb')) {
         font-family: "<?php echo $font_family[0]; ?>";
         src: url('<?php echo $font_family[1] ?>');
       }
-			#dwpb {
+			#expressbar {
 				font-family: <?php echo $font_family[0] ?>;
 			}
 			<?php endif; ?>
 
 			<?php if( $dwpb_background_color != '' ) : ?>
-			#dwpb,
+			#expressbar,
 			.exb-action {
 				background-color: <?php echo $dwpb_background_color; ?>;
 			}
 			<?php endif; ?>
 
 			<?php if( $dwpb_background_image != '' ) : ?>
-			#dwpb {
+			#expressbar {
 				background-image: url(<?php echo $dwpb_background_image; ?>);
 				background-position: center;
 				background-size: 100% auto;
@@ -151,7 +151,7 @@ if ( ! function_exists('exb')) {
 			<?php endif; ?>
 
 			<?php if( $dwpb_font_color != '' ) : ?>
-			#dwpb,
+			#expressbar,
 			.exb-action,
 			body.exb-allow-close.expressbar-open .dwpb-close {
 				color: <?php echo $dwpb_font_color; ?>;
@@ -159,37 +159,37 @@ if ( ! function_exists('exb')) {
 			<?php endif; ?>
 
 			<?php if( $dwpb_font_size != '' ) : ?>
-			#dwpb {
+			#expressbar {
 				font-size: <?php echo $dwpb_font_size; ?>px;
 			}
 			<?php endif; ?>
 
 			<?php if( $dwpb_font_size > 20 ) : ?>
-			#dwpb {
+			#expressbar {
 				line-height: 1.2;
 			}
 			<?php endif; ?>
 
 			<?php if( $dwpb_border_color != '' ) : ?>
-			#dwpb {
+			#expressbar {
 				border-color: <?php echo $dwpb_border_color; ?>;
 			}
 			<?php endif; ?>
 
 			<?php if( $dwpb_border_color == '' ) : ?>
-			#dwpb {
+			#expressbar {
 				border-width: 0;
 			}
 			<?php endif; ?>
 
 			<?php if( $dwpb_link_color != '' ) : ?>
-			#dwpb a {
+			#expressbar a {
 				color: <?php echo $dwpb_link_color; ?>;
 			}
 			<?php endif; ?>
 
 			<?php if( $dwpb_button_color != '' ) : ?>
-			#dwpb .dwpb-button {
+			#expressbar .dwpb-button {
 				background-color: <?php echo $dwpb_button_color; ?>;
 			}
 			<?php endif; ?>
@@ -199,7 +199,7 @@ if ( ! function_exists('exb')) {
 			<?php endif; ?>
 		</style>
 		
-		<div id="dwpb" class=" <?php echo $dwpb_ramain_top; ?> ">
+		<div id="expressbar" class=" <?php echo $dwpb_ramain_top; ?> ">
 			<div class="dwpb-inner">
 				<?php 
 					$dwpbcd_hide = 'hide';

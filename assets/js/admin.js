@@ -1,6 +1,6 @@
 +function($) {
 	function exb_fix_height() { 
-		var exb_height = $('#dwpb').outerHeight();
+		var exb_height = $('#expressbar').outerHeight();
 		$('.settings_page_expressbar, .settings_page_expressbar #wpadminbar').css({
 			'margin-top' : exb_height + 'px', 
 		});
@@ -109,12 +109,12 @@
 		// dwpb font size 
 		$('[name=dwpb_font_size]').keyup(function(){
 			var val = $(this).val();
-			$('#dwpb').css('font-size' , val + 'px');
+			$('#expressbar').css('font-size' , val + 'px');
 
 			if (val > 20) {
-				$('#dwpb').css('line-height' , '1.2');
+				$('#expressbar').css('line-height' , '1.2');
 			} else {
-				$('#dwpb').css('line-height' , '30px');
+				$('#expressbar').css('line-height' , '30px');
 			}
 		}).focusout(function(){
 			exb_fix_height();
@@ -127,14 +127,14 @@
 				var val_array = val.split(':dw:');
 				var style = '<style>';
 					style += '@font-face { font-family: "'+ val_array[0] +'"; src: url('+val_array[1]+');}';
-					style += '#dwpb {font-family:' + val_array[0] +'}'; 
+					style += '#expressbar {font-family:' + val_array[0] +'}'; 
 					style += '</style>';
 			} else {
 				var style = '<style>';
-					style += '#dwpb {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}'; 
+					style += '#expressbar {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}'; 
 					style += '</style>';
 			}
-			$('#dwpb').before( style );
+			$('#expressbar').before( style );
 			console.log(val);
 		}).focusout(function(){
 			exb_fix_height();
@@ -173,7 +173,7 @@
 		$('.color_picker.dwpb_background_color').wpColorPicker({
 			defaultColor: '#3B3B4F',
 			change: function(event, ui){
-				$("#dwpb").css( 'background-color', ui.color.toString());
+				$("#expressbar").css( 'background-color', ui.color.toString());
 			},
 		});
 		
@@ -181,10 +181,10 @@
 		$('.dwpb_background_image').change(function(){
 			var dwpb_background_image = $(this).val();
 			if ( dwpb_background_image == '' ) {
-				$("#dwpb").css( 'background-image', 'none' );
+				$("#expressbar").css( 'background-image', 'none' );
 			} else {
 				console.log(dwpb_background_image);
-				$("#dwpb").css( 'background-image', 'url(' + dwpb_background_image + ')' );
+				$("#expressbar").css( 'background-image', 'url(' + dwpb_background_image + ')' );
 			}
 		});
 
@@ -192,7 +192,7 @@
 		$('.color_picker.dwpb_font_color').wpColorPicker({
 			defaultColor: '#fff',
 			change: function(event, ui){
-				$("#dwpb, .exb-action").css( 'color', ui.color.toString());	
+				$("#expressbar, .exb-action").css( 'color', ui.color.toString());	
 			},
 		});
 
@@ -200,13 +200,13 @@
 		$('.color_picker.dwpb_border_color').wpColorPicker({
 			defaultColor: '',
 			change: function(event, ui){
-				$("#dwpb").css({ 'border-color': ui.color.toString(), 'border-width': '0 0 3px' });
+				$("#expressbar").css({ 'border-color': ui.color.toString(), 'border-width': '0 0 3px' });
 				setTimeout(function(){
 					exb_fix_height();
 				},500);
 			},
 			clear: function() {
-				$("#dwpb").css( 'border-width', '0');
+				$("#expressbar").css( 'border-width', '0');
 				setTimeout(function(){
 					exb_fix_height();
 				},500);
@@ -217,7 +217,7 @@
 		$('.color_picker.dwpb_link_color').wpColorPicker({
 			defaultColor: '#fff',
 			change: function(event, ui){
-				$("#dwpb a").css( 'color', ui.color.toString());	
+				$("#expressbar a").css( 'color', ui.color.toString());	
 			},
 		});
 
@@ -226,7 +226,7 @@
 		$('.color_picker.dwpb_button_color').wpColorPicker({
 			defaultColor: '#333',
 			change: function(event, ui){
-				$("#dwpb a").css( 'background', ui.color.toString());
+				$("#expressbar a").css( 'background', ui.color.toString());
 				dwpb_button_color = ui.color.toString();
 			},
 		});
@@ -235,11 +235,11 @@
 		$('[name=dwpb_link_style]').change(function(){
 			var dwpb_link_style = $(this).val();
 			if (dwpb_link_style !== '' ) {
-				$('#dwpb a').addClass(dwpb_link_style);
+				$('#expressbar a').addClass(dwpb_link_style);
 				$('tr.dwpb-button-color').show();
-				$("#dwpb a").css( 'background', dwpb_button_color);
+				$("#expressbar a").css( 'background', dwpb_button_color);
 			} else {
-				$('#dwpb a').removeClass().removeAttr('style');
+				$('#expressbar a').removeClass().removeAttr('style');
 				$('tr.dwpb-button-color').hide();
 			}
 		});
@@ -249,7 +249,7 @@
 		exb_fix_height();
 	});
 
-	$('#dwpb_reset_cookie').click(function(){
+	$('#expressbar_reset_cookie').click(function(){
 		$('.ajax-load img').fadeIn();
 		var nonce = $(this).data('nonce');
 		$.ajax({
