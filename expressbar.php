@@ -40,26 +40,24 @@ if ( ! function_exists('exb')) {
 
 			$current_theme = wp_get_theme();
 			if($exb_enabled == 'yes') {
+				$classes[] = 'expressbar-enabled';
 				if ( $exb_push_page == 'push') {
-					$classes[] = 'exb-push-page';
+					//$classes[] = 'exb-push-page';
 				} else {
-					$classes[] = 'exb-cover-page';
+					//$classes[] = 'exb-cover-page';
 				}
-
+				/* remove allow-close
 				if ( $dwpb_close == 'yes' ) {
 					$classes[] = 'exb-allow-close';
-				}
-
-				if ( $dwpb_show_bottom == 'yes') {
-					$classes[] = 'dwpb-show-bottom'; 
-				}
+				} */
 				
 				if ( $exb_sticky_header== 'yes') {
 					$classes[] = 'sticky-header'; 
 				}
 
+				/* Remove remain at top option - default yes
 				if ( $dwpb_ramain_top == 'ramain-top' ) $classes[] = 'dwpb-ramain-top';
-
+				*/
 				if ($exb_responsive_extra_small) $classes[] = 'exb_responsive_extra_small';
 				if ($exb_responsive_small) $classes[] = 'exb_responsive_small';
 				if ($exb_responsive_medium) $classes[] = 'exb_responsive_medium';

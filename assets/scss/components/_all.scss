@@ -1,10 +1,10 @@
-body.exb-push-page {
+body.expressbar-enabled {
   position: relative;
   top: 0;
   transition: top 0.5s;
 
   &.expressbar-open {
-    top: 43px;
+    top: 40px;
 
     #expressbar {
       top: 0 !important;
@@ -13,13 +13,13 @@ body.exb-push-page {
 }
 
 body {
-  &.exb-push-page.admin-bar {
+  &.expressbar-enabled.admin-bar {
     #wpadminbar {
       transition: top 0.5s;
     }
 
     &.expressbar-open #wpadminbar {
-      top: 43px;
+      top: 40px;
     }
   }
 
@@ -41,7 +41,7 @@ body {
 }
 
 @media (max-width: 599px) {
-  body.exb-push-page.admin-bar #wpadminbar {
+  body.expressbar-enabled.admin-bar #wpadminbar {
     top: -46px !important;
   }
 }
@@ -236,7 +236,7 @@ body {
 
 @media (max-width: 767px) {
   .exb_responsive_extra_small {
-    &.exb-push-page {
+    &.expressbar-enabled {
       top: 0 !important;
 
       #wpadminbar {
@@ -254,7 +254,7 @@ body {
 
 @media (min-width: 768px) and (max-width: 991px) {
   .exb_responsive_small {
-    &.exb-push-page {
+    &.expressbar-enabled {
       top: 0 !important;
 
       #wpadminbar {
@@ -272,7 +272,7 @@ body {
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .exb_responsive_medium {
-    &.exb-push-page {
+    &.expressbar-enabled {
       top: 0 !important;
 
       #wpadminbar {
@@ -290,7 +290,7 @@ body {
 
 @media (min-width: 1200px) {
   .exb_responsive_large {
-    &.exb-push-page {
+    &.expressbar-enabled {
       top: 0 !important;
 
       #wpadminbar {

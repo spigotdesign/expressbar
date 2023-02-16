@@ -18,9 +18,10 @@ function register_mysettings() {
 		'dwpb_end',
 		'dwpb_close',
 		'dwpb_ramain_top',
-		'dwpb_push_page',
+		//'dwpb_push_page',
 		'dwpb_show_bottom',
 		'exb_sticky_header',
+		'exb_header_name',
 
 		'exb_responsive_extra_small',
 		'exb_responsive_small',
@@ -156,7 +157,7 @@ function exb_settings_page() {
 					<label style="margin-right: 50px;"><input type="radio" name="dwpb_close" value="yes" <?php echo $dwpb_close_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr>
-
+			<?php /* Removed Remain at top and Push page down. These should be defaults
 			<tr>
 				<th scope="row"><?php _e('Remain at top of page?','expressbar') ?></th>
 				<td>
@@ -171,7 +172,7 @@ function exb_settings_page() {
 					<label style="margin-right: 50px;"><input class="fixtop" type="radio" name="dwpb_ramain_top" value="fixtop" <?php echo $dwpb_ramain_top_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr>
-
+			
 			<tr>
 				<th scope="row"><?php _e('Push page down?','expressbar') ?></th>
 				<td>
@@ -186,7 +187,7 @@ function exb_settings_page() {
 
 					<label style="margin-right: 50px;"><input class="push-page" type="radio" name="dwpb_push_page" value="push" <?php echo $dwpb_push_page_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
-			</tr>
+			</tr> */ ?>
 			
 			<tr>
 				<th scope="row"><?php _e('Sticky header?','expressbar') ?></th>
@@ -203,7 +204,23 @@ function exb_settings_page() {
 				</td>
 			</tr>
 
-			<!-- <tr>
+			<?php
+				$exb_class_hide = 'hide';
+				if (get_option('exb_sticky_header') == 'yes') {
+					$exb_class_hide = '';
+				}
+			?>
+			<tr valign="top" class="exbclass <?php echo $exb_class_hide ?>">
+
+			<th scope="row"><?php _e('Header class name','expressbar') ?></th>
+				<td>
+					<?php $exb_header_name = get_option('exb_header_name'); ?>
+					<input class="regular-text exb_header_class" type="text" name="exb_header_class" value="<?php echo $exb_header_name; ?>" placeholder="<?php _e('Header Class Name','expressbar'); ?>" />
+				</td>
+			</tr>
+
+			<?php /* Remove abiltity to put at bottom
+			<tr>
 				<th scope="row"><?php _e('Show promobar at bottom','expressbar') ?></th>
 				<td>
 					<?php
@@ -217,7 +234,7 @@ function exb_settings_page() {
 
 					<label style="margin-right: 50px;"><input class="push-page" type="radio" name="dwpb_show_bottom" value="yes" <?php echo $dwpb_show_bottom_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
-			</tr> -->
+			</tr> */ ?>
 
 			<tr>
 				<th scope="row"><?php _e('Hide ExpressBar','expressbar') ?></th>
@@ -437,7 +454,7 @@ function exb_settings_page() {
 				<th scope="row"><?php _e('Background Color','expressbar') ?></th>
 				<td><input class="regular-text color_picker dwpb_background_color" type="text" name="dwpb_background_color" value="<?php echo $dwpb_background_color; ?>" /></td>
 			</tr>
-
+			<?php /* Remove background image
 			<tr valign="top">
 				<?php
 					$dwpb_background_image = get_option('dwpb_background_image');
@@ -451,7 +468,7 @@ function exb_settings_page() {
 					<span class="description"><?php _e('Support image formats:: jpg, png, gif') ?></span>
 				</td>
 			</tr>
-
+			*/ ?>
 			<tr valign="top">
 				<?php
 					$dwpb_font_color = get_option('dwpb_font_color');

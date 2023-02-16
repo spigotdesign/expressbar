@@ -1,20 +1,20 @@
-body.exb-push-page {
+body.expressbar-enabled {
   position: relative;
   top: 0;
   transition: top 0.5s;
 }
-body.exb-push-page.expressbar-open {
-  top: 43px;
+body.expressbar-enabled.expressbar-open {
+  top: 40px;
 }
-body.exb-push-page.expressbar-open #expressbar {
+body.expressbar-enabled.expressbar-open #expressbar {
   top: 0 !important;
 }
 
-body.exb-push-page.admin-bar #wpadminbar {
+body.expressbar-enabled.admin-bar #wpadminbar {
   transition: top 0.5s;
 }
-body.exb-push-page.admin-bar.expressbar-open #wpadminbar {
-  top: 43px;
+body.expressbar-enabled.admin-bar.expressbar-open #wpadminbar {
+  top: 40px;
 }
 body.exb-cover-page.expressbar-open #expressbar {
   top: 0 !important;
@@ -29,7 +29,7 @@ body.exb-allow-close.expressbar-open .dwpb-close {
 }
 
 @media (max-width: 599px) {
-  body.exb-push-page.admin-bar #wpadminbar {
+  body.expressbar-enabled.admin-bar #wpadminbar {
     top: -46px !important;
   }
 }
@@ -202,10 +202,10 @@ body.exb-allow-close.expressbar-open .dwpb-close {
 }
 
 @media (max-width: 767px) {
-  .exb_responsive_extra_small.exb-push-page {
+  .exb_responsive_extra_small.expressbar-enabled {
     top: 0 !important;
   }
-  .exb_responsive_extra_small.exb-push-page #wpadminbar {
+  .exb_responsive_extra_small.expressbar-enabled #wpadminbar {
     top: 0 !important;
   }
   .exb_responsive_extra_small #expressbar,
@@ -215,10 +215,10 @@ body.exb-allow-close.expressbar-open .dwpb-close {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .exb_responsive_small.exb-push-page {
+  .exb_responsive_small.expressbar-enabled {
     top: 0 !important;
   }
-  .exb_responsive_small.exb-push-page #wpadminbar {
+  .exb_responsive_small.expressbar-enabled #wpadminbar {
     top: 0 !important;
   }
   .exb_responsive_small #expressbar,
@@ -228,10 +228,10 @@ body.exb-allow-close.expressbar-open .dwpb-close {
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  .exb_responsive_medium.exb-push-page {
+  .exb_responsive_medium.expressbar-enabled {
     top: 0 !important;
   }
-  .exb_responsive_medium.exb-push-page #wpadminbar {
+  .exb_responsive_medium.expressbar-enabled #wpadminbar {
     top: 0 !important;
   }
   .exb_responsive_medium #expressbar,
@@ -241,10 +241,10 @@ body.exb-allow-close.expressbar-open .dwpb-close {
   }
 }
 @media (min-width: 1200px) {
-  .exb_responsive_large.exb-push-page {
+  .exb_responsive_large.expressbar-enabled {
     top: 0 !important;
   }
-  .exb_responsive_large.exb-push-page #wpadminbar {
+  .exb_responsive_large.expressbar-enabled #wpadminbar {
     top: 0 !important;
   }
   .exb_responsive_large #expressbar,
