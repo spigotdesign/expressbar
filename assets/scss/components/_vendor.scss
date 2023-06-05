@@ -1,0 +1,7 @@
+/* Hide when editing with BB */
+.fl-builder-edit {
+    #expressbar,
+    .exb-action {
+        display: none !important;
+    }
+}
