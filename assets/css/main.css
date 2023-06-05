@@ -253,13 +253,8 @@ body.exb-allow-close.expressbar-open .dwpb-close {
     display: none !important;
   }
 }
-
 /* Hide when editing with BB */
-.fl-builder-edit {
-	
-		#expressbar, .exb-action {
-			display: none !important;
-			background-color: red !important;
-		}
-	
+.fl-builder-edit #expressbar,
+.fl-builder-edit .exb-action {
+  display: none !important;
 }
