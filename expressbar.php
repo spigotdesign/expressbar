@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: ExpressBar
-Plugin URI: 
+Plugin URI: https://spigotdesign.com/
 Description:  Custom notification bar.
 Version: 1.0.0
 Author: Spigot Design

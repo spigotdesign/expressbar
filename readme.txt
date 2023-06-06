@@ -1,9 +1,8 @@
 === ExpressBar ===
-Contributors: DesignWall
+Contributors: Spgigot Design, DesignWall
 Tags: promotion ,topbar, header bar, quick notice, bar, notification bar, countdown, responsive
-Requires at least: 3.0.1
-Tested up to: 3.8
-Stable tag: 1.0.4
+Tested up to: 5.6
+Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -12,31 +11,15 @@ A clean and simple WordPress plugin that allows you to have a promotion and mess
 
 == Installation ==
 
-1. Upload `dw-promobar` to the `/wp-content/plugins/` directory
+1. Upload `expressbar` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Log In to your WordPress Dashboard and go to menu `Dashboard > dw-promobar > Settings` to setting ExpressBar
+3. Log In to your WordPress Dashboard and go to menu `Dashboard > Settings > Expressbar` to configure Expressbar
 
 == Screenshots ==
 1. Back-end settings
 2. Front-end appearance
 
 == Changelog ==
-
-= 1.0.4 =
-- New: Allow add a background image.
-- Fix: Minor bugs.
-
-= 1.0.3 =
-- New: Allow to Close ExpressBar.
-- New: Hide ExpressBar based on screen sizes.
-- New: Show promobar based on pages.
-
-= 1.0.2 =
-- Fixed: Display wrong time when the countdown time greater than 100 days. 
-
-= 1.0.1 =
-- Fixed: Can not see preview in admin.
-- Tweak: Change UI in admin setting.
 
 = 1.0.0 =
 - The first version of ExpressBar
