@@ -244,11 +244,11 @@ if ( ! function_exists('exb')) {
 	}
 
 	$exb_enable = exb_get_option('exb_enable');
-	$dwpb_start = strtotime(exb_get_option('dwpb_start'));
-	$dwpb_end = strtotime(exb_get_option('dwpb_end'));	
+	$exb_start = strtotime(exb_get_option('exb_start'));
+	$exb_end = strtotime(exb_get_option('exb_end'));	
 	$dwpb_timezone = strtotime(date_i18n('Y-m-d G:i:s'));
 
-	if ( ( $dwpb_start < $dwpb_timezone && ( $dwpb_timezone < $dwpb_end || $dwpb_end == '' ) ) && $exb_enable == 'yes' ) {
+	if ( ( $exb_start < $dwpb_timezone && ( $dwpb_timezone < $exb_end || $exb_end == '' ) ) && $exb_enable == 'yes' ) {
 		add_action( 'wp_footer', 'dwpb', 100);
 	}
 	add_action( 'dwpb_previvew', 'dwpb');
@@ -315,7 +315,7 @@ if ( ! function_exists('exb')) {
 
 		endif; // Show on
 	}
-	if ( ( $dwpb_start < $dwpb_timezone && ( $dwpb_timezone < $dwpb_end || $dwpb_end == '' ) ) && $exb_enable == 'yes' ) {
+	if ( ( $exb_start < $dwpb_timezone && ( $dwpb_timezone < $exb_end || $exb_end == '' ) ) && $exb_enable == 'yes' ) {
 		add_action( 'wp_footer', 'dwpb_scripts');
 	}
 

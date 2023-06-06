@@ -14,8 +14,8 @@ function register_mysettings() {
 	$exb_settings_array = array(
 		//General Setting
 		'exb_enable',
-		'dwpb_start',
-		'dwpb_end',
+		'exb_start',
+		'exb_end',
 		'exb_close',
 		'exb_remain_top',
 		//'exp_push_page',
@@ -130,7 +130,7 @@ function exb_settings_page() {
 			<tr valign="top">
 				<th scope="row"><?php _e('Start on','expressbar') ?></th>
 				<td>
-					<input class="regular-text dwpb_time_picker" type="text" name="dwpb_start" value="<?php echo get_option('dwpb_start'); ?>" />
+					<input class="regular-text dwpb_time_picker" type="text" name="exb_start" value="<?php echo get_option('exb_start'); ?>" />
 					<span class="description"><?php _e('Leave blank if you want to start the bar immediately!') ?></span>
 				</td>
 			</tr>
@@ -138,7 +138,7 @@ function exb_settings_page() {
 			<tr valign="top">
 				<th scope="row"><?php _e('Stop on','expressbar') ?></th>
 				<td>
-					<input class="regular-text dwpb_time_picker" type="text" name="dwpb_end" value="<?php echo get_option('dwpb_end'); ?>" />
+					<input class="regular-text dwpb_time_picker" type="text" name="exb_end" value="<?php echo get_option('exb_end'); ?>" />
 					<span class="description"><?php _e('Leave blank if you do not want to close the bar!') ?></span>
 				</td>
 			</tr>
