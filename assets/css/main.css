@@ -258,3 +258,11 @@ body.exb-allow-close.expressbar-open .dwpb-close {
 .fl-builder-edit .exb-action {
   display: none !important;
 }
+
+.expressbar-enabled #wpadminbar .ab-top-secondary {
+  transition: all 0.3s ease-in-out;
+  padding-right: 45px;
+}
+.expressbar-enabled.expressbar-open #wpadminbar .ab-top-secondary {
+  padding-right: 0;
+}
