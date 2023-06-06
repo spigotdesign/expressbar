@@ -27,11 +27,11 @@ if ( ! function_exists('exb')) {
 
 	if ( ! function_exists( 'exb_body_class' )) {
 		function exb_body_class($classes) {
-			$exb_enabled = exb_get_option('dwpb_enable');
+			$exb_enabled = exb_get_option('exb_enable');
 			$exb_push_page = exb_get_option('exp_push_page');
 			$exb_sticky_header = exb_get_option('exb_sticky_header');
 			$exb_remain_top = exb_get_option('exb_remain_top');
-			$dwpb_show_bottom = exb_get_option('dwpb_show_bottom');
+			// $exb_show_bottom = exb_get_option('exb_show_bottom');
 			$dwpb_close = exb_get_option('dwpb_close');
 			$exb_responsive_extra_small = exb_get_option('exb_responsive_extra_small');
 			$exb_responsive_small = exb_get_option('exb_responsive_small');
@@ -243,12 +243,12 @@ if ( ! function_exists('exb')) {
 	endif; // Show on
 	}
 
-	$dwpb_enable = exb_get_option('dwpb_enable');
+	$exb_enable = exb_get_option('exb_enable');
 	$dwpb_start = strtotime(exb_get_option('dwpb_start'));
 	$dwpb_end = strtotime(exb_get_option('dwpb_end'));	
 	$dwpb_timezone = strtotime(date_i18n('Y-m-d G:i:s'));
 
-	if ( ( $dwpb_start < $dwpb_timezone && ( $dwpb_timezone < $dwpb_end || $dwpb_end == '' ) ) && $dwpb_enable == 'yes' ) {
+	if ( ( $dwpb_start < $dwpb_timezone && ( $dwpb_timezone < $dwpb_end || $dwpb_end == '' ) ) && $exb_enable == 'yes' ) {
 		add_action( 'wp_footer', 'dwpb', 100);
 	}
 	add_action( 'dwpb_previvew', 'dwpb');
@@ -315,7 +315,7 @@ if ( ! function_exists('exb')) {
 
 		endif; // Show on
 	}
-	if ( ( $dwpb_start < $dwpb_timezone && ( $dwpb_timezone < $dwpb_end || $dwpb_end == '' ) ) && $dwpb_enable == 'yes' ) {
+	if ( ( $dwpb_start < $dwpb_timezone && ( $dwpb_timezone < $dwpb_end || $dwpb_end == '' ) ) && $exb_enable == 'yes' ) {
 		add_action( 'wp_footer', 'dwpb_scripts');
 	}
 

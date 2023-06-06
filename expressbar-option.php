@@ -13,13 +13,13 @@ function exb_create_menu() {
 function register_mysettings() {
 	$exb_settings_array = array(
 		//General Setting
-		'dwpb_enable',
+		'exb_enable',
 		'dwpb_start',
 		'dwpb_end',
 		'dwpb_close',
 		'exb_remain_top',
 		//'exp_push_page',
-		'dwpb_show_bottom',
+		//'exb_show_bottom',
 		'exb_sticky_header',
 		'exb_header_name',
 
@@ -116,14 +116,14 @@ function exb_settings_page() {
 				<th scope="row"><?php _e('Enable ExpressBar?','expressbar') ?></th>
 				<td>
 					<?php
-						$dwpb_enable = get_option('dwpb_enable');
-						$dwpb_enable_select = '';
-						if ( $dwpb_enable == 'yes' ) {
-							$dwpb_enable_select = 'checked';
+						$exb_enable = get_option('exb_enable');
+						$exb_enable_select = '';
+						if ( $exb_enable == 'yes' ) {
+							$exb_enable_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_enable" value="no" checked><?php _e('No','expressbar') ?></label>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_enable" value="yes" <?php echo $dwpb_enable_select; ?> ><?php _e('Yes','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="exb_enable" value="no" checked><?php _e('No','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="exb_enable" value="yes" <?php echo $exb_enable_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr>
 
@@ -224,15 +224,15 @@ function exb_settings_page() {
 				<th scope="row"><?php _e('Show promobar at bottom','expressbar') ?></th>
 				<td>
 					<?php
-						$dwpb_show_bottom = get_option('dwpb_show_bottom');
-						$dwpb_show_bottom_select = '';
-						if ( $dwpb_show_bottom == 'yes' ) {
-							$dwpb_show_bottom_select = 'checked';
+						$exb_show_bottom = get_option('exb_show_bottom');
+						$exb_show_bottom_select = '';
+						if ( $exb_show_bottom == 'yes' ) {
+							$exb_show_bottom_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input class="no-push" type="radio" name="dwpb_show_bottom" value="no" checked > <?php _e('No','expressbar') ?> </label>
+					<label style="margin-right: 50px;"><input class="no-push" type="radio" name="exb_show_bottom" value="no" checked > <?php _e('No','expressbar') ?> </label>
 
-					<label style="margin-right: 50px;"><input class="push-page" type="radio" name="dwpb_show_bottom" value="yes" <?php echo $dwpb_show_bottom_select; ?> ><?php _e('Yes','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input class="push-page" type="radio" name="exb_show_bottom" value="yes" <?php echo $exb_show_bottom_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr> */ ?>
 
