@@ -54,9 +54,9 @@
 		});
 
 		// dwpbcd use
-		$('[name=dwpbcd_use]').change(function(){
-			var dwpbcd_use = $(this).val();
-			if (dwpbcd_use === 'yes' ) {
+		$('[name=expcd_use]').change(function(){
+			var expcd_use = $(this).val();
+			if (expcd_use === 'yes' ) {
 				$('.dwpbcd').removeClass('hide');
 				$('.dwpb-message').addClass('hide');
 				$('.dwpb-countdown').removeClass('hide');

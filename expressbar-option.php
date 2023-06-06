@@ -29,12 +29,12 @@ function register_mysettings() {
 		'exb_responsive_large',
 
 		'exb_front_page',
-		'dwpb_archives',
-		'dwpb_tags',
-		'dwpb_single_post',
-		'dwpb_single_page',
+		'exb_archives',
+		'exb_tags',
+		'exb_single_post',
+		'exb_single_page',
 
-		'dwpbcd_use',
+		'expcd_use',
 
 		//Configure ExpressBar coutdown
 		'dwpbcd_time_left',
@@ -289,39 +289,39 @@ function exb_settings_page() {
 							$exb_front_page_select = 'checked';
 						}
 
-						$dwpb_archives = get_option('dwpb_archives');
-						$dwpb_archives_select = '';
-						if ( $dwpb_archives ) {
-							$dwpb_archives_select = 'checked';
+						$exb_archives = get_option('exb_archives');
+						$exb_archives_select = '';
+						if ( $exb_archives ) {
+							$exb_archives_select = 'checked';
 						}
 
-						$dwpb_tags = get_option('dwpb_tags');
-						$dwpb_tags_select = '';
-						if ( $dwpb_tags ) {
-							$dwpb_tags_select = 'checked';
+						$exb_tags = get_option('exb_tags');
+						$exb_tags_select = '';
+						if ( $exb_tags ) {
+							$exb_tags_select = 'checked';
 						}
 
-						$dwpb_single_post = get_option('dwpb_single_post');
-						$dwpb_single_post_select = '';
-						if ( $dwpb_single_post ) {
-							$dwpb_single_post_select = 'checked';
+						$exb_single_post = get_option('exb_single_post');
+						$exb_single_post_select = '';
+						if ( $exb_single_post ) {
+							$exb_single_post_select = 'checked';
 						}
 
-						$dwpb_single_page = get_option('dwpb_single_page');
-						$dwpb_single_page_select = '';
-						if ( $dwpb_single_page ) {
-							$dwpb_single_page_select = 'checked';
+						$exb_single_page = get_option('exb_single_page');
+						$exb_single_page_select = '';
+						if ( $exb_single_page ) {
+							$exb_single_page_select = 'checked';
 						}
 					?>
 					<label style="margin-right: 50px;"><input type="checkbox" name="exb_front_page" value="true" <?php echo $exb_front_page_select; ?> > <?php _e('Front Page','expressbar') ?> </label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_archives" value="true" <?php echo $dwpb_archives_select; ?> ><?php _e('Archives','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_archives" value="true" <?php echo $exb_archives_select; ?> ><?php _e('Archives','expressbar') ?></label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_tags" value="true" <?php echo $dwpb_tags_select; ?> ><?php _e('Tags','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_tags" value="true" <?php echo $exb_tags_select; ?> ><?php _e('Tags','expressbar') ?></label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_single_post" value="true" <?php echo $dwpb_single_post_select; ?> ><?php _e(' Single Posts','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_single_post" value="true" <?php echo $exb_single_post_select; ?> ><?php _e(' Single Posts','expressbar') ?></label>
 
-					<label style="margin-right: 50px;"><input type="checkbox" name="dwpb_single_page" value="true" <?php echo $dwpb_single_page_select; ?> ><?php _e('Single Pages','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="checkbox" name="exb_single_page" value="true" <?php echo $exb_single_page_select; ?> ><?php _e('Single Pages','expressbar') ?></label>
 				</td>
 			</tr>
 			<tr>
@@ -377,22 +377,22 @@ function exb_settings_page() {
 				<th scope="row"><?php _e('Use Countdown?','expressbar') ?></th>
 				<td>
 					<?php
-						$dwpbcd_use = get_option('dwpbcd_use');
-						$dwpbcd_use_select = '';
-						if ( $dwpbcd_use == 'yes' ) {
-							$dwpbcd_use_select = 'checked';
+						$expcd_use = get_option('expcd_use');
+						$expcd_use_select = '';
+						if ( $expcd_use == 'yes' ) {
+							$expcd_use_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_use" value="no" checked> <?php _e('No','expressbar'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="expcd_use" value="no" checked> <?php _e('No','expressbar'); ?> </label>
 
-					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_use" value="yes" <?php echo $dwpbcd_use_select; ?> > <?php _e('Yes','expressbar'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="expcd_use" value="yes" <?php echo $expcd_use_select; ?> > <?php _e('Yes','expressbar'); ?> </label>
 				</td>
 			</tr>
 
 
 			<?php
 				$dwpbcd_hide = 'hide';
-				if (get_option('dwpbcd_use') == 'yes') {
+				if (get_option('expcd_use') == 'yes') {
 					$dwpbcd_hide = '';
 				}
 			?>

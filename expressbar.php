@@ -73,10 +73,10 @@ if ( ! function_exists('exb')) {
 	function dwpb() {
 		$current_theme = wp_get_theme();
 		$is_front_page = exb_get_option('exb_front_page', false);
-		$is_archives = exb_get_option('dwpb_archives', false);
-		$is_tags = exb_get_option('dwpb_tags', false);
-		$is_single_post = exb_get_option('dwpb_single_post', false);
-		$is_single_page = exb_get_option('dwpb_single_page', false);
+		$is_archives = exb_get_option('exb_archives', false);
+		$is_tags = exb_get_option('exb_tags', false);
+		$is_single_post = exb_get_option('exb_single_post', false);
+		$is_single_page = exb_get_option('exb_single_page', false);
 		if ( 
 			( $is_front_page && is_front_page() ) || 
 			( $is_archives && is_archive() ) || 
@@ -88,7 +88,7 @@ if ( ! function_exists('exb')) {
 		) :
 
 		$exb_remain_top = exb_get_option('exb_remain_top');
-		$dwpbcd_use = exb_get_option('dwpbcd_use');
+		$expcd_use = exb_get_option('expcd_use');
 
 		$dwpbcd_link_text = exb_get_option('dwpbcd_link_text');
 		$dwpbcd_link_url = exb_get_option('dwpbcd_link_url');
@@ -202,7 +202,7 @@ if ( ! function_exists('exb')) {
 				<?php 
 					$dwpbcd_hide = 'hide';
 					$dwpb_hide = '';
-					if ($dwpbcd_use == 'yes') {
+					if ($expcd_use == 'yes') {
 						$dwpbcd_hide = '';
 						$dwpb_hide = 'hide';
 					}
@@ -256,10 +256,10 @@ if ( ! function_exists('exb')) {
 	// Enqueue scripts
 	function dwpb_scripts() {
 		$is_front_page = exb_get_option('exb_front_page', false);
-		$is_archives = exb_get_option('dwpb_archives', false);
-		$is_tags = exb_get_option('dwpb_tags', false);
-		$is_single_post = exb_get_option('dwpb_single_post', false);
-		$is_single_page = exb_get_option('dwpb_single_page', false);
+		$is_archives = exb_get_option('exb_archives', false);
+		$is_tags = exb_get_option('exb_tags', false);
+		$is_single_post = exb_get_option('exb_single_post', false);
+		$is_single_page = exb_get_option('exb_single_page', false);
 		if ( 
 			( $is_front_page && is_front_page() ) || 
 			( $is_archives && is_archive() ) || 
