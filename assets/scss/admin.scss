@@ -9,12 +9,12 @@
 	z-index: 999999;
 }
 .settings_page_expressbar .exb-action,
-.settings_page_expressbar .dwpb-close {
+.settings_page_expressbar .exb-close {
 	top: 5px;
 	background: transparent !important;
 }
 .settings_page_expressbar .exb-action:before,
-.settings_page_expressbar .dwpb-close:before {
+.settings_page_expressbar .exb-close:before {
 	content: '\f343';
 }
 .settings_page_expressbar #expressbar.remain-top {

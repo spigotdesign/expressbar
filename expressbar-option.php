@@ -16,7 +16,7 @@ function register_mysettings() {
 		'exb_enable',
 		'dwpb_start',
 		'dwpb_end',
-		'dwpb_close',
+		'exb_close',
 		'exb_remain_top',
 		//'exp_push_page',
 		//'exb_show_bottom',
@@ -142,21 +142,21 @@ function exb_settings_page() {
 					<span class="description"><?php _e('Leave blank if you do not want to close the bar!') ?></span>
 				</td>
 			</tr>
-
+			<?php /* Allow to close removed 
 			<tr>
 				<th scope="row"><?php _e('Allow to Close ExpressBar ?','expressbar') ?></th>
 				<td>
 					<?php
-						$dwpb_close = get_option('dwpb_close');
-						$dwpb_close_select = '';
-						if ( $dwpb_close == 'yes' ) {
-							$dwpb_close_select = 'checked';
+						$exb_close = get_option('exb_close');
+						$exb_close_select = '';
+						if ( $exb_close == 'yes' ) {
+							$exb_close_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_close" value="no" checked><?php _e('No','expressbar') ?></label>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_close" value="yes" <?php echo $dwpb_close_select; ?> ><?php _e('Yes','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="exb_close" value="no" checked><?php _e('No','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="exb_close" value="yes" <?php echo $exb_close_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
-			</tr>
+			</tr> */ ?>
 			<?php /* Removed remain at top and Push page down. These should be defaults
 			<tr>
 				<th scope="row"><?php _e('remain at top of page?','expressbar') ?></th>

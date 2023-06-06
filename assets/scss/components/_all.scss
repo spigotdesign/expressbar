@@ -28,13 +28,13 @@ body {
   }
 
   &.exb-allow-close {
-    .dwpb-close {
+    .exb-close {
       background-color: transparent;
       color: transparent;
       transition: color 0.5s 0.3s;
     }
 
-    &.expressbar-open .dwpb-close {
+    &.expressbar-open .exb-close {
       color: #fff;
     }
   }
@@ -184,7 +184,7 @@ body {
 }
 
 .exb-action,
-.dwpb-close {
+.exb-close {
   position: fixed;
   background: #3B3B4F;
   right: 10px;
@@ -200,7 +200,7 @@ body {
 }
 
 .exb-action:before,
-.dwpb-close:before {
+.exb-close:before {
   font-size: 18px;
   line-height: 30px;
   font-family: "dashicons";
@@ -210,14 +210,14 @@ body {
 .expressbar-open {
 
   .exb-action,
-  .dwpb-close {
+  .exb-close {
     top: 5px;
     border-radius: 50%;
     background: transparent !important;
   }
 
   .exb-action:before,
-  .dwpb-close:before {
+  .exb-close:before {
     content: '\f343';
   }
 }
@@ -225,12 +225,12 @@ body {
 .dwpb-remain-top {
 
   .exb-action,
-  .dwpb-close {
+  .exb-close {
     position: absolute;
   }
 }
 
-.dwpb-close:before {
+.exb-close:before {
   content: "\f335" !important;
 }
 
@@ -246,7 +246,7 @@ body {
 
     #expressbar,
     .exb-action,
-    .dwpb-close {
+    .exb-close {
       display: none !important;
     }
   }
@@ -264,7 +264,7 @@ body {
 
     #expressbar,
     .exb-action,
-    .dwpb-close {
+    .exb-close {
       display: none !important;
     }
   }
@@ -282,7 +282,7 @@ body {
 
     #expressbar,
     .exb-action,
-    .dwpb-close {
+    .exb-close {
       display: none !important;
     }
   }
@@ -300,7 +300,7 @@ body {
 
     #expressbar,
     .exb-action,
-    .dwpb-close {
+    .exb-close {
       display: none !important;
     }
   }

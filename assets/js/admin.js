@@ -141,12 +141,12 @@
 		});
 
 		// Allow to Close ExpressBar
-		$('[name=dwpb_close]').change(function(){
-			var dwpb_close = $(this).val();
-			if (dwpb_close === 'yes' ) {
-				$('.exb-action').addClass('dwpb-close');
+		$('[name=exb_close]').change(function(){
+			var exb_close = $(this).val();
+			if (exb_close === 'yes' ) {
+				$('.exb-action').addClass('exb-close');
 			} else {
-				$('.exb-action').removeClass('dwpb-close');
+				$('.exb-action').removeClass('exb-close');
 			}
 		});
 

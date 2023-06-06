@@ -32,7 +32,7 @@ if ( ! function_exists('exb')) {
 			$exb_sticky_header = exb_get_option('exb_sticky_header');
 			$exb_remain_top = exb_get_option('exb_remain_top');
 			// $exb_show_bottom = exb_get_option('exb_show_bottom');
-			$dwpb_close = exb_get_option('dwpb_close');
+			$exb_close = exb_get_option('exb_close');
 			$exb_responsive_extra_small = exb_get_option('exb_responsive_extra_small');
 			$exb_responsive_small = exb_get_option('exb_responsive_small');
 			$exb_responsive_medium = exb_get_option('exb_responsive_medium');
@@ -47,7 +47,7 @@ if ( ! function_exists('exb')) {
 					//$classes[] = 'exb-cover-page';
 				}
 				/* remove allow-close
-				if ( $dwpb_close == 'yes' ) {
+				if ( $exb_close == 'yes' ) {
 					$classes[] = 'exb-allow-close';
 				} */
 				
@@ -151,7 +151,7 @@ if ( ! function_exists('exb')) {
 			<?php if( $dwpb_font_color != '' ) : ?>
 			#expressbar,
 			.exb-action,
-			body.exb-allow-close.expressbar-open .dwpb-close {
+			body.exb-allow-close.expressbar-open .exb-close {
 				color: <?php echo $dwpb_font_color; ?>;
 			}
 			<?php endif; ?>
@@ -231,10 +231,10 @@ if ( ! function_exists('exb')) {
 			</div>
 		</div>
 		<?php 
-			$dwpb_close = exb_get_option('dwpb_close');
+			$exb_close = exb_get_option('exb_close');
 			$dwpb_action_class = 'exb-action';
-			if ($dwpb_close == 'yes') {
-				$dwpb_action_class = 'dwpb-close';
+			if ($exb_close == 'yes') {
+				$dwpb_action_class = 'exb-close';
 			}
 		?>
 		<span class="<?php echo $dwpb_action_class; ?>"></span>

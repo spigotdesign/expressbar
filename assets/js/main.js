@@ -72,21 +72,21 @@
 		// Close Promobar
 		if ( $('body').hasClass('exb-allow-close') ) {
 			function remove_promobar() {
-				$('#expressbar, .dwpb-close').remove();
+				$('#expressbar, .exb-close').remove();
 				$('body').removeClass('exb-cover-page dwpb-remain-top expressbar-open exb-push-page');
 			}
 
-			$('.dwpb-close').click(function(){
+			$('.exb-close').click(function(){
 				remove_promobar();
 			});
 
-			$('.dwpb-close').click(function(){
+			$('.exb-close').click(function(){
 				if (cookie === undefined) {
-					$.cookie('dwpb-close', 'dwpb-close-' + dwpb.reset_cookie, {path: '/'} );
+					$.cookie('exb-close', 'exb-close-' + dwpb.reset_cookie, {path: '/'} );
 				} 
 			});
 
-			if ( $.cookie('dwpb-close') === 'dwpb-close-' + dwpb.reset_cookie ) {
+			if ( $.cookie('exb-close') === 'exb-close-' + dwpb.reset_cookie ) {
 				remove_promobar();
 			}
 		}

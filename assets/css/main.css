@@ -19,12 +19,12 @@ body.expressbar-enabled.admin-bar.expressbar-open #wpadminbar {
 body.exb-cover-page.expressbar-open #expressbar {
   top: 0 !important;
 }
-body.exb-allow-close .dwpb-close {
+body.exb-allow-close .exb-close {
   background-color: transparent;
   color: transparent;
   transition: color 0.5s 0.3s;
 }
-body.exb-allow-close.expressbar-open .dwpb-close {
+body.exb-allow-close.expressbar-open .exb-close {
   color: #fff;
 }
 
@@ -158,7 +158,7 @@ body.exb-allow-close.expressbar-open .dwpb-close {
 }
 
 .exb-action,
-.dwpb-close {
+.exb-close {
   position: fixed;
   background: #3B3B4F;
   right: 10px;
@@ -174,7 +174,7 @@ body.exb-allow-close.expressbar-open .dwpb-close {
 }
 
 .exb-action:before,
-.dwpb-close:before {
+.exb-close:before {
   font-size: 18px;
   line-height: 30px;
   font-family: "dashicons";
@@ -182,22 +182,22 @@ body.exb-allow-close.expressbar-open .dwpb-close {
 }
 
 .expressbar-open .exb-action,
-.expressbar-open .dwpb-close {
+.expressbar-open .exb-close {
   top: 5px;
   border-radius: 50%;
   background: transparent !important;
 }
 .expressbar-open .exb-action:before,
-.expressbar-open .dwpb-close:before {
+.expressbar-open .exb-close:before {
   content: "\f343";
 }
 
 .dwpb-remain-top .exb-action,
-.dwpb-remain-top .dwpb-close {
+.dwpb-remain-top .exb-close {
   position: absolute;
 }
 
-.dwpb-close:before {
+.exb-close:before {
   content: "\f335" !important;
 }
 
@@ -210,7 +210,7 @@ body.exb-allow-close.expressbar-open .dwpb-close {
   }
   .exb_responsive_extra_small #expressbar,
 .exb_responsive_extra_small .exb-action,
-.exb_responsive_extra_small .dwpb-close {
+.exb_responsive_extra_small .exb-close {
     display: none !important;
   }
 }
@@ -223,7 +223,7 @@ body.exb-allow-close.expressbar-open .dwpb-close {
   }
   .exb_responsive_small #expressbar,
 .exb_responsive_small .exb-action,
-.exb_responsive_small .dwpb-close {
+.exb_responsive_small .exb-close {
     display: none !important;
   }
 }
@@ -236,7 +236,7 @@ body.exb-allow-close.expressbar-open .dwpb-close {
   }
   .exb_responsive_medium #expressbar,
 .exb_responsive_medium .exb-action,
-.exb_responsive_medium .dwpb-close {
+.exb_responsive_medium .exb-close {
     display: none !important;
   }
 }
@@ -249,7 +249,7 @@ body.exb-allow-close.expressbar-open .dwpb-close {
   }
   .exb_responsive_large #expressbar,
 .exb_responsive_large .exb-action,
-.exb_responsive_large .dwpb-close {
+.exb_responsive_large .exb-close {
     display: none !important;
   }
 }
