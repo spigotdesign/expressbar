@@ -29,12 +29,12 @@
 
 	$(document).ready(function(){
 		// Countdown
-		$('.dwpb-counter').countdown({
+		$('.exb-counter').countdown({
 			timestamp : (new Date()).getTime() + (dwpb.timeleft * 1000),
 			callback: function(d, h, m, s){
 				if( d === 0 && h === 0 && m === 0 && s === 0 ) {
-					$('.dwpb-message').removeClass('hide');
-					$('.dwpb-countdown').addClass('hide');
+					$('.exb-message').removeClass('hide');
+					$('.exb-countdown').addClass('hide');
 				}
 			}
 		});
@@ -52,19 +52,19 @@
 		},1000);
 
 		if ( ! $('body').hasClass('exb-allow-close') ) {
-			var cookie = $.cookie('dwpb-hide');
-			if (cookie === 'dwpb-hide') {
+			var cookie = $.cookie('exb-hide');
+			if (cookie === 'exb-hide') {
 				setTimeout(function(){
 					$('body').removeClass('expressbar-open');
 				},1000);
 			}
 
-			//cookie
+			//cookie // Not sure we need this any longer
 			$('.exb-action').click(function(){
 				if (cookie === undefined) {
-					$.cookie('dwpb-hide', 'dwpb-hide', {path: '/'} );
+					$.cookie('exb-hide', 'exb-hide', {path: '/'} );
 				} else {
-					$.removeCookie('dwpb-hide', {path: '/'});
+					$.removeCookie('exb-hide', {path: '/'});
 				}
 			});
 		}

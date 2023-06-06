@@ -218,13 +218,13 @@ if ( ! function_exists('exb')) {
 					}
 				?>
 
-				<div class="dwpb-message <?php echo $dwpb_hide; ?>">
+				<div class="exb-message <?php echo $dwpb_hide; ?>">
 					<span class="dwpb-content"><?php echo $exb_bar_text; ?></span>
 					<?php echo $dwpb_link; ?>
 				</div>
 					
-				<div class="dwpb-countdown <?php echo $dwpbcd_hide; ?>">
-					<div class="dwpb-counter"></div>
+				<div class="exb-countdown <?php echo $dwpbcd_hide; ?>">
+					<div class="exb-counter"></div>
 					<span class="dwpbcd-content"><?php echo $dwpbcd_text; ?></span>
 					<?php echo $dwpbcd_link; ?>
 				</div>

@@ -91,16 +91,16 @@ body.exb-allow-close.expressbar-open .exb-close {
   overflow: hidden;
 }
 
-.dwpb-counter {
+.exb-counter {
   display: inline-block;
   color: #fff;
   vertical-align: bottom;
   margin-right: 10px;
 }
-.dwpb-counter .countDays,
-.dwpb-counter .countHours,
-.dwpb-counter .countMinutes,
-.dwpb-counter .countSeconds {
+.exb-counter .countDays,
+.exb-counter .countHours,
+.exb-counter .countMinutes,
+.exb-counter .countSeconds {
   display: block;
   float: left;
   position: relative;
@@ -109,10 +109,10 @@ body.exb-allow-close.expressbar-open .exb-close {
   border-radius: 2px;
   padding: 7px 5px;
 }
-.dwpb-counter .countDays .position,
-.dwpb-counter .countHours .position,
-.dwpb-counter .countMinutes .position,
-.dwpb-counter .countSeconds .position {
+.exb-counter .countDays .position,
+.exb-counter .countHours .position,
+.exb-counter .countMinutes .position,
+.exb-counter .countSeconds .position {
   overflow: hidden;
   display: inline-block;
   position: relative;
@@ -120,30 +120,30 @@ body.exb-allow-close.expressbar-open .exb-close {
   line-height: 1;
   float: left;
 }
-.dwpb-counter .countDays .digit,
-.dwpb-counter .countHours .digit,
-.dwpb-counter .countMinutes .digit,
-.dwpb-counter .countSeconds .digit {
+.exb-counter .countDays .digit,
+.exb-counter .countHours .digit,
+.exb-counter .countMinutes .digit,
+.exb-counter .countSeconds .digit {
   opacity: 1 !important;
   text-align: center;
   margin-left: 1px;
 }
-.dwpb-counter .countDays .digit:first-child + .digit,
-.dwpb-counter .countHours .digit:first-child + .digit,
-.dwpb-counter .countMinutes .digit:first-child + .digit,
-.dwpb-counter .countSeconds .digit:first-child + .digit {
+.exb-counter .countDays .digit:first-child + .digit,
+.exb-counter .countHours .digit:first-child + .digit,
+.exb-counter .countMinutes .digit:first-child + .digit,
+.exb-counter .countSeconds .digit:first-child + .digit {
   display: none;
 }
-.dwpb-counter .countDays .digit.static,
-.dwpb-counter .countHours .digit.static,
-.dwpb-counter .countMinutes .digit.static,
-.dwpb-counter .countSeconds .digit.static {
+.exb-counter .countDays .digit.static,
+.exb-counter .countHours .digit.static,
+.exb-counter .countMinutes .digit.static,
+.exb-counter .countSeconds .digit.static {
   display: block;
 }
-.dwpb-counter .countDays .boxName,
-.dwpb-counter .countHours .boxName,
-.dwpb-counter .countMinutes .boxName,
-.dwpb-counter .countSeconds .boxName {
+.exb-counter .countDays .boxName,
+.exb-counter .countHours .boxName,
+.exb-counter .countMinutes .boxName,
+.exb-counter .countSeconds .boxName {
   display: inline-block;
   margin-left: 1px;
   position: relative;
@@ -151,9 +151,9 @@ body.exb-allow-close.expressbar-open .exb-close {
   float: left;
   line-height: 1;
 }
-.dwpb-counter .countDays,
-.dwpb-counter .countHours,
-.dwpb-counter .countMinutes {
+.exb-counter .countDays,
+.exb-counter .countHours,
+.exb-counter .countMinutes {
   margin-right: 2px;
 }
 
