@@ -30,7 +30,7 @@ if ( ! function_exists('exb')) {
 			$exb_enabled = exb_get_option('dwpb_enable');
 			$exb_push_page = exb_get_option('exp_push_page');
 			$exb_sticky_header = exb_get_option('exb_sticky_header');
-			$dwpb_ramain_top = exb_get_option('dwpb_ramain_top');
+			$exb_remain_top = exb_get_option('exb_remain_top');
 			$dwpb_show_bottom = exb_get_option('dwpb_show_bottom');
 			$dwpb_close = exb_get_option('dwpb_close');
 			$exb_responsive_extra_small = exb_get_option('exb_responsive_extra_small');
@@ -56,7 +56,7 @@ if ( ! function_exists('exb')) {
 				}
 
 				/* Remove remain at top option - default yes
-				if ( $dwpb_ramain_top == 'ramain-top' ) $classes[] = 'dwpb-ramain-top';
+				if ( $exb_remain_top == 'remain-top' ) $classes[] = 'dwpb-remain-top';
 				*/
 				if ($exb_responsive_extra_small) $classes[] = 'exb_responsive_extra_small';
 				if ($exb_responsive_small) $classes[] = 'exb_responsive_small';
@@ -87,7 +87,7 @@ if ( ! function_exists('exb')) {
 			is_admin()
 		) :
 
-		$dwpb_ramain_top = exb_get_option('dwpb_ramain_top');
+		$exb_remain_top = exb_get_option('exb_remain_top');
 		$dwpbcd_use = exb_get_option('dwpbcd_use');
 
 		$dwpbcd_link_text = exb_get_option('dwpbcd_link_text');
@@ -197,7 +197,7 @@ if ( ! function_exists('exb')) {
 			<?php endif; ?>
 		</style>
 		
-		<div id="expressbar" class=" <?php echo $dwpb_ramain_top; ?> ">
+		<div id="expressbar" class=" <?php echo $exb_remain_top; ?> ">
 			<div class="dwpb-inner">
 				<?php 
 					$dwpbcd_hide = 'hide';

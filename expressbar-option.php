@@ -17,7 +17,7 @@ function register_mysettings() {
 		'dwpb_start',
 		'dwpb_end',
 		'dwpb_close',
-		'dwpb_ramain_top',
+		'exb_remain_top',
 		//'exp_push_page',
 		'dwpb_show_bottom',
 		'exb_sticky_header',
@@ -157,19 +157,19 @@ function exb_settings_page() {
 					<label style="margin-right: 50px;"><input type="radio" name="dwpb_close" value="yes" <?php echo $dwpb_close_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr>
-			<?php /* Removed Remain at top and Push page down. These should be defaults
+			<?php /* Removed remain at top and Push page down. These should be defaults
 			<tr>
-				<th scope="row"><?php _e('Remain at top of page?','expressbar') ?></th>
+				<th scope="row"><?php _e('remain at top of page?','expressbar') ?></th>
 				<td>
 					<?php
-						$dwpb_ramain_top = get_option('dwpb_ramain_top');
-						$dwpb_ramain_top_select = '';
-						if ( $dwpb_ramain_top == 'fixtop' ) {
-							$dwpb_ramain_top_select = 'checked';
+						$exb_remain_top = get_option('exb_remain_top');
+						$exb_remain_top_select = '';
+						if ( $exb_remain_top == 'fixtop' ) {
+							$exb_remain_top_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input class="ramain-top" type="radio" name="dwpb_ramain_top" value="ramain-top" checked><?php _e('No','expressbar') ?></label>
-					<label style="margin-right: 50px;"><input class="fixtop" type="radio" name="dwpb_ramain_top" value="fixtop" <?php echo $dwpb_ramain_top_select; ?> ><?php _e('Yes','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input class="remain-top" type="radio" name="exb_remain_top" value="remain-top" checked><?php _e('No','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input class="fixtop" type="radio" name="exb_remain_top" value="fixtop" <?php echo $exb_remain_top_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr>
 			

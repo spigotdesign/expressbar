@@ -150,10 +150,10 @@
 			}
 		});
 
-		// dwpb ramain top
-		$('[name=dwpb_ramain_top]').change(function(){
-			var dwpb_ramain_top = $(this).val();
-			if (dwpb_ramain_top === 'ramain-top' ) {
+		// dwpb remain top
+		$('[name=exb_remain_top]').change(function(){
+			var exb_remain_top = $(this).val();
+			if (exb_remain_top === 'remain-top' ) {
 				$('.no-push').attr('checked','checked');
 			}
 		});

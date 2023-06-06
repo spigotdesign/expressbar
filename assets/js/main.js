@@ -73,7 +73,7 @@
 		if ( $('body').hasClass('exb-allow-close') ) {
 			function remove_promobar() {
 				$('#expressbar, .dwpb-close').remove();
-				$('body').removeClass('exb-cover-page dwpb-ramain-top expressbar-open exb-push-page');
+				$('body').removeClass('exb-cover-page dwpb-remain-top expressbar-open exb-push-page');
 			}
 
 			$('.dwpb-close').click(function(){

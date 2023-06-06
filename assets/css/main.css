@@ -58,7 +58,7 @@ body.exb-allow-close.expressbar-open .dwpb-close {
 #expressbar .hide {
   display: none;
 }
-#expressbar.ramain-top {
+#expressbar.remain-top {
   position: absolute;
 }
 #expressbar a {
@@ -192,8 +192,8 @@ body.exb-allow-close.expressbar-open .dwpb-close {
   content: "\f343";
 }
 
-.dwpb-ramain-top .exb-action,
-.dwpb-ramain-top .dwpb-close {
+.dwpb-remain-top .exb-action,
+.dwpb-remain-top .dwpb-close {
   position: absolute;
 }
 
