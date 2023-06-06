@@ -28,7 +28,7 @@ if ( ! function_exists('exb')) {
 	if ( ! function_exists( 'exb_body_class' )) {
 		function exb_body_class($classes) {
 			$exb_enabled = exb_get_option('dwpb_enable');
-			$exb_push_page = exb_get_option('dwpb_push_page');
+			$exb_push_page = exb_get_option('exp_push_page');
 			$exb_sticky_header = exb_get_option('exb_sticky_header');
 			$dwpb_ramain_top = exb_get_option('dwpb_ramain_top');
 			$dwpb_show_bottom = exb_get_option('dwpb_show_bottom');

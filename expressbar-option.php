@@ -18,7 +18,7 @@ function register_mysettings() {
 		'dwpb_end',
 		'dwpb_close',
 		'dwpb_ramain_top',
-		//'dwpb_push_page',
+		//'exp_push_page',
 		'dwpb_show_bottom',
 		'exb_sticky_header',
 		'exb_header_name',
@@ -177,15 +177,15 @@ function exb_settings_page() {
 				<th scope="row"><?php _e('Push page down?','expressbar') ?></th>
 				<td>
 					<?php
-						$dwpb_push_page = get_option('dwpb_push_page');
-						$dwpb_push_page_select = '';
-						if ( $dwpb_push_page == 'push' ) {
-							$dwpb_push_page_select = 'checked';
+						$exp_push_page = get_option('exp_push_page');
+						$exp_push_page_select = '';
+						if ( $exp_push_page == 'push' ) {
+							$exp_push_page_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input class="no-push" type="radio" name="dwpb_push_page" value="no-push" checked > <?php _e('No','expressbar') ?> </label>
+					<label style="margin-right: 50px;"><input class="no-push" type="radio" name="exp_push_page" value="no-push" checked > <?php _e('No','expressbar') ?> </label>
 
-					<label style="margin-right: 50px;"><input class="push-page" type="radio" name="dwpb_push_page" value="push" <?php echo $dwpb_push_page_select; ?> ><?php _e('Yes','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input class="push-page" type="radio" name="exp_push_page" value="push" <?php echo $exp_push_page_select; ?> ><?php _e('Yes','expressbar') ?></label>
 				</td>
 			</tr> */ ?>
 			

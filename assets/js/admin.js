@@ -159,9 +159,9 @@
 		});
 
 		// dwpb push page
-		$('[name=dwpb_push_page]').change(function(){
-			var dwpb_push_page = $(this).val();
-			if (dwpb_push_page === 'push' ) {
+		$('[name=exp_push_page]').change(function(){
+			var exp_push_page = $(this).val();
+			if (exp_push_page === 'push' ) {
 				$('.fixtop').attr('checked','checked');
 			}
 		});
