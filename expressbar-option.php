@@ -218,7 +218,7 @@ function exb_settings_page() {
 
 			<?php /* Remove abiltity to put at bottom
 			<tr>
-				<th scope="row"><?php _e('Show promobar at bottom','expressbar') ?></th>
+				<th scope="row"><?php _e('Show Expressbar at bottom','expressbar') ?></th>
 				<td>
 					<?php
 						$exb_show_bottom = get_option('exb_show_bottom');

@@ -30,7 +30,7 @@
 	$(document).ready(function(){
 		// Countdown
 		$('.exb-counter').countdown({
-			timestamp : (new Date()).getTime() + (dwpb.timeleft * 1000),
+			timestamp : (new Date()).getTime() + (exb.timeleft * 1000),
 			callback: function(d, h, m, s){
 				if( d === 0 && h === 0 && m === 0 && s === 0 ) {
 					$('.exb-message').removeClass('hide');
@@ -69,15 +69,15 @@
 			});
 		}
 
-		// Close Promobar
+		// Close Expressbar
 		if ( $('body').hasClass('exb-allow-close') ) {
-			function remove_promobar() {
+			function remove_expressbar() {
 				$('#expressbar, .exb-close').remove();
 				$('body').removeClass('exb-cover-page exb-remain-top expressbar-open exb-push-page');
 			}
 
 			$('.exb-close').click(function(){
-				remove_promobar();
+				remove_expressbar();
 			});
 
 			$('.exb-close').click(function(){
@@ -87,7 +87,7 @@
 			});
 
 			if ( $.cookie('exb-close') === 'exb-close-' + exb.reset_cookie ) {
-				remove_promobar();
+				remove_expressbar();
 			}
 		}
 	});

@@ -297,7 +297,7 @@ if ( ! function_exists('exb')) {
 		$timezone_format = _x('Y-m-d G:i:s', 'timezone date format');
 		$exb_reset_cookie_value = get_option( 'exb_reset_cookie', 2 );
 
-		wp_localize_script( 'exb_countdown', 'dwpb', array(
+		wp_localize_script( 'exb_countdown', 'exb', array(
 			'timeleft'	=> strtotime($timeleft) - strtotime(date_i18n($timezone_format)),
 			'reset_cookie' => $exb_reset_cookie_value
 		));
@@ -327,7 +327,7 @@ if ( ! function_exists('exb')) {
 		}
 
 		$timezone_format = _x('Y-m-d G:i:s', 'timezone date format');
-		wp_localize_script( 'exb_countdown', 'dwpb', array(
+		wp_localize_script( 'exb_countdown', 'exb', array(
 			'timeleft'	=> strtotime($timeleft) - strtotime(date_i18n($timezone_format)),
 			'ajax_url'               => admin_url( 'admin-ajax.php' ),
 		));

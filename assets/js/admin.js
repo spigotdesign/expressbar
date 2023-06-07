@@ -50,7 +50,7 @@
 		// Expressbar Countdown
 		// --------------------------------
 		$('.exb-counter').countdown({
-			timestamp : (new Date()).getTime() + (dwpb.timeleft * 1000),
+			timestamp : (new Date()).getTime() + (exb.timeleft * 1000),
 		});
 
 		// exbcd use
