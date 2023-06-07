@@ -9,7 +9,7 @@
 	$(document).ready(function(){
 		exb_fix_height(); 
 
-		// dwpb bar
+		// Expressbar bar
 		// --------------------------------
 
 		// Text
@@ -27,10 +27,10 @@
 			var val = $(this).val();
 			var link_style = $('[name=exb_link_style]:checked').val();
 			var exb_link_url = $('[name=exb_link_url]').val();
-			var dwpb_message_link = $('.exb-message a').length;
+			var exb_message_link = $('.exb-message a').length;
 
-			if ( ! dwpb_message_link ) {
-				$('.exb-message span').after(' <a href="'+exb_link_url+'">'+ dwpb_message_link +'</a>');
+			if ( ! exb_message_link ) {
+				$('.exb-message span').after(' <a href="'+exb_link_url+'">'+ exb_message_link +'</a>');
 			}
 
 			if (val === '') {
@@ -47,7 +47,7 @@
 		});
 
 
-		// dwpb Countdown
+		// Expressbar Countdown
 		// --------------------------------
 		$('.exb-counter').countdown({
 			timestamp : (new Date()).getTime() + (dwpb.timeleft * 1000),
@@ -106,7 +106,7 @@
 		
 		$('.exb_time_picker').datetimepicker();
 
-		// dwpb font size 
+		// Expressbar font size 
 		$('[name=exb_font_size]').keyup(function(){
 			var val = $(this).val();
 			$('#expressbar').css('font-size' , val + 'px');
@@ -151,7 +151,7 @@
 			}
 		});
 
-		// dwpb remain top
+		// Expressbar remain top
 		$('[name=exb_remain_top]').change(function(){
 			var exb_remain_top = $(this).val();
 			if (exb_remain_top === 'remain-top' ) {
@@ -159,7 +159,7 @@
 			}
 		});
 
-		// dwpb push page
+		// Expressbar push page
 		$('[name=exp_push_page]').change(function(){
 			var exp_push_page = $(this).val();
 			if (exp_push_page === 'push' ) {
@@ -170,7 +170,7 @@
 		// Color pickder
 		// --------------------------------
 
-		// dwpb background color
+		// Expressbar background color
 		$('.color_picker.exb_background_color').wpColorPicker({
 			defaultColor: '#3B3B4F',
 			change: function(event, ui){
@@ -214,7 +214,7 @@
 			}
 		});
 
-		// dwpb link color
+		// Expressbar link color
 		$('.color_picker.exb_link_color').wpColorPicker({
 			defaultColor: '#fff',
 			change: function(event, ui){
@@ -222,7 +222,7 @@
 			},
 		});
 
-		// dwpb button color
+		// Expressbar button color
 		var exb_button_color = '';
 		$('.color_picker.exb_button_color').wpColorPicker({
 			defaultColor: '#333',

@@ -192,8 +192,8 @@ body.exb-allow-close.expressbar-open .exb-close {
   content: "\f343";
 }
 
-.dwpb-remain-top .exb-action,
-.dwpb-remain-top .exb-close {
+.exb-remain-top .exb-action,
+.exb-remain-top .exb-close {
   position: absolute;
 }
 

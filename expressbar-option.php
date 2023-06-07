@@ -422,7 +422,7 @@ function exb_settings_page() {
 				</td>
 			</tr>
 
-			<tr class="dwpb-link-target exbcd <?php echo $exb_hide ?>">
+			<tr class="exb-link-target exbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Open link in a new tab?','expressbar') ?></th>
 				<td>
 					<?php
@@ -488,7 +488,7 @@ function exb_settings_page() {
 				<td><input class="regular-text color_picker exb_border_color" type="text" name="exb_border_color" value="<?php echo $exb_border_color; ?>" /></td>
 			</tr>
 
-			<tr valign="top" class="dwpb-link-color">
+			<tr valign="top" class="exb-link-color">
 				<?php
 					$exb_link_color = get_option('exb_link_color');
 					if ( $exb_link_color == '' ) {
@@ -499,7 +499,7 @@ function exb_settings_page() {
 				<td><input class="regular-text color_picker exb_link_color" type="text" name="exb_link_color" value="<?php echo $exb_link_color; ?>" /></td>
 			</tr>
 
-			<tr class="dwpb-link-style">
+			<tr class="exb-link-style">
 				<th scope="row"><?php _e('Link style','expressbar') ?></th>
 				<td>
 					<?php
@@ -563,7 +563,7 @@ if( ! function_exists('exb_reset_cookie') ) {
 
 		wp_send_json_success( $exb_reset_cookie_value );
 	}
-	add_action( 'wp_ajax_dwpb-reset-cookie', 'exb_reset_cookie' );
+	add_action( 'wp_ajax_exb-reset-cookie', 'exb_reset_cookie' );
 }
 
 ?>
