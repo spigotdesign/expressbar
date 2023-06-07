@@ -189,10 +189,10 @@ if ( ! function_exists('exb')) {
 		<div id="expressbar" class=" <?php echo $exb_remain_top; ?> ">
 			<div class="exb-inner">
 				<?php 
-					$dwpbcd_hide = 'hide';
+					$exb_hide = 'hide';
 					$dwpb_hide = '';
 					if ($expcd_use == 'yes') {
-						$dwpbcd_hide = '';
+						$exb_hide = '';
 						$dwpb_hide = 'hide';
 					}
 
@@ -212,7 +212,7 @@ if ( ! function_exists('exb')) {
 					<?php echo $exb_link; ?>
 				</div>
 					
-				<div class="exb-countdown <?php echo $dwpbcd_hide; ?>">
+				<div class="exb-countdown <?php echo $exb_hide; ?>">
 					<div class="exb-counter"></div>
 					<span class="dwpbcd-content"><?php echo $exbcd_text; ?></span>
 					<?php echo $exbcd_link; ?>

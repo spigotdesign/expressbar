@@ -344,14 +344,14 @@ function exb_settings_page() {
 				</td>
 			</tr>
 
-			<tr class="dwpb-link-url">
+			<tr class="exb-link-url">
 				<th scope="row"><?php _e('Link URL','expressbar') ?></th>
 				<td>
 					<input class="regular-text" type="text" name="exb_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo get_option('exb_link_url'); ?>" />
 				</td>
 			</tr>
 
-			<tr class="dwpb-link-target">
+			<tr class="exb-link-target">
 				<th scope="row"><?php _e('Open link in a new tab?','expressbar') ?></th>
 				<td>
 					<?php
@@ -388,12 +388,12 @@ function exb_settings_page() {
 
 
 			<?php
-				$dwpbcd_hide = 'hide';
+				$exb_hide = 'hide';
 				if (get_option('expcd_use') == 'yes') {
-					$dwpbcd_hide = '';
+					$exb_hide = '';
 				}
 			?>
-			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
+			<tr valign="top" class="dwpbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Time to','expressbar') ?></th>
 				<td>
 					<input class="regular-text exb_time_picker" type="text" name="exbcd_time_left" value="<?php echo get_option('exbcd_time_left'); ?>" />
@@ -401,28 +401,28 @@ function exb_settings_page() {
 				</td>
 			</tr>
 
-			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
+			<tr valign="top" class="dwpbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Text','expressbar') ?></th>
 				<td>
 					<input class="regular-text" type="text" name="exbcd_text" placeholder="<?php _e('Hello. Add your message here.','expressbar'); ?>" value="<?php echo get_option('exbcd_text'); ?>" />
 				</td>
 			</tr>
 
-			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
+			<tr valign="top" class="dwpbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Link Text','expressbar') ?></th>
 				<td>
 					<input class="regular-text" type="text" name="exbcd_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo get_option('exbcd_link_text'); ?>" />
 				</td>
 			</tr>
 
-			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
+			<tr valign="top" class="dwpbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Link URL','expressbar') ?></th>
 				<td>
 					<input class="regular-text" type="text" name="exbcd_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo get_option('exbcd_link_url'); ?>" />
 				</td>
 			</tr>
 
-			<tr class="dwpb-link-target dwpbcd <?php echo $dwpbcd_hide ?>">
+			<tr class="dwpb-link-target dwpbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Open link in a new tab?','expressbar') ?></th>
 				<td>
 					<?php
