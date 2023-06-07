@@ -120,7 +120,7 @@
 			exb_fix_height();
 		});
 
-		/* dwpb font family
+		/* exb font family
 		$('[name=exb_font_family]').change(function(){
 			var val = $(this).val();
 			if (val !== '0') {
@@ -178,7 +178,7 @@
 			},
 		});
 		
-		/* dwpb background image removed
+		/* exb background image removed
 		$('.exb_background_image').change(function(){
 			var exb_background_image = $(this).val();
 			if ( exb_background_image == '' ) {
@@ -254,11 +254,11 @@
 		$('.ajax-load img').fadeIn();
 		var nonce = $(this).data('nonce');
 		$.ajax({
-      url: dwpb.ajax_url,
+      url: exb.ajax_url,
       type: 'POST',
       dataType: 'json',
       data: {
-        action: 'dwpb-reset-cookie',
+        action: 'exb-reset-cookie',
         nonce: nonce
       },
       timeout: 10000
