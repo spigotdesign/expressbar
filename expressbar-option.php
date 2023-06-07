@@ -127,7 +127,7 @@ function exb_settings_page() {
 			<tr valign="top">
 				<th scope="row"><?php _e('Start on','expressbar') ?></th>
 				<td>
-					<input class="regular-text dwpb_time_picker" type="text" name="exb_start" value="<?php echo get_option('exb_start'); ?>" />
+					<input class="regular-text exb_time_picker" type="text" name="exb_start" value="<?php echo get_option('exb_start'); ?>" />
 					<span class="description"><?php _e('Leave blank if you want to start the bar immediately!') ?></span>
 				</td>
 			</tr>
@@ -135,7 +135,7 @@ function exb_settings_page() {
 			<tr valign="top">
 				<th scope="row"><?php _e('Stop on','expressbar') ?></th>
 				<td>
-					<input class="regular-text dwpb_time_picker" type="text" name="exb_end" value="<?php echo get_option('exb_end'); ?>" />
+					<input class="regular-text exb_time_picker" type="text" name="exb_end" value="<?php echo get_option('exb_end'); ?>" />
 					<span class="description"><?php _e('Leave blank if you do not want to close the bar!') ?></span>
 				</td>
 			</tr>
@@ -396,7 +396,7 @@ function exb_settings_page() {
 			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
 				<th scope="row"><?php _e('Countdown Time to','expressbar') ?></th>
 				<td>
-					<input class="regular-text dwpb_time_picker" type="text" name="exbcd_time_left" value="<?php echo get_option('exbcd_time_left'); ?>" />
+					<input class="regular-text exb_time_picker" type="text" name="exbcd_time_left" value="<?php echo get_option('exbcd_time_left'); ?>" />
 					<span class="description"><?php _e('This time is based on the server time of your site!') ?></span>
 				</td>
 			</tr>

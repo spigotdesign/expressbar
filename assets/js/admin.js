@@ -104,7 +104,7 @@
 		// General Setting
 		// --------------------------------
 		
-		$('.dwpb_time_picker').datetimepicker();
+		$('.exb_time_picker').datetimepicker();
 
 		// dwpb font size 
 		$('[name=exb_font_size]').keyup(function(){
