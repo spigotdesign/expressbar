@@ -105,18 +105,18 @@ if ( ! function_exists('exb')) {
 		$dwpb_font_color = exb_get_option('dwpb_font_color');
 		$dwpb_border_color = exb_get_option('dwpb_border_color');
 		$dwpb_link_color = exb_get_option('dwpb_link_color');
-		$dwpb_link_style = exb_get_option('dwpb_link_style');
+		$exb_link_style = exb_get_option('exb_link_style');
 		$dwpb_button_color = exb_get_option('dwpb_button_color');
 		$dwpb_custon_style = exb_get_option('dwpb_custon_style');
 
 		$dwpb_link = '';
 		if ( $dwpb_link_text != '' ) {
-			$dwpb_link = ' <a class="'. $dwpb_link_style .'" href="'.$dwpb_link_url.' " target="'. $dwpb_link_target .'"" >'.$dwpb_link_text.'</a>';
+			$dwpb_link = ' <a class="'. $exb_link_style .'" href="'.$dwpb_link_url.' " target="'. $dwpb_link_target .'"" >'.$dwpb_link_text.'</a>';
 		}
 
 		$dwpbcd_link = '';
 		if ( $dwpbcd_link_text != '' ) {
-			$dwpbcd_link = ' <a class="'. $dwpb_link_style .'" href="'.$dwpbcd_link_url.' " target="'. $exbcd_link_target .'"" >'.$dwpbcd_link_text.'</a>';
+			$dwpbcd_link = ' <a class="'. $exb_link_style .'" href="'.$dwpbcd_link_url.' " target="'. $exbcd_link_target .'"" >'.$dwpbcd_link_text.'</a>';
 		}
 	?>
 		<style>
@@ -178,7 +178,7 @@ if ( ! function_exists('exb')) {
 			<?php endif; ?>
 
 			<?php if( $dwpb_button_color != '' ) : ?>
-			#expressbar .dwpb-button {
+			#expressbar .exb-button {
 				background-color: <?php echo $dwpb_button_color; ?>;
 			}
 			<?php endif; ?>

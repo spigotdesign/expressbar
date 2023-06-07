@@ -54,7 +54,7 @@ function register_mysettings() {
 		'dwpb_font_color',
 		'dwpb_border_color',
 		'dwpb_link_color',
-		'dwpb_link_style',
+		'exb_link_style',
 		'dwpb_button_color',
 
 	);
@@ -503,25 +503,25 @@ function exb_settings_page() {
 				<th scope="row"><?php _e('Link style','expressbar') ?></th>
 				<td>
 					<?php
-						$dwpb_link_style = get_option('dwpb_link_style');
-						$dwpb_link_style_select = '';
-						if ( $dwpb_link_style == '' ) {
-							$dwpb_link_style_select = 'checked';
+						$exb_link_style = get_option('exb_link_style');
+						$exb_link_style_select = '';
+						if ( $exb_link_style == '' ) {
+							$exb_link_style_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_style" value="dwpb-button" checked ><?php _e('Button','expressbar') ?></label>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_style" value="" <?php echo $dwpb_link_style_select; ?> ><?php _e('Hyperlink','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="exb_link_style" value="exb-button" checked ><?php _e('Button','expressbar') ?></label>
+					<label style="margin-right: 50px;"><input type="radio" name="exb_link_style" value="" <?php echo $exb_link_style_select; ?> ><?php _e('Hyperlink','expressbar') ?></label>
 				</td>
 			</tr>
 
 			<?php
 				$dwpb_button_color_hide = 'hide';
-				if (get_option('dwpb_link_style') != '') {
+				if (get_option('exb_link_style') != '') {
 					$dwpb_button_color_hide = '';
 				}
 			?>
 
-			<tr valign="top" class="dwpb-button-color <?php echo $dwpb_button_color_hide; ?>">
+			<tr valign="top" class="exb-button-color <?php echo $dwpb_button_color_hide; ?>">
 				<?php
 					$dwpb_button_color = get_option('dwpb_button_color');
 					if ( $dwpb_button_color == '' ) {
