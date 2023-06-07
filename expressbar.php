@@ -214,19 +214,19 @@ if ( ! function_exists('exb')) {
 					
 				<div class="exb-countdown <?php echo $exb_hide; ?>">
 					<div class="exb-counter"></div>
-					<span class="dwpbcd-content"><?php echo $exbcd_text; ?></span>
+					<span class="exbcd-content"><?php echo $exbcd_text; ?></span>
 					<?php echo $exbcd_link; ?>
 				</div>
 			</div>
 		</div>
 		<?php 
 			$exb_close = exb_get_option('exb_close');
-			$dwpb_action_class = 'exb-action';
+			$exb_action_class = 'exb-action';
 			if ($exb_close == 'yes') {
-				$dwpb_action_class = 'exb-close';
+				$exb_action_class = 'exb-close';
 			}
 		?>
-		<span class="<?php echo $dwpb_action_class; ?>"></span>
+		<span class="<?php echo $exb_action_class; ?>"></span>
 	<?php
 
 	endif; // Show on
@@ -235,9 +235,9 @@ if ( ! function_exists('exb')) {
 	$exb_enable = exb_get_option('exb_enable');
 	$exb_start = strtotime(exb_get_option('exb_start'));
 	$exb_end = strtotime(exb_get_option('exb_end'));	
-	$dwpb_timezone = strtotime(date_i18n('Y-m-d G:i:s'));
+	$exb_timezone = strtotime(date_i18n('Y-m-d G:i:s'));
 
-	if ( ( $exb_start < $dwpb_timezone && ( $dwpb_timezone < $exb_end || $exb_end == '' ) ) && $exb_enable == 'yes' ) {
+	if ( ( $exb_start < $exb_timezone && ( $exb_timezone < $exb_end || $exb_end == '' ) ) && $exb_enable == 'yes' ) {
 		add_action( 'wp_footer', 'expressbar', 100);
 	}
 	add_action( 'exb_preview', 'expressbar');
@@ -266,7 +266,7 @@ if ( ! function_exists('exb')) {
 		}
 
 		if ( ! wp_script_is( 'jquery.countdown.js', 'enqueued' )) {
-			wp_enqueue_script( 'dwpb_countdown', EXB_PATH . 'assets/js/vendor/jquery.countdown.js',true);
+			wp_enqueue_script( 'exb_countdown', EXB_PATH . 'assets/js/vendor/jquery.countdown.js',true);
 		}
 
 		if ( ! wp_script_is( 'jquery.cookie.js', 'enqueued' )) {
@@ -282,7 +282,7 @@ if ( ! function_exists('exb')) {
 			EXB_PATH . 'assets/js/main.js', 
 			array(
 				'jquery',
-				'dwpb_countdown',
+				'exb_countdown',
 				'dwpb_cookie'
 			),
 			'1.0',
@@ -295,21 +295,21 @@ if ( ! function_exists('exb')) {
 		}
 
 		$timezone_format = _x('Y-m-d G:i:s', 'timezone date format');
-		$dwpb_reset_cookie_value = get_option( 'dwpb_reset_cookie', 2 );
+		$exb_reset_cookie_value = get_option( 'exb_reset_cookie', 2 );
 
-		wp_localize_script( 'dwpb_countdown', 'dwpb', array(
+		wp_localize_script( 'exb_countdown', 'dwpb', array(
 			'timeleft'	=> strtotime($timeleft) - strtotime(date_i18n($timezone_format)),
-			'reset_cookie' => $dwpb_reset_cookie_value
+			'reset_cookie' => $exb_reset_cookie_value
 		));
 
 		endif; // Show on
 	}
-	if ( ( $exb_start < $dwpb_timezone && ( $dwpb_timezone < $exb_end || $exb_end == '' ) ) && $exb_enable == 'yes' ) {
+	if ( ( $exb_start < $exb_timezone && ( $exb_timezone < $exb_end || $exb_end == '' ) ) && $exb_enable == 'yes' ) {
 		add_action( 'wp_footer', 'exb_scripts');
 	}
 
 	// Enqueue admin scripts
-	function dwpb_admin_scripts() {
+	function exb_admin_scripts() {
 		if ( ! wp_script_is( 'jquery', 'enqueued' )) {
 			wp_enqueue_script( 'jquery');
 		}
@@ -318,7 +318,7 @@ if ( ! function_exists('exb')) {
 		wp_enqueue_style( 'dwpb_style', EXB_PATH . 'assets/css/main.css');
 		
 		if ( ! wp_script_is( 'jquery.countdown.js', 'enqueued' )) {
-			wp_enqueue_script( 'dwpb_countdown', EXB_PATH . 'assets/js/vendor/jquery.countdown.js',true);
+			wp_enqueue_script( 'exb_countdown', EXB_PATH . 'assets/js/vendor/jquery.countdown.js',true);
 		}
 
 		$timeleft = '';
@@ -327,7 +327,7 @@ if ( ! function_exists('exb')) {
 		}
 
 		$timezone_format = _x('Y-m-d G:i:s', 'timezone date format');
-		wp_localize_script( 'dwpb_countdown', 'dwpb', array(
+		wp_localize_script( 'exb_countdown', 'dwpb', array(
 			'timeleft'	=> strtotime($timeleft) - strtotime(date_i18n($timezone_format)),
 			'ajax_url'               => admin_url( 'admin-ajax.php' ),
 		));
@@ -348,18 +348,18 @@ if ( ! function_exists('exb')) {
 		wp_enqueue_style( 'dwpb_admin_style', EXB_PATH . 'assets/css/admin.css');
 		
 		wp_enqueue_script( 
-			'dwpb_admin_script', 
+			'exb_admin_script', 
 			EXB_PATH . 'assets/js/admin.js',
 			array(
 				'jquery',
 				'datetimepicker_jquery',
 				'wp-color-picker',
-				'dwpb_countdown'
+				'exb_countdown'
 			),
 			'1.0',
 			true
 		);
 	}
-	add_action('admin_enqueue_scripts','dwpb_admin_scripts');
+	add_action('admin_enqueue_scripts','exb_admin_scripts');
 }
 ?>

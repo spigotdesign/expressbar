@@ -76,13 +76,13 @@ body.exb-allow-close.expressbar-open .exb-close {
 }
 
 .exb-content,
-.dwpbcd-content {
+.exbcd-content {
   display: inline-block;
 }
 
 @media (max-width: 767px) {
   .exb-content,
-.dwpbcd-content {
+.exbcd-content {
     display: block;
   }
 }

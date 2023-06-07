@@ -393,7 +393,7 @@ function exb_settings_page() {
 					$exb_hide = '';
 				}
 			?>
-			<tr valign="top" class="dwpbcd <?php echo $exb_hide ?>">
+			<tr valign="top" class="exbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Time to','expressbar') ?></th>
 				<td>
 					<input class="regular-text exb_time_picker" type="text" name="exbcd_time_left" value="<?php echo get_option('exbcd_time_left'); ?>" />
@@ -401,28 +401,28 @@ function exb_settings_page() {
 				</td>
 			</tr>
 
-			<tr valign="top" class="dwpbcd <?php echo $exb_hide ?>">
+			<tr valign="top" class="exbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Text','expressbar') ?></th>
 				<td>
 					<input class="regular-text" type="text" name="exbcd_text" placeholder="<?php _e('Hello. Add your message here.','expressbar'); ?>" value="<?php echo get_option('exbcd_text'); ?>" />
 				</td>
 			</tr>
 
-			<tr valign="top" class="dwpbcd <?php echo $exb_hide ?>">
+			<tr valign="top" class="exbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Link Text','expressbar') ?></th>
 				<td>
 					<input class="regular-text" type="text" name="exbcd_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo get_option('exbcd_link_text'); ?>" />
 				</td>
 			</tr>
 
-			<tr valign="top" class="dwpbcd <?php echo $exb_hide ?>">
+			<tr valign="top" class="exbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Link URL','expressbar') ?></th>
 				<td>
 					<input class="regular-text" type="text" name="exbcd_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo get_option('exbcd_link_url'); ?>" />
 				</td>
 			</tr>
 
-			<tr class="dwpb-link-target dwpbcd <?php echo $exb_hide ?>">
+			<tr class="dwpb-link-target exbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Open link in a new tab?','expressbar') ?></th>
 				<td>
 					<?php
@@ -537,7 +537,7 @@ function exb_settings_page() {
 	</div>
     <?php submit_button(); ?>
     <p class="submit">
-    	<input type="button" id="dwpb_reset_cookie" class="button"  value="<?php _e('Reset Cookie') ?>" data-nonce="<?php echo wp_create_nonce( '_dwpb_reset_cookie' ); ?>">
+    	<input type="button" id="exb_reset_cookie" class="button"  value="<?php _e('Reset Cookie') ?>" data-nonce="<?php echo wp_create_nonce( '_exb_reset_cookie' ); ?>">
     	<span class="ajax-load">
     		<span><?php _e('Success') ?></span>
     		<img src="<?php echo EXB_PATH . 'assets/img/ajax-loader.gif' ?>">
@@ -548,22 +548,22 @@ function exb_settings_page() {
 <?php }
 
 // Ajax
-if( ! function_exists('dwpb_reset_cookie') ) {
-	function dwpb_reset_cookie() {
-		$ajax_referer = check_ajax_referer( '_dwpb_reset_cookie', 'nonce', false );
-		if( ! wp_verify_nonce( $_POST['nonce'], '_dwpb_reset_cookie' ) || ! $ajax_referer ) {
+if( ! function_exists('exb_reset_cookie') ) {
+	function exb_reset_cookie() {
+		$ajax_referer = check_ajax_referer( '_exb_reset_cookie', 'nonce', false );
+		if( ! wp_verify_nonce( $_POST['nonce'], '_exb_reset_cookie' ) || ! $ajax_referer ) {
 			wp_send_json_error( __('Are you cheating huh?','expressbar') );
 		}
 
-		$dwpb_reset_cookie_value = get_option( 'dwpb_reset_cookie', 2 );
-		if ( $dwpb_reset_cookie_value >= 2 ) {
-			$dwpb_reset_cookie_value = intval($dwpb_reset_cookie_value) + 1;
-			update_option( 'dwpb_reset_cookie', $dwpb_reset_cookie_value );
+		$exb_reset_cookie_value = get_option( 'exb_reset_cookie', 2 );
+		if ( $exb_reset_cookie_value >= 2 ) {
+			$exb_reset_cookie_value = intval($exb_reset_cookie_value) + 1;
+			update_option( 'exb_reset_cookie', $exb_reset_cookie_value );
 		}
 
-		wp_send_json_success( $dwpb_reset_cookie_value );
+		wp_send_json_success( $exb_reset_cookie_value );
 	}
-	add_action( 'wp_ajax_dwpb-reset-cookie', 'dwpb_reset_cookie' );
+	add_action( 'wp_ajax_dwpb-reset-cookie', 'exb_reset_cookie' );
 }
 
 ?>
