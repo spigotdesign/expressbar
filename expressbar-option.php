@@ -106,7 +106,7 @@ function exb_settings_page() {
     <?php do_settings_sections( 'exb-settings-group' ); ?>
 
 	<?php do_action( 'exb_preview' ); ?>
-    <div id="dwpb-steps">
+    <div id="exb-steps">
 		<h3><?php _e('General Settings','expressbar') ?></h3>
 		<table class="form-table">
 			<tr>
