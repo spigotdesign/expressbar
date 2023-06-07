@@ -43,12 +43,12 @@ function register_mysettings() {
 		//Configure ExpressBar
 		//'exb_bar_text' ,
 		//'exb_link_text',
-		//'dwpb_link_url',
+		//'exb_link_url',
 		'exb_link_target',
 
 		//Choose the Style
 		//'exb_font_family',
-		// 'dwpb_font_size',
+		// 'exb_font_size',
 		'exb_background_color',
 		// 'exb_background_image',
 		'exb_font_color',
@@ -72,7 +72,7 @@ function register_mysettings() {
 	$exb_textfield_array = array(
 		'exb_bar_text',
 		'exb_link_text',
-		'dwpb_link_url',
+		'exb_link_url',
 		'dwpbcd_text',
 		'dwpbcd_link_text',
 		'dwpbcd_link_url',
@@ -347,7 +347,7 @@ function exb_settings_page() {
 			<tr class="dwpb-link-url">
 				<th scope="row"><?php _e('Link URL','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="dwpb_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo get_option('dwpb_link_url'); ?>" />
+					<input class="regular-text" type="text" name="exb_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo get_option('exb_link_url'); ?>" />
 				</td>
 			</tr>
 

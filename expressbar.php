@@ -95,11 +95,11 @@ if ( ! function_exists('exb')) {
 		$exbcd_link_target = exb_get_option('exbcd_link_target');
 
 		$exb_link_text = exb_get_option('exb_link_text');
-		$exb_link_url = exb_get_option('dwpb_link_url');
+		$exb_link_url = exb_get_option('exb_link_url');
 		$exb_link_target = exb_get_option('exb_link_target');
 
 		//$exb_font_family = exb_get_option('exb_font_family');
-		// $dwpb_font_size = exb_get_option('dwpb_font_size');
+		// $exb_font_size = exb_get_option('exb_font_size');
 		$exb_background_color = exb_get_option('exb_background_color');
 		// $exb_background_image = exb_get_option('exb_background_image');
 		$exb_font_color = exb_get_option('exb_font_color');
@@ -144,13 +144,13 @@ if ( ! function_exists('exb')) {
 			}
 			<?php endif; ?>
 			<?php /* Remove font based options from styles
-			<?php if( $dwpb_font_size != '' ) : ?>
+			<?php if( $exb_font_size != '' ) : ?>
 			#expressbar {
-				font-size: <?php echo $dwpb_font_size; ?>px;
+				font-size: <?php echo $exb_font_size; ?>px;
 			}
 			<?php endif; ?>
 
-			<?php if( $dwpb_font_size > 20 ) : ?>
+			<?php if( $exb_font_size > 20 ) : ?>
 			#expressbar {
 				line-height: 1.2;
 			}

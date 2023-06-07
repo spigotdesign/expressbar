@@ -26,11 +26,11 @@
 		$('[name=exb_link_text]').keyup(function(){
 			var val = $(this).val();
 			var link_style = $('[name=exb_link_style]:checked').val();
-			var dwpb_link_url = $('[name=dwpb_link_url]').val();
+			var exb_link_url = $('[name=exb_link_url]').val();
 			var dwpb_message_link = $('.exb-message a').length;
 
 			if ( ! dwpb_message_link ) {
-				$('.exb-message span').after(' <a href="'+dwpb_link_url+'">'+ dwpb_message_link +'</a>');
+				$('.exb-message span').after(' <a href="'+exb_link_url+'">'+ dwpb_message_link +'</a>');
 			}
 
 			if (val === '') {
@@ -107,7 +107,7 @@
 		$('.dwpb_time_picker').datetimepicker();
 
 		// dwpb font size 
-		$('[name=dwpb_font_size]').keyup(function(){
+		$('[name=exb_font_size]').keyup(function(){
 			var val = $(this).val();
 			$('#expressbar').css('font-size' , val + 'px');
 
