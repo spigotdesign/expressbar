@@ -56,7 +56,7 @@ if ( ! function_exists('exb')) {
 				}
 
 				/* Remove remain at top option - default yes
-				if ( $exb_remain_top == 'remain-top' ) $classes[] = 'dwpb-remain-top';
+				if ( $exb_remain_top == 'remain-top' ) $classes[] = 'exb-remain-top';
 				*/
 				if ($exb_responsive_extra_small) $classes[] = 'exb_responsive_extra_small';
 				if ($exb_responsive_small) $classes[] = 'exb_responsive_small';
@@ -189,11 +189,11 @@ if ( ! function_exists('exb')) {
 		<div id="expressbar" class=" <?php echo $exb_remain_top; ?> ">
 			<div class="exb-inner">
 				<?php 
-					$exb_hide = 'hide';
-					$dwpb_hide = '';
+					$exbcd_hide = 'hide';
+					$exb_hide = '';
 					if ($expcd_use == 'yes') {
-						$exb_hide = '';
-						$dwpb_hide = 'hide';
+						$exbcd_hide = '';
+						$exb_hide = 'hide';
 					}
 
 					$exb_bar_text = exb_get_option('exb_bar_text');
@@ -207,12 +207,12 @@ if ( ! function_exists('exb')) {
 					}
 				?>
 
-				<div class="exb-message <?php echo $dwpb_hide; ?>">
+				<div class="exb-message <?php echo $exb_hide; ?>">
 					<span class="exb-content"><?php echo $exb_bar_text; ?></span>
 					<?php echo $exb_link; ?>
 				</div>
 					
-				<div class="exb-countdown <?php echo $exb_hide; ?>">
+				<div class="exb-countdown <?php echo $exbcd_hide; ?>">
 					<div class="exb-counter"></div>
 					<span class="exbcd-content"><?php echo $exbcd_text; ?></span>
 					<?php echo $exbcd_link; ?>
@@ -259,7 +259,7 @@ if ( ! function_exists('exb')) {
 		) :
 
 		// Front end
-		wp_enqueue_style( 'dwpb_style', EXB_PATH . 'assets/css/main.css');
+		wp_enqueue_style( 'exb_style', EXB_PATH . 'assets/css/main.css');
 
 		if ( ! wp_script_is( 'jquery', 'enqueued' )) {
 			wp_enqueue_script( 'jquery');
@@ -315,7 +315,7 @@ if ( ! function_exists('exb')) {
 		}
 
 		// Front end
-		wp_enqueue_style( 'dwpb_style', EXB_PATH . 'assets/css/main.css');
+		wp_enqueue_style( 'exb_style', EXB_PATH . 'assets/css/main.css');
 		
 		if ( ! wp_script_is( 'jquery.countdown.js', 'enqueued' )) {
 			wp_enqueue_script( 'exb_countdown', EXB_PATH . 'assets/js/vendor/jquery.countdown.js',true);
@@ -345,7 +345,7 @@ if ( ! function_exists('exb')) {
 			wp_enqueue_style( 'datetimepicker_style', EXB_PATH . 'assets/js/vendor/datetimepicker/jquery.datetimepicker.css',true);
 		}
 
-		wp_enqueue_style( 'dwpb_admin_style', EXB_PATH . 'assets/css/admin.css');
+		wp_enqueue_style( 'exb_admin_style', EXB_PATH . 'assets/css/admin.css');
 		
 		wp_enqueue_script( 
 			'exb_admin_script', 
