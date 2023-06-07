@@ -49,13 +49,13 @@ function register_mysettings() {
 		//Choose the Style
 		//'exb_font_family',
 		// 'dwpb_font_size',
-		'dwpb_background_color',
-		'dwpb_background_image',
-		'dwpb_font_color',
-		'dwpb_border_color',
+		'exb_background_color',
+		// 'exb_background_image',
+		'exb_font_color',
+		'exb_border_color',
 		'dwpb_link_color',
 		'exb_link_style',
-		'dwpb_button_color',
+		'exb_button_color',
 
 	);
 
@@ -105,7 +105,7 @@ function exb_settings_page() {
     <?php settings_fields( 'exb-settings-group' ); ?>
     <?php do_settings_sections( 'exb-settings-group' ); ?>
 
-	<?php do_action( 'dwpb_previvew' ); ?>
+	<?php do_action( 'exb_preview' ); ?>
     <div id="dwpb-steps">
 		<h3><?php _e('General Settings','expressbar') ?></h3>
 		<table class="form-table">
@@ -443,49 +443,49 @@ function exb_settings_page() {
 
 			<tr valign="top">
 				<?php
-					$dwpb_background_color = get_option('dwpb_background_color');
-					if ( $dwpb_background_color == '' ) {
-						$dwpb_background_color = '#3B3B4F';
+					$exb_background_color = get_option('exb_background_color');
+					if ( $exb_background_color == '' ) {
+						$exb_background_color = '#3B3B4F';
 					}
 				?>
 				<th scope="row"><?php _e('Background Color','expressbar') ?></th>
-				<td><input class="regular-text color_picker dwpb_background_color" type="text" name="dwpb_background_color" value="<?php echo $dwpb_background_color; ?>" /></td>
+				<td><input class="regular-text color_picker exb_background_color" type="text" name="exb_background_color" value="<?php echo $exb_background_color; ?>" /></td>
 			</tr>
 			<?php /* Remove background image
 			<tr valign="top">
 				<?php
-					$dwpb_background_image = get_option('dwpb_background_image');
-					if ( $dwpb_background_image == '' ) {
-						$dwpb_background_image = '';
+					$exb_background_image = get_option('exb_background_image');
+					if ( $exb_background_image == '' ) {
+						$exb_background_image = '';
 					}
 				?>
 				<th scope="row"><?php _e('Background Image','expressbar') ?></th>
 				<td>
-					<input class="regular-text dwpb_background_image" type="text" name="dwpb_background_image" value="<?php echo $dwpb_background_image; ?>" placeholder="<?php _e('http://www.yoursite.com/image.jpg','expressbar'); ?>" />
+					<input class="regular-text exb_background_image" type="text" name="exb_background_image" value="<?php echo $exb_background_image; ?>" placeholder="<?php _e('http://www.yoursite.com/image.jpg','expressbar'); ?>" />
 					<span class="description"><?php _e('Support image formats:: jpg, png, gif') ?></span>
 				</td>
 			</tr>
 			*/ ?>
 			<tr valign="top">
 				<?php
-					$dwpb_font_color = get_option('dwpb_font_color');
-					if ( $dwpb_font_color == '' ) {
-						$dwpb_font_color = '#fff';
+					$exb_font_color = get_option('exb_font_color');
+					if ( $exb_font_color == '' ) {
+						$exb_font_color = '#fff';
 					}
 				?>
 				<th scope="row"><?php _e('Text Color','expressbar') ?></th>
-				<td><input class="regular-text color_picker dwpb_font_color" type="text" name="dwpb_font_color" value="<?php echo $dwpb_font_color; ?>" /></td>
+				<td><input class="regular-text color_picker exb_font_color" type="text" name="exb_font_color" value="<?php echo $exb_font_color; ?>" /></td>
 			</tr>
 
 			<tr valign="top">
 				<?php
-					$dwpb_border_color = get_option('dwpb_border_color');
-					if ( $dwpb_border_color == '' ) {
-						$dwpb_border_color = '';
+					$exb_border_color = get_option('exb_border_color');
+					if ( $exb_border_color == '' ) {
+						$exb_border_color = '';
 					}
 				?>
 				<th scope="row"><?php _e('Bar Border Color','expressbar') ?></th>
-				<td><input class="regular-text color_picker dwpb_border_color" type="text" name="dwpb_border_color" value="<?php echo $dwpb_border_color; ?>" /></td>
+				<td><input class="regular-text color_picker exb_border_color" type="text" name="exb_border_color" value="<?php echo $exb_border_color; ?>" /></td>
 			</tr>
 
 			<tr valign="top" class="dwpb-link-color">
@@ -515,21 +515,21 @@ function exb_settings_page() {
 			</tr>
 
 			<?php
-				$dwpb_button_color_hide = 'hide';
+				$exb_button_color_hide = 'hide';
 				if (get_option('exb_link_style') != '') {
-					$dwpb_button_color_hide = '';
+					$exb_button_color_hide = '';
 				}
 			?>
 
-			<tr valign="top" class="exb-button-color <?php echo $dwpb_button_color_hide; ?>">
+			<tr valign="top" class="exb-button-color <?php echo $exb_button_color_hide; ?>">
 				<?php
-					$dwpb_button_color = get_option('dwpb_button_color');
-					if ( $dwpb_button_color == '' ) {
-						$dwpb_button_color = '#333';
+					$exb_button_color = get_option('exb_button_color');
+					if ( $exb_button_color == '' ) {
+						$exb_button_color = '#333';
 					}
 				?>
 				<th scope="row"><?php _e('Button Color','expressbar') ?></th>
-				<td><input class="regular-text color_picker dwpb_button_color" type="text" name="dwpb_button_color" value="<?php echo $dwpb_button_color; ?>" /></td>
+				<td><input class="regular-text color_picker exb_button_color" type="text" name="exb_button_color" value="<?php echo $exb_button_color; ?>" /></td>
 			</tr>
 
 			

@@ -171,34 +171,34 @@
 		// --------------------------------
 
 		// dwpb background color
-		$('.color_picker.dwpb_background_color').wpColorPicker({
+		$('.color_picker.exb_background_color').wpColorPicker({
 			defaultColor: '#3B3B4F',
 			change: function(event, ui){
 				$("#expressbar").css( 'background-color', ui.color.toString());
 			},
 		});
 		
-		// dwpb background image
-		$('.dwpb_background_image').change(function(){
-			var dwpb_background_image = $(this).val();
-			if ( dwpb_background_image == '' ) {
+		/* dwpb background image removed
+		$('.exb_background_image').change(function(){
+			var exb_background_image = $(this).val();
+			if ( exb_background_image == '' ) {
 				$("#expressbar").css( 'background-image', 'none' );
 			} else {
-				console.log(dwpb_background_image);
-				$("#expressbar").css( 'background-image', 'url(' + dwpb_background_image + ')' );
+				console.log(exb_background_image);
+				$("#expressbar").css( 'background-image', 'url(' + exb_background_image + ')' );
 			}
-		});
+		}); */
 
-		// dwpb font color
-		$('.color_picker.dwpb_font_color').wpColorPicker({
+		// font color
+		$('.color_picker.exb_font_color').wpColorPicker({
 			defaultColor: '#fff',
 			change: function(event, ui){
 				$("#expressbar, .exb-action").css( 'color', ui.color.toString());	
 			},
 		});
 
-		// dwpb border color
-		$('.color_picker.dwpb_border_color').wpColorPicker({
+		// border color
+		$('.color_picker.exb_border_color').wpColorPicker({
 			defaultColor: '',
 			change: function(event, ui){
 				$("#expressbar").css({ 'border-color': ui.color.toString(), 'border-width': '0 0 3px' });
@@ -223,12 +223,12 @@
 		});
 
 		// dwpb button color
-		var dwpb_button_color = '';
-		$('.color_picker.dwpb_button_color').wpColorPicker({
+		var exb_button_color = '';
+		$('.color_picker.exb_button_color').wpColorPicker({
 			defaultColor: '#333',
 			change: function(event, ui){
 				$("#expressbar a").css( 'background', ui.color.toString());
-				dwpb_button_color = ui.color.toString();
+				exb_button_color = ui.color.toString();
 			},
 		});
 
@@ -238,7 +238,7 @@
 			if (exb_link_style !== '' ) {
 				$('#expressbar a').addClass(exb_link_style);
 				$('tr.exb-button-color').show();
-				$("#expressbar a").css( 'background', dwpb_button_color);
+				$("#expressbar a").css( 'background', exb_button_color);
 			} else {
 				$('#expressbar a').removeClass().removeAttr('style');
 				$('tr.exb-button-color').hide();

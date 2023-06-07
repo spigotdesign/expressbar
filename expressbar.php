@@ -100,14 +100,14 @@ if ( ! function_exists('exb')) {
 
 		//$exb_font_family = exb_get_option('exb_font_family');
 		// $dwpb_font_size = exb_get_option('dwpb_font_size');
-		$dwpb_background_color = exb_get_option('dwpb_background_color');
-		$dwpb_background_image = exb_get_option('dwpb_background_image');
-		$dwpb_font_color = exb_get_option('dwpb_font_color');
-		$dwpb_border_color = exb_get_option('dwpb_border_color');
+		$exb_background_color = exb_get_option('exb_background_color');
+		// $exb_background_image = exb_get_option('exb_background_image');
+		$exb_font_color = exb_get_option('exb_font_color');
+		$exb_border_color = exb_get_option('exb_border_color');
 		$exb_link_color = exb_get_option('dwpb_link_color');
 		$exb_link_style = exb_get_option('exb_link_style');
-		$dwpb_button_color = exb_get_option('dwpb_button_color');
-		$dwpb_custon_style = exb_get_option('dwpb_custon_style');
+		$exb_button_color = exb_get_option('exb_button_color');
+		$exb_custom_style = exb_get_option('exb_custom_style');
 
 		$exb_link = '';
 		if ( $exb_link_text != '' ) {
@@ -121,26 +121,26 @@ if ( ! function_exists('exb')) {
 	?>
 		<style>
 
-			<?php if( $dwpb_background_color != '' ) : ?>
+			<?php if( $exb_background_color != '' ) : ?>
 			#expressbar,
 			.exb-action {
-				background-color: <?php echo $dwpb_background_color; ?>;
+				background-color: <?php echo $exb_background_color; ?>;
 			}
 			<?php endif; ?>
-
-			<?php if( $dwpb_background_image != '' ) : ?>
+			<?php /*  Background image remove *Flag
+			<?php if( $exb_background_image != '' ) : ?>
 			#expressbar {
-				background-image: url(<?php echo $dwpb_background_image; ?>);
+				background-image: url(<?php echo $exb_background_image; ?>);
 				background-position: center;
 				background-size: 100% auto;
 			}
 			<?php endif; ?>
-
-			<?php if( $dwpb_font_color != '' ) : ?>
+			<?php */ ?>
+			<?php if( $exb_font_color != '' ) : ?>
 			#expressbar,
 			.exb-action,
 			body.exb-allow-close.expressbar-open .exb-close {
-				color: <?php echo $dwpb_font_color; ?>;
+				color: <?php echo $exb_font_color; ?>;
 			}
 			<?php endif; ?>
 			<?php /* Remove font based options from styles
@@ -157,13 +157,13 @@ if ( ! function_exists('exb')) {
 			<?php endif; ?>
 			*/ ?>
 
-			<?php if( $dwpb_border_color != '' ) : ?>
+			<?php if( $exb_border_color != '' ) : ?>
 			#expressbar {
-				border-color: <?php echo $dwpb_border_color; ?>;
+				border-color: <?php echo $exb_border_color; ?>;
 			}
 			<?php endif; ?>
 
-			<?php if( $dwpb_border_color == '' ) : ?>
+			<?php if( $exb_border_color == '' ) : ?>
 			#expressbar {
 				border-width: 0;
 			}
@@ -175,14 +175,14 @@ if ( ! function_exists('exb')) {
 			}
 			<?php endif; ?>
 
-			<?php if( $dwpb_button_color != '' ) : ?>
+			<?php if( $exb_button_color != '' ) : ?>
 			#expressbar .exb-button {
-				background-color: <?php echo $dwpb_button_color; ?>;
+				background-color: <?php echo $exb_button_color; ?>;
 			}
 			<?php endif; ?>
 
-			<?php if( $dwpb_custon_style != '' ) : ?>
-				<?php echo $dwpb_custon_style ?>
+			<?php if( $exb_custom_style != '' ) : ?>
+				<?php echo $exb_custom_style ?>
 			<?php endif; ?>
 		</style>
 		
@@ -240,10 +240,10 @@ if ( ! function_exists('exb')) {
 	if ( ( $exb_start < $dwpb_timezone && ( $dwpb_timezone < $exb_end || $exb_end == '' ) ) && $exb_enable == 'yes' ) {
 		add_action( 'wp_footer', 'expressbar', 100);
 	}
-	add_action( 'dwpb_previvew', 'expressbar');
+	add_action( 'exb_preview', 'expressbar');
 
 	// Enqueue scripts
-	function dwpb_scripts() {
+	function exb_scripts() {
 		$is_front_page = exb_get_option('exb_front_page', false);
 		$is_archives = exb_get_option('exb_archives', false);
 		$is_tags = exb_get_option('exb_tags', false);
@@ -305,7 +305,7 @@ if ( ! function_exists('exb')) {
 		endif; // Show on
 	}
 	if ( ( $exb_start < $dwpb_timezone && ( $dwpb_timezone < $exb_end || $exb_end == '' ) ) && $exb_enable == 'yes' ) {
-		add_action( 'wp_footer', 'dwpb_scripts');
+		add_action( 'wp_footer', 'exb_scripts');
 	}
 
 	// Enqueue admin scripts
