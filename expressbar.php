@@ -92,14 +92,14 @@ if ( ! function_exists('exb')) {
 
 		$dwpbcd_link_text = exb_get_option('dwpbcd_link_text');
 		$dwpbcd_link_url = exb_get_option('dwpbcd_link_url');
-		$dwpbcd_link_target = exb_get_option('dwpbcd_link_target');
+		$exbcd_link_target = exb_get_option('exbcd_link_target');
 
-		$exb_link_text = exb_get_option('exb_link_text');
+		$dwpb_link_text = exb_get_option('exb_link_text');
 		$dwpb_link_url = exb_get_option('dwpb_link_url');
-		$dwpb_link_target = exb_get_option('dwpb_link_target');
+		$dwpb_link_target = exb_get_option('exb_link_target');
 
-		$dwpb_font_family = exb_get_option('dwpb_font_family');
-		$dwpb_font_size = exb_get_option('dwpb_font_size');
+		//$exb_font_family = exb_get_option('exb_font_family');
+		// $dwpb_font_size = exb_get_option('dwpb_font_size');
 		$dwpb_background_color = exb_get_option('dwpb_background_color');
 		$dwpb_background_image = exb_get_option('dwpb_background_image');
 		$dwpb_font_color = exb_get_option('dwpb_font_color');
@@ -110,28 +110,18 @@ if ( ! function_exists('exb')) {
 		$dwpb_custon_style = exb_get_option('dwpb_custon_style');
 
 		$dwpb_link = '';
-		if ( $exb_link_text != '' ) {
-			$dwpb_link = ' <a class="'. $dwpb_link_style .'" href="'.$dwpb_link_url.' " target="'. $dwpb_link_target .'"" >'.$exb_link_text.'</a>';
+		if ( $dwpb_link_text != '' ) {
+			$dwpb_link = ' <a class="'. $dwpb_link_style .'" href="'.$dwpb_link_url.' " target="'. $dwpb_link_target .'"" >'.$dwpb_link_text.'</a>';
 		}
 
 		$dwpbcd_link = '';
 		if ( $dwpbcd_link_text != '' ) {
-			$dwpbcd_link = ' <a class="'. $dwpb_link_style .'" href="'.$dwpbcd_link_url.' " target="'. $dwpbcd_link_target .'"" >'.$dwpbcd_link_text.'</a>';
+			$dwpbcd_link = ' <a class="'. $dwpb_link_style .'" href="'.$dwpbcd_link_url.' " target="'. $exbcd_link_target .'"" >'.$dwpbcd_link_text.'</a>';
 		}
 	?>
 		<style>
-			<?php 
-				if( $dwpb_font_family != '' ) : 
-				$font_family = explode(':dw:', $dwpb_font_family );
-			?>
-			@font-face {
-        font-family: "<?php echo $font_family[0]; ?>";
-        src: url('<?php echo $font_family[1] ?>');
-      }
-			#expressbar {
-				font-family: <?php echo $font_family[0] ?>;
-			}
-			<?php endif; ?>
+			
+
 
 			<?php if( $dwpb_background_color != '' ) : ?>
 			#expressbar,
@@ -155,7 +145,7 @@ if ( ! function_exists('exb')) {
 				color: <?php echo $dwpb_font_color; ?>;
 			}
 			<?php endif; ?>
-
+			<?php /* Remove font based options from styles
 			<?php if( $dwpb_font_size != '' ) : ?>
 			#expressbar {
 				font-size: <?php echo $dwpb_font_size; ?>px;
@@ -167,6 +157,7 @@ if ( ! function_exists('exb')) {
 				line-height: 1.2;
 			}
 			<?php endif; ?>
+			*/ ?>
 
 			<?php if( $dwpb_border_color != '' ) : ?>
 			#expressbar {
@@ -198,7 +189,7 @@ if ( ! function_exists('exb')) {
 		</style>
 		
 		<div id="expressbar" class=" <?php echo $exb_remain_top; ?> ">
-			<div class="dwpb-inner">
+			<div class="exb-inner">
 				<?php 
 					$dwpbcd_hide = 'hide';
 					$dwpb_hide = '';
@@ -219,7 +210,7 @@ if ( ! function_exists('exb')) {
 				?>
 
 				<div class="exb-message <?php echo $dwpb_hide; ?>">
-					<span class="dwpb-content"><?php echo $exb_bar_text; ?></span>
+					<span class="exb-content"><?php echo $exb_bar_text; ?></span>
 					<?php echo $dwpb_link; ?>
 				</div>
 					
@@ -301,8 +292,8 @@ if ( ! function_exists('exb')) {
 		);
 
 		$timeleft = '';
-		if ( exb_get_option('dwpbcd_time_left') != '' ) {
-			$timeleft = exb_get_option('dwpbcd_time_left');
+		if ( exb_get_option('exbcd_time_left') != '' ) {
+			$timeleft = exb_get_option('exbcd_time_left');
 		}
 
 		$timezone_format = _x('Y-m-d G:i:s', 'timezone date format');
@@ -333,8 +324,8 @@ if ( ! function_exists('exb')) {
 		}
 
 		$timeleft = '';
-		if ( exb_get_option('dwpbcd_time_left') != '' ) {
-			$timeleft = exb_get_option('dwpbcd_time_left');
+		if ( exb_get_option('exbcd_time_left') != '' ) {
+			$timeleft = exb_get_option('exbcd_time_left');
 		}
 
 		$timezone_format = _x('Y-m-d G:i:s', 'timezone date format');

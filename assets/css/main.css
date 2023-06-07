@@ -75,18 +75,18 @@ body.exb-allow-close.expressbar-open .exb-close {
   text-decoration: none !important;
 }
 
-.dwpb-content,
+.exb-content,
 .dwpbcd-content {
   display: inline-block;
 }
 
 @media (max-width: 767px) {
-  .dwpb-content,
+  .exb-content,
 .dwpbcd-content {
     display: block;
   }
 }
-.dwpb-inner {
+.exb-inner {
   margin: 0 auto;
   overflow: hidden;
 }

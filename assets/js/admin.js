@@ -16,7 +16,7 @@
 		$('[name=exb_bar_text]').keyup(function(){
 			var val = $(this).val(); 
 			if (val !== '') {
-				$('.exb-message .dwpb-content').html(val);
+				$('.exb-message .exb-content').html(val);
 			}
 		}).focusout(function(){ 
 			exb_fix_height();
@@ -120,8 +120,8 @@
 			exb_fix_height();
 		});
 
-		// dwpb font family
-		$('[name=dwpb_font_family]').change(function(){
+		/* dwpb font family
+		$('[name=exb_font_family]').change(function(){
 			var val = $(this).val();
 			if (val !== '0') {
 				var val_array = val.split(':dw:');
@@ -139,6 +139,7 @@
 		}).focusout(function(){
 			exb_fix_height();
 		});
+		*/ 
 
 		// Allow to Close ExpressBar
 		$('[name=exb_close]').change(function(){

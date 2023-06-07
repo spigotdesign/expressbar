@@ -22,36 +22,33 @@ function register_mysettings() {
 		//'exb_show_bottom',
 		'exb_sticky_header',
 		'exb_header_name',
-
 		'exb_responsive_extra_small',
 		'exb_responsive_small',
 		'exb_responsive_medium',
 		'exb_responsive_large',
-
 		'exb_front_page',
 		'exb_archives',
 		'exb_tags',
 		'exb_single_post',
 		'exb_single_page',
-
 		'expcd_use',
 
 		//Configure ExpressBar coutdown
-		'dwpbcd_time_left',
+		'exbcd_time_left',
 		//'dwpbcd_text',
 		//'dwpbcd_link_text',
 		//'dwpbcd_link_url',
-		'dwpbcd_link_target',
+		'exbcd_link_target',
 
 		//Configure ExpressBar
 		//'exb_bar_text' ,
 		//'exb_link_text',
 		//'dwpb_link_url',
-		'dwpb_link_target',
+		'exb_link_target',
 
 		//Choose the Style
-		'dwpb_font_family',
-		'dwpb_font_size',
+		//'exb_font_family',
+		// 'dwpb_font_size',
 		'dwpb_background_color',
 		'dwpb_background_image',
 		'dwpb_font_color',
@@ -358,15 +355,15 @@ function exb_settings_page() {
 				<th scope="row"><?php _e('Open link in a new tab?','expressbar') ?></th>
 				<td>
 					<?php
-						$dwpb_link_target = get_option('dwpb_link_target');
+						$dwpb_link_target = get_option('exb_link_target');
 						$dwpb_link_target_select = '';
 						if ( $dwpb_link_target == '_blank' ) {
 							$dwpb_link_target_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_target" value="_self" checked> <?php _e('No','expressbar'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="exb_link_target" value="_self" checked> <?php _e('No','expressbar'); ?> </label>
 
-					<label style="margin-right: 50px;"><input type="radio" name="dwpb_link_target" value="_blank" <?php echo $dwpb_link_target_select; ?>> <?php _e('Yes','expressbar'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="exb_link_target" value="_blank" <?php echo $dwpb_link_target_select; ?>> <?php _e('Yes','expressbar'); ?> </label>
 				</td>
 			</tr>
 		</table>
@@ -399,7 +396,7 @@ function exb_settings_page() {
 			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
 				<th scope="row"><?php _e('Countdown Time to','expressbar') ?></th>
 				<td>
-					<input class="regular-text dwpb_time_picker" type="text" name="dwpbcd_time_left" value="<?php echo get_option('dwpbcd_time_left'); ?>" />
+					<input class="regular-text dwpb_time_picker" type="text" name="exbcd_time_left" value="<?php echo get_option('exbcd_time_left'); ?>" />
 					<span class="description"><?php _e('This time is based on the server time of your site!') ?></span>
 				</td>
 			</tr>
@@ -429,14 +426,14 @@ function exb_settings_page() {
 				<th scope="row"><?php _e('Open link in a new tab?','expressbar') ?></th>
 				<td>
 					<?php
-						$dwpbcd_link_target = get_option('dwpbcd_link_target');
-						$dwpbcd_link_target_select = '';
-						if ( $dwpbcd_link_target == '_blank' ) {
-							$dwpbcd_link_target_select = 'checked';
+						$exbcd_link_target = get_option('exbcd_link_target');
+						$exbcd_link_target_select = '';
+						if ( $exbcd_link_target == '_blank' ) {
+							$exbcd_link_target_select = 'checked';
 						}
 					?>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_link_target" value="_self" checked> <?php _e('No','expressbar'); ?> </label>
-					<label style="margin-right: 50px;"><input type="radio" name="dwpbcd_link_target" value="_blank" <?php echo $dwpbcd_link_target_select; ?>> <?php _e('Yes','expressbar'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="exbcd_link_target" value="_self" checked> <?php _e('No','expressbar'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="exbcd_link_target" value="_blank" <?php echo $exbcd_link_target_select; ?>> <?php _e('Yes','expressbar'); ?> </label>
 				</td>
 			</tr>
 		</table>
