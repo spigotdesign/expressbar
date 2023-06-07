@@ -70,7 +70,7 @@ if ( ! function_exists('exb')) {
 		add_filter('body_class','exb_body_class');
 	}
 
-	function dwpb() {
+	function expressbar() {
 		$current_theme = wp_get_theme();
 		$is_front_page = exb_get_option('exb_front_page', false);
 		$is_archives = exb_get_option('exb_archives', false);
@@ -90,13 +90,13 @@ if ( ! function_exists('exb')) {
 		$exb_remain_top = exb_get_option('exb_remain_top');
 		$expcd_use = exb_get_option('expcd_use');
 
-		$dwpbcd_link_text = exb_get_option('dwpbcd_link_text');
-		$dwpbcd_link_url = exb_get_option('dwpbcd_link_url');
+		$exbcd_link_text = exb_get_option('dwpbcd_link_text');
+		$exbcd_link_url = exb_get_option('dwpbcd_link_url');
 		$exbcd_link_target = exb_get_option('exbcd_link_target');
 
-		$dwpb_link_text = exb_get_option('exb_link_text');
-		$dwpb_link_url = exb_get_option('dwpb_link_url');
-		$dwpb_link_target = exb_get_option('exb_link_target');
+		$exb_link_text = exb_get_option('exb_link_text');
+		$exb_link_url = exb_get_option('dwpb_link_url');
+		$exb_link_target = exb_get_option('exb_link_target');
 
 		//$exb_font_family = exb_get_option('exb_font_family');
 		// $dwpb_font_size = exb_get_option('dwpb_font_size');
@@ -104,24 +104,22 @@ if ( ! function_exists('exb')) {
 		$dwpb_background_image = exb_get_option('dwpb_background_image');
 		$dwpb_font_color = exb_get_option('dwpb_font_color');
 		$dwpb_border_color = exb_get_option('dwpb_border_color');
-		$dwpb_link_color = exb_get_option('dwpb_link_color');
+		$exb_link_color = exb_get_option('dwpb_link_color');
 		$exb_link_style = exb_get_option('exb_link_style');
 		$dwpb_button_color = exb_get_option('dwpb_button_color');
 		$dwpb_custon_style = exb_get_option('dwpb_custon_style');
 
-		$dwpb_link = '';
-		if ( $dwpb_link_text != '' ) {
-			$dwpb_link = ' <a class="'. $exb_link_style .'" href="'.$dwpb_link_url.' " target="'. $dwpb_link_target .'"" >'.$dwpb_link_text.'</a>';
+		$exb_link = '';
+		if ( $exb_link_text != '' ) {
+			$exb_link = ' <a class="'. $exb_link_style .'" href="'.$exb_link_url.' " target="'. $exb_link_target .'"" >'.$exb_link_text.'</a>';
 		}
 
-		$dwpbcd_link = '';
-		if ( $dwpbcd_link_text != '' ) {
-			$dwpbcd_link = ' <a class="'. $exb_link_style .'" href="'.$dwpbcd_link_url.' " target="'. $exbcd_link_target .'"" >'.$dwpbcd_link_text.'</a>';
+		$exbcd_link = '';
+		if ( $exbcd_link_text != '' ) {
+			$exbcd_link = ' <a class="'. $exb_link_style .'" href="'.$exbcd_link_url.' " target="'. $exbcd_link_target .'"" >'.$exbcd_link_text.'</a>';
 		}
 	?>
 		<style>
-			
-
 
 			<?php if( $dwpb_background_color != '' ) : ?>
 			#expressbar,
@@ -171,9 +169,9 @@ if ( ! function_exists('exb')) {
 			}
 			<?php endif; ?>
 
-			<?php if( $dwpb_link_color != '' ) : ?>
+			<?php if( $exb_link_color != '' ) : ?>
 			#expressbar a {
-				color: <?php echo $dwpb_link_color; ?>;
+				color: <?php echo $exb_link_color; ?>;
 			}
 			<?php endif; ?>
 
@@ -211,13 +209,13 @@ if ( ! function_exists('exb')) {
 
 				<div class="exb-message <?php echo $dwpb_hide; ?>">
 					<span class="exb-content"><?php echo $exb_bar_text; ?></span>
-					<?php echo $dwpb_link; ?>
+					<?php echo $exb_link; ?>
 				</div>
 					
 				<div class="exb-countdown <?php echo $dwpbcd_hide; ?>">
 					<div class="exb-counter"></div>
 					<span class="dwpbcd-content"><?php echo $dwpbcd_text; ?></span>
-					<?php echo $dwpbcd_link; ?>
+					<?php echo $exbcd_link; ?>
 				</div>
 			</div>
 		</div>
@@ -240,9 +238,9 @@ if ( ! function_exists('exb')) {
 	$dwpb_timezone = strtotime(date_i18n('Y-m-d G:i:s'));
 
 	if ( ( $exb_start < $dwpb_timezone && ( $dwpb_timezone < $exb_end || $exb_end == '' ) ) && $exb_enable == 'yes' ) {
-		add_action( 'wp_footer', 'dwpb', 100);
+		add_action( 'wp_footer', 'expressbar', 100);
 	}
-	add_action( 'dwpb_previvew', 'dwpb');
+	add_action( 'dwpb_previvew', 'expressbar');
 
 	// Enqueue scripts
 	function dwpb_scripts() {

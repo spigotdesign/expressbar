@@ -355,15 +355,15 @@ function exb_settings_page() {
 				<th scope="row"><?php _e('Open link in a new tab?','expressbar') ?></th>
 				<td>
 					<?php
-						$dwpb_link_target = get_option('exb_link_target');
-						$dwpb_link_target_select = '';
-						if ( $dwpb_link_target == '_blank' ) {
-							$dwpb_link_target_select = 'checked';
+						$exb_link_target = get_option('exb_link_target');
+						$exb_link_target_select = '';
+						if ( $exb_link_target == '_blank' ) {
+							$exb_link_target_select = 'checked';
 						}
 					?>
 					<label style="margin-right: 50px;"><input type="radio" name="exb_link_target" value="_self" checked> <?php _e('No','expressbar'); ?> </label>
 
-					<label style="margin-right: 50px;"><input type="radio" name="exb_link_target" value="_blank" <?php echo $dwpb_link_target_select; ?>> <?php _e('Yes','expressbar'); ?> </label>
+					<label style="margin-right: 50px;"><input type="radio" name="exb_link_target" value="_blank" <?php echo $exb_link_target_select; ?>> <?php _e('Yes','expressbar'); ?> </label>
 				</td>
 			</tr>
 		</table>
@@ -490,13 +490,13 @@ function exb_settings_page() {
 
 			<tr valign="top" class="dwpb-link-color">
 				<?php
-					$dwpb_link_color = get_option('dwpb_link_color');
-					if ( $dwpb_link_color == '' ) {
-						$dwpb_link_color = '#fff';
+					$exb_link_color = get_option('dwpb_link_color');
+					if ( $exb_link_color == '' ) {
+						$exb_link_color = '#fff';
 					}
 				?>
 				<th scope="row"><?php _e('Link Color','expressbar') ?></th>
-				<td><input class="regular-text color_picker dwpb_link_color" type="text" name="dwpb_link_color" value="<?php echo $dwpb_link_color; ?>" /></td>
+				<td><input class="regular-text color_picker dwpb_link_color" type="text" name="dwpb_link_color" value="<?php echo $exb_link_color; ?>" /></td>
 			</tr>
 
 			<tr class="dwpb-link-style">
