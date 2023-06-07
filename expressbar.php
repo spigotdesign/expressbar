@@ -90,8 +90,8 @@ if ( ! function_exists('exb')) {
 		$exb_remain_top = exb_get_option('exb_remain_top');
 		$expcd_use = exb_get_option('expcd_use');
 
-		$exbcd_link_text = exb_get_option('dwpbcd_link_text');
-		$exbcd_link_url = exb_get_option('dwpbcd_link_url');
+		$exbcd_link_text = exb_get_option('exbcd_link_text');
+		$exbcd_link_url = exb_get_option('exbcd_link_url');
 		$exbcd_link_target = exb_get_option('exbcd_link_target');
 
 		$exb_link_text = exb_get_option('exb_link_text');
@@ -104,7 +104,7 @@ if ( ! function_exists('exb')) {
 		// $exb_background_image = exb_get_option('exb_background_image');
 		$exb_font_color = exb_get_option('exb_font_color');
 		$exb_border_color = exb_get_option('exb_border_color');
-		$exb_link_color = exb_get_option('dwpb_link_color');
+		$exb_link_color = exb_get_option('exb_link_color');
 		$exb_link_style = exb_get_option('exb_link_style');
 		$exb_button_color = exb_get_option('exb_button_color');
 		$exb_custom_style = exb_get_option('exb_custom_style');
@@ -201,9 +201,9 @@ if ( ! function_exists('exb')) {
 						$exb_bar_text = __('Hello. Add your message here.','expressbar');
 					}
 
-					$dwpbcd_text = exb_get_option('dwpbcd_text');
-					if ( $dwpbcd_text == '' ) {
-						$dwpbcd_text = __('Hello. Add your message here.','expressbar');
+					$exbcd_text = exb_get_option('exbcd_text');
+					if ( $exbcd_text == '' ) {
+						$exbcd_text = __('Hello. Add your message here.','expressbar');
 					}
 				?>
 
@@ -214,7 +214,7 @@ if ( ! function_exists('exb')) {
 					
 				<div class="exb-countdown <?php echo $dwpbcd_hide; ?>">
 					<div class="exb-counter"></div>
-					<span class="dwpbcd-content"><?php echo $dwpbcd_text; ?></span>
+					<span class="dwpbcd-content"><?php echo $exbcd_text; ?></span>
 					<?php echo $exbcd_link; ?>
 				</div>
 			</div>

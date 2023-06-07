@@ -68,7 +68,7 @@
 		});
 
 		// Text
-		$('[name=dwpbcd_text]').keyup(function(){
+		$('[name=exbcd_text]').keyup(function(){
 			var val = $(this).val(); 
 			if (val !== '') {
 				$('.exb-countdown .dwpbcd-content').html(val);
@@ -78,14 +78,14 @@
 		});
 
 		// link text
-		$('[name=dwpbcd_link_text]').keyup(function(){
+		$('[name=exbcd_link_text]').keyup(function(){
 			var val = $(this).val();
 			var link_style = $('[name=exb_link_style]:checked').val();
-			var dwpbcd_link_url = $('[name=dwpbcd_link_url]').val();
+			var exbcd_link_url = $('[name=exbcd_link_url]').val();
 			var dwpbcd_message_link = $('.exb-countdown a').length;
 
 			if ( ! dwpbcd_message_link ) {
-				$('.dwpbcd-content').after(' <a href="'+dwpbcd_link_url+'">'+ dwpbcd_message_link +'</a>');
+				$('.dwpbcd-content').after(' <a href="'+exbcd_link_url+'">'+ dwpbcd_message_link +'</a>');
 			}
 
 			if (val === '') {
@@ -215,7 +215,7 @@
 		});
 
 		// dwpb link color
-		$('.color_picker.dwpb_link_color').wpColorPicker({
+		$('.color_picker.exb_link_color').wpColorPicker({
 			defaultColor: '#fff',
 			change: function(event, ui){
 				$("#expressbar a").css( 'color', ui.color.toString());	

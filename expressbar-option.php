@@ -35,9 +35,9 @@ function register_mysettings() {
 
 		//Configure ExpressBar coutdown
 		'exbcd_time_left',
-		//'dwpbcd_text',
-		//'dwpbcd_link_text',
-		//'dwpbcd_link_url',
+		//'exbcd_text',
+		//'exbcd_link_text',
+		//'exbcd_link_url',
 		'exbcd_link_target',
 
 		//Configure ExpressBar
@@ -53,7 +53,7 @@ function register_mysettings() {
 		// 'exb_background_image',
 		'exb_font_color',
 		'exb_border_color',
-		'dwpb_link_color',
+		'exb_link_color',
 		'exb_link_style',
 		'exb_button_color',
 
@@ -73,9 +73,9 @@ function register_mysettings() {
 		'exb_bar_text',
 		'exb_link_text',
 		'exb_link_url',
-		'dwpbcd_text',
-		'dwpbcd_link_text',
-		'dwpbcd_link_url',
+		'exbcd_text',
+		'exbcd_link_text',
+		'exbcd_link_url',
 	);
 	
 	foreach ($exb_textfield_array as $value) {
@@ -404,21 +404,21 @@ function exb_settings_page() {
 			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
 				<th scope="row"><?php _e('Countdown Text','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="dwpbcd_text" placeholder="<?php _e('Hello. Add your message here.','expressbar'); ?>" value="<?php echo get_option('dwpbcd_text'); ?>" />
+					<input class="regular-text" type="text" name="exbcd_text" placeholder="<?php _e('Hello. Add your message here.','expressbar'); ?>" value="<?php echo get_option('exbcd_text'); ?>" />
 				</td>
 			</tr>
 
 			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
 				<th scope="row"><?php _e('Countdown Link Text','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="dwpbcd_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo get_option('dwpbcd_link_text'); ?>" />
+					<input class="regular-text" type="text" name="exbcd_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo get_option('exbcd_link_text'); ?>" />
 				</td>
 			</tr>
 
 			<tr valign="top" class="dwpbcd <?php echo $dwpbcd_hide ?>">
 				<th scope="row"><?php _e('Countdown Link URL','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="dwpbcd_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo get_option('dwpbcd_link_url'); ?>" />
+					<input class="regular-text" type="text" name="exbcd_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo get_option('exbcd_link_url'); ?>" />
 				</td>
 			</tr>
 
@@ -490,13 +490,13 @@ function exb_settings_page() {
 
 			<tr valign="top" class="dwpb-link-color">
 				<?php
-					$exb_link_color = get_option('dwpb_link_color');
+					$exb_link_color = get_option('exb_link_color');
 					if ( $exb_link_color == '' ) {
 						$exb_link_color = '#fff';
 					}
 				?>
 				<th scope="row"><?php _e('Link Color','expressbar') ?></th>
-				<td><input class="regular-text color_picker dwpb_link_color" type="text" name="dwpb_link_color" value="<?php echo $exb_link_color; ?>" /></td>
+				<td><input class="regular-text color_picker exb_link_color" type="text" name="exb_link_color" value="<?php echo $exb_link_color; ?>" /></td>
 			</tr>
 
 			<tr class="dwpb-link-style">
