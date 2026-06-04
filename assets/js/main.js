@@ -4,17 +4,11 @@
 		var adminbar_height = $('.admin-bar #wpadminbar').outerHeight();
 		var total_height = exb_height + adminbar_height;
 		function exb_custom_style() {
-			if ( ! $('#expressbar-custom-style').length ) {
-				if($(window).width() <=600) {
-					
-					$('<style id="expressbar-custom-style">body.exb-push-page.expressbar-open, body.exb-push-page.admin-bar.expressbar-open #wpadminbar {top:'+exb_height+'px} body.exb-push-page.expressbar-open.admin-bar .app-header{top:'+total_height+'px}</style>').appendTo('body');
-				
-				} else {
-					$('<style id="expressbar-custom-style">body.exb-push-page.expressbar-open, body.exb-push-page.admin-bar.expressbar-open #wpadminbar {top:'+exb_height+'px}.expressbar-open.exb-push-page .app-header{top:'+exb_height+'px} body.exb-push-page.expressbar-open.admin-bar .app-header{top:'+total_height+'px}</style>').appendTo('body');
-				}
-				
+			$('#expressbar-custom-style').remove();
+			if($(window).width() <=600) {
+				$('<style id="expressbar-custom-style">body.exb-push-page.expressbar-open, body.exb-push-page.admin-bar.expressbar-open #wpadminbar {top:'+exb_height+'px} body.exb-push-page.expressbar-open.admin-bar .app-header{top:'+total_height+'px}</style>').appendTo('body');
 			} else {
-				return false; 
+				$('<style id="expressbar-custom-style">body.exb-push-page.expressbar-open, body.exb-push-page.admin-bar.expressbar-open #wpadminbar {top:'+exb_height+'px}.expressbar-open.exb-push-page .app-header{top:'+exb_height+'px} body.exb-push-page.expressbar-open.admin-bar .app-header{top:'+total_height+'px}</style>').appendTo('body');
 			}
 		}
 
@@ -51,15 +45,15 @@
 			$('body').addClass('expressbar-open');
 		},1000);
 
+		var cookie = $.cookie('exb-hide');
+
 		if ( ! $('body').hasClass('exb-allow-close') ) {
-			var cookie = $.cookie('exb-hide');
 			if (cookie === 'exb-hide') {
 				setTimeout(function(){
 					$('body').removeClass('expressbar-open');
 				},1000);
 			}
 
-			//cookie // Not sure we need this any longer
 			$('.exb-action').click(function(){
 				if (cookie === undefined) {
 					$.cookie('exb-hide', 'exb-hide', {path: '/'} );
@@ -83,7 +77,7 @@
 			$('.exb-close').click(function(){
 				if (cookie === undefined) {
 					$.cookie('exb-close', 'exb-close-' + exb.reset_cookie, {path: '/'} );
-				} 
+				}
 			});
 
 			if ( $.cookie('exb-close') === 'exb-close-' + exb.reset_cookie ) {

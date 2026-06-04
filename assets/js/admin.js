@@ -30,7 +30,7 @@
 			var exb_message_link = $('.exb-message a').length;
 
 			if ( ! exb_message_link ) {
-				$('.exb-message span').after(' <a href="'+exb_link_url+'">'+ exb_message_link +'</a>');
+				$('.exb-message span').after(' <a href="'+exb_link_url+'">'+ val +'</a>');
 			}
 
 			if (val === '') {
@@ -85,7 +85,7 @@
 			var exbcd_message_link = $('.exb-countdown a').length;
 
 			if ( ! exbcd_message_link ) {
-				$('.exbcd-content').after(' <a href="'+exbcd_link_url+'">'+ exbcd_message_link +'</a>');
+				$('.exbcd-content').after(' <a href="'+exbcd_link_url+'">'+ val +'</a>');
 			}
 
 			if (val === '') {
@@ -250,7 +250,7 @@
 		exb_fix_height();
 	});
 
-	$('#expressbar_reset_cookie').click(function(){
+	$('#exb_reset_cookie').click(function(){
 		$('.ajax-load img').fadeIn();
 		var nonce = $(this).data('nonce');
 		$.ajax({

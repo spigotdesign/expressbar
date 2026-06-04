@@ -56,6 +56,7 @@ function register_mysettings() {
 		'exb_link_color',
 		'exb_link_style',
 		'exb_button_color',
+		'exb_custom_style',
 
 	);
 
@@ -212,7 +213,7 @@ function exb_settings_page() {
 			<th scope="row"><?php _e('Header class name','expressbar') ?></th>
 				<td>
 					<?php $exb_header_name = get_option('exb_header_name'); ?>
-					<input class="regular-text exb_header_class" type="text" name="exb_header_class" value="<?php echo $exb_header_name; ?>" placeholder="<?php _e('Header Class Name','expressbar'); ?>" />
+					<input class="regular-text exb_header_class" type="text" name="exb_header_name" value="<?php echo esc_attr( $exb_header_name ); ?>" placeholder="<?php _e('Header Class Name','expressbar'); ?>" />
 				</td>
 			</tr>
 

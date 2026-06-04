@@ -111,12 +111,12 @@ if ( ! function_exists('exb')) {
 
 		$exb_link = '';
 		if ( $exb_link_text != '' ) {
-			$exb_link = ' <a class="'. $exb_link_style .'" href="'.$exb_link_url.' " target="'. $exb_link_target .'"" >'.$exb_link_text.'</a>';
+			$exb_link = ' <a class="'. esc_attr( $exb_link_style ) .'" href="'. esc_url( $exb_link_url ) .'" target="'. esc_attr( $exb_link_target ) .'">' . esc_html( $exb_link_text ) . '</a>';
 		}
 
 		$exbcd_link = '';
 		if ( $exbcd_link_text != '' ) {
-			$exbcd_link = ' <a class="'. $exb_link_style .'" href="'.$exbcd_link_url.' " target="'. $exbcd_link_target .'"" >'.$exbcd_link_text.'</a>';
+			$exbcd_link = ' <a class="'. esc_attr( $exb_link_style ) .'" href="'. esc_url( $exbcd_link_url ) .'" target="'. esc_attr( $exbcd_link_target ) .'">' . esc_html( $exbcd_link_text ) . '</a>';
 		}
 	?>
 		<style>
@@ -124,7 +124,7 @@ if ( ! function_exists('exb')) {
 			<?php if( $exb_background_color != '' ) : ?>
 			#expressbar,
 			.exb-action {
-				background-color: <?php echo $exb_background_color; ?>;
+				background-color: <?php echo esc_attr( $exb_background_color ); ?>;
 			}
 			<?php endif; ?>
 			<?php /*  Background image remove *Flag
@@ -140,7 +140,7 @@ if ( ! function_exists('exb')) {
 			#expressbar,
 			.exb-action,
 			body.exb-allow-close.expressbar-open .exb-close {
-				color: <?php echo $exb_font_color; ?>;
+				color: <?php echo esc_attr( $exb_font_color ); ?>;
 			}
 			<?php endif; ?>
 			<?php /* Remove font based options from styles
@@ -159,7 +159,7 @@ if ( ! function_exists('exb')) {
 
 			<?php if( $exb_border_color != '' ) : ?>
 			#expressbar {
-				border-color: <?php echo $exb_border_color; ?>;
+				border-color: <?php echo esc_attr( $exb_border_color ); ?>;
 			}
 			<?php endif; ?>
 
@@ -171,22 +171,22 @@ if ( ! function_exists('exb')) {
 
 			<?php if( $exb_link_color != '' ) : ?>
 			#expressbar a {
-				color: <?php echo $exb_link_color; ?>;
+				color: <?php echo esc_attr( $exb_link_color ); ?>;
 			}
 			<?php endif; ?>
 
 			<?php if( $exb_button_color != '' ) : ?>
 			#expressbar .exb-button {
-				background-color: <?php echo $exb_button_color; ?>;
+				background-color: <?php echo esc_attr( $exb_button_color ); ?>;
 			}
 			<?php endif; ?>
 
 			<?php if( $exb_custom_style != '' ) : ?>
-				<?php echo $exb_custom_style ?>
+				<?php echo wp_strip_all_tags( $exb_custom_style ); ?>
 			<?php endif; ?>
 		</style>
 		
-		<div id="expressbar" class=" <?php echo $exb_remain_top; ?> ">
+		<div id="expressbar" class=" <?php echo esc_attr( $exb_remain_top ); ?> ">
 			<div class="exb-inner">
 				<?php 
 					$exbcd_hide = 'hide';
@@ -207,14 +207,14 @@ if ( ! function_exists('exb')) {
 					}
 				?>
 
-				<div class="exb-message <?php echo $exb_hide; ?>">
-					<span class="exb-content"><?php echo $exb_bar_text; ?></span>
+				<div class="exb-message <?php echo esc_attr( $exb_hide ); ?>">
+					<span class="exb-content"><?php echo esc_html( $exb_bar_text ); ?></span>
 					<?php echo $exb_link; ?>
 				</div>
-					
-				<div class="exb-countdown <?php echo $exbcd_hide; ?>">
+
+				<div class="exb-countdown <?php echo esc_attr( $exbcd_hide ); ?>">
 					<div class="exb-counter"></div>
-					<span class="exbcd-content"><?php echo $exbcd_text; ?></span>
+					<span class="exbcd-content"><?php echo esc_html( $exbcd_text ); ?></span>
 					<?php echo $exbcd_link; ?>
 				</div>
 			</div>
@@ -226,7 +226,7 @@ if ( ! function_exists('exb')) {
 				$exb_action_class = 'exb-close';
 			}
 		?>
-		<span class="<?php echo $exb_action_class; ?>"></span>
+		<span class="<?php echo esc_attr( $exb_action_class ); ?>"></span>
 	<?php
 
 	endif; // Show on
@@ -237,7 +237,7 @@ if ( ! function_exists('exb')) {
 	$exb_end = strtotime(exb_get_option('exb_end'));	
 	$exb_timezone = strtotime(date_i18n('Y-m-d G:i:s'));
 
-	if ( ( $exb_start < $exb_timezone && ( $exb_timezone < $exb_end || $exb_end == '' ) ) && $exb_enable == 'yes' ) {
+	if ( ( $exb_start < $exb_timezone && ( $exb_timezone < $exb_end || $exb_end === false ) ) && $exb_enable == 'yes' ) {
 		add_action( 'wp_footer', 'expressbar', 100);
 	}
 	add_action( 'exb_preview', 'expressbar');
@@ -304,7 +304,7 @@ if ( ! function_exists('exb')) {
 
 		endif; // Show on
 	}
-	if ( ( $exb_start < $exb_timezone && ( $exb_timezone < $exb_end || $exb_end == '' ) ) && $exb_enable == 'yes' ) {
+	if ( ( $exb_start < $exb_timezone && ( $exb_timezone < $exb_end || $exb_end === false ) ) && $exb_enable == 'yes' ) {
 		add_action( 'wp_footer', 'exb_scripts');
 	}
 
