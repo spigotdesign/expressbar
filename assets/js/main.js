@@ -26,6 +26,7 @@
 			}
 		});
 
+		found.addClass('exb-tracked');
 		return found;
 	}
 
@@ -37,11 +38,17 @@
 		});
 	}
 
-	function exb_restore_headers(headers) {
+	function exb_restore_headers(headers, removeTracking) {
 		headers.each(function() {
 			var original = $(this).data('exb-original-top');
 			if (original !== undefined) {
 				$(this).css('top', original + 'px');
+				if (removeTracking) {
+					var el = this;
+					setTimeout(function() {
+						$(el).removeClass('exb-tracked').removeData('exb-original-top');
+					}, 500);
+				}
 			}
 		});
 	}
@@ -93,7 +100,10 @@
 			exb_headers = exb_find_fixed_headers();
 			if (cookie !== 'exb-hide') {
 				$('body').addClass('expressbar-open');
-				exb_push_headers(exb_headers);
+				// rAF ensures .exb-tracked renders before top changes so transition fires
+				requestAnimationFrame(function() {
+					exb_push_headers(exb_headers);
+				});
 			}
 		},1000);
 
@@ -120,7 +130,7 @@
 		// Close Expressbar
 		if ( $('body').hasClass('exb-allow-close') ) {
 			function remove_expressbar() {
-				exb_restore_headers(exb_headers);
+				exb_restore_headers(exb_headers, true);
 				$('#expressbar, .exb-close').remove();
 				$('body').removeClass('exb-cover-page exb-remain-top expressbar-open exb-push-page');
 			}
@@ -146,7 +156,9 @@
 		if ($('body').hasClass('expressbar-open')) {
 			exb_restore_headers(exb_headers);
 			exb_headers = exb_find_fixed_headers();
-			exb_push_headers(exb_headers);
+			requestAnimationFrame(function() {
+				exb_push_headers(exb_headers);
+			});
 		}
 	});
 }(jQuery);

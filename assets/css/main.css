@@ -55,6 +55,10 @@ body.exb-allow-close.expressbar-open .exb-close {
   z-index: 999999;
 }
 
+.exb-tracked {
+  transition: top 0.5s !important;
+}
+
 #expressbar .hide {
   display: none;
 }
