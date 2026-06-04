@@ -55,6 +55,7 @@
 
 	function exb_fix_height() {
 		var exb_height = $('#expressbar').outerHeight();
+		document.documentElement.style.setProperty('--exb-height', exb_height + 'px');
 		var adminbar_height = $('.admin-bar #wpadminbar').outerHeight();
 		var total_height = exb_height + adminbar_height;
 		function exb_custom_style() {
