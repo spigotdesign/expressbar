@@ -2,7 +2,7 @@
 Contributors: Spgigot Design, DesignWall
 Tags: promotion ,topbar, header bar, quick notice, bar, notification bar, countdown, responsive
 Tested up to: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -20,6 +20,14 @@ A clean and simple WordPress plugin that allows you to have a promotion and mess
 2. Front-end appearance
 
 == Changelog ==
+
+= 1.0.1 =
+- Security: escape all settings-page output and sanitize all saved options to prevent stored XSS.
+- Security: add capability and nonce checks to the cookie-reset AJAX handler.
+- Add automatic runtime detection of fixed/sticky headers and push them down when the bar is open.
+- Smooth the transition when pushing fixed headers to match the bar open/close speed.
+- Account for the optional bar border height when shifting the body and admin bar.
+- Various bug fixes across JavaScript, PHP, and CSS.
 
 = 1.0.0 =
 - The first version of ExpressBar

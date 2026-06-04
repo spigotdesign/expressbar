@@ -4,24 +4,21 @@
 add_action('admin_menu', 'exb_create_menu');
 
 function exb_create_menu() {
-    add_submenu_page('options-general.php', 'ExpressBar', 'ExpressBar', 'administrator', 'expressbar', 'exb_settings_page');
+    add_submenu_page('options-general.php', 'ExpressBar', 'ExpressBar', 'manage_options', 'expressbar', 'exb_settings_page');
     //call register settings function
     add_action( 'admin_init', 'register_mysettings' );
 }
 
 
 function register_mysettings() {
-	$exb_settings_array = array(
+	// Plain text fields (radios, checkboxes, dates) — strip tags, no markup allowed.
+	$exb_textfield_array = array(
 		//General Setting
 		'exb_enable',
 		'exb_start',
 		'exb_end',
 		'exb_close',
 		'exb_remain_top',
-		//'exp_push_page',
-		//'exb_show_bottom',
-		'exb_sticky_header',
-		'exb_header_name',
 		'exb_responsive_extra_small',
 		'exb_responsive_small',
 		'exb_responsive_medium',
@@ -33,43 +30,15 @@ function register_mysettings() {
 		'exb_single_page',
 		'expcd_use',
 
-		//Configure ExpressBar coutdown
+		//Configure ExpressBar countdown
 		'exbcd_time_left',
-		//'exbcd_text',
-		//'exbcd_link_text',
-		//'exbcd_link_url',
 		'exbcd_link_target',
 
 		//Configure ExpressBar
-		//'exb_bar_text' ,
-		//'exb_link_text',
-		//'exb_link_url',
 		'exb_link_target',
-
-		//Choose the Style
-		//'exb_font_family',
-		// 'exb_font_size',
-		'exb_background_color',
-		// 'exb_background_image',
-		'exb_font_color',
-		'exb_border_color',
-		'exb_link_color',
 		'exb_link_style',
-		'exb_button_color',
 
-	);
-
-	foreach ($exb_settings_array as $value) {
-		register_setting( 'exb-settings-group', $value );
-	}
-
-	$args = array(
-		'type' => 'string', 
-		'sanitize_callback' => 'sanitize_text_field',
-		'default' => NULL,
-	);
-
-	$exb_textfield_array = array(
+		//Text content
 		'exb_bar_text',
 		'exb_link_text',
 		'exb_link_url',
@@ -77,10 +46,42 @@ function register_mysettings() {
 		'exbcd_link_text',
 		'exbcd_link_url',
 	);
-	
-	foreach ($exb_textfield_array as $value) {
-		register_setting( 'exb-settings-group', $value, $args );
+
+	$text_args = array(
+		'type'              => 'string',
+		'sanitize_callback' => 'sanitize_text_field',
+		'default'           => NULL,
+	);
+
+	foreach ( $exb_textfield_array as $value ) {
+		register_setting( 'exb-settings-group', $value, $text_args );
 	}
+
+	// Color fields — must be a valid hex color or empty.
+	$exb_color_array = array(
+		'exb_background_color',
+		'exb_font_color',
+		'exb_border_color',
+		'exb_link_color',
+		'exb_button_color',
+	);
+
+	$color_args = array(
+		'type'              => 'string',
+		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => NULL,
+	);
+
+	foreach ( $exb_color_array as $value ) {
+		register_setting( 'exb-settings-group', $value, $color_args );
+	}
+
+	// Custom CSS — strip all tags so it cannot break out of the <style> block.
+	register_setting( 'exb-settings-group', 'exb_custom_style', array(
+		'type'              => 'string',
+		'sanitize_callback' => 'wp_strip_all_tags',
+		'default'           => NULL,
+	) );
 }
 
 /**
@@ -127,7 +128,7 @@ function exb_settings_page() {
 			<tr valign="top">
 				<th scope="row"><?php _e('Start on','expressbar') ?></th>
 				<td>
-					<input class="regular-text exb_time_picker" type="text" name="exb_start" value="<?php echo get_option('exb_start'); ?>" />
+					<input class="regular-text exb_time_picker" type="text" name="exb_start" value="<?php echo esc_attr( get_option('exb_start') ); ?>" />
 					<span class="description"><?php _e('Leave blank if you want to start the bar immediately!') ?></span>
 				</td>
 			</tr>
@@ -135,7 +136,7 @@ function exb_settings_page() {
 			<tr valign="top">
 				<th scope="row"><?php _e('Stop on','expressbar') ?></th>
 				<td>
-					<input class="regular-text exb_time_picker" type="text" name="exb_end" value="<?php echo get_option('exb_end'); ?>" />
+					<input class="regular-text exb_time_picker" type="text" name="exb_end" value="<?php echo esc_attr( get_option('exb_end') ); ?>" />
 					<span class="description"><?php _e('Leave blank if you do not want to close the bar!') ?></span>
 				</td>
 			</tr>
@@ -186,35 +187,6 @@ function exb_settings_page() {
 				</td>
 			</tr> */ ?>
 			
-			<tr>
-				<th scope="row"><?php _e('Sticky header?','expressbar') ?></th>
-				<td>
-					<?php
-						$exb_sticky_header = get_option('exb_sticky_header');
-						$exb_sticky_header_select = '';
-						if ( $exb_sticky_header == 'yes' ) {
-							$exb_sticky_header_select = 'checked';
-						}
-					?>
-					<label style="margin-right: 50px;"><input type="radio" name="exb_sticky_header" value="no" checked><?php _e('No','expressbar') ?></label>
-					<label style="margin-right: 50px;"><input type="radio" name="exb_sticky_header" value="yes" <?php echo $exb_sticky_header_select; ?> ><?php _e('Yes','expressbar') ?></label>
-				</td>
-			</tr>
-
-			<?php
-				$exb_class_hide = 'hide';
-				if (get_option('exb_sticky_header') == 'yes') {
-					$exb_class_hide = '';
-				}
-			?>
-			<tr valign="top" class="exbclass <?php echo $exb_class_hide ?>">
-
-			<th scope="row"><?php _e('Header class name','expressbar') ?></th>
-				<td>
-					<?php $exb_header_name = get_option('exb_header_name'); ?>
-					<input class="regular-text exb_header_class" type="text" name="exb_header_class" value="<?php echo $exb_header_name; ?>" placeholder="<?php _e('Header Class Name','expressbar'); ?>" />
-				</td>
-			</tr>
 
 			<?php /* Remove abiltity to put at bottom
 			<tr>
@@ -333,21 +305,21 @@ function exb_settings_page() {
 			<tr valign="top">
 				<th scope="row"><?php _e('Text Message','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="exb_bar_text" placeholder="<?php _e('Hello. Add your message here.','expressbar'); ?>" value="<?php echo get_option('exb_bar_text'); ?>" />
+					<input class="regular-text" type="text" name="exb_bar_text" placeholder="<?php _e('Hello. Add your message here.','expressbar'); ?>" value="<?php echo esc_attr( get_option('exb_bar_text') ); ?>" />
 				</td>
 			</tr>
 
 			<tr>
 				<th scope="row"><?php _e('Link Text','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="exb_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo get_option('exb_link_text');  ?>" />
+					<input class="regular-text" type="text" name="exb_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo esc_attr( get_option('exb_link_text') ); ?>" />
 				</td>
 			</tr>
 
 			<tr class="exb-link-url">
 				<th scope="row"><?php _e('Link URL','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="exb_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo get_option('exb_link_url'); ?>" />
+					<input class="regular-text" type="text" name="exb_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo esc_url( get_option('exb_link_url') ); ?>" />
 				</td>
 			</tr>
 
@@ -396,7 +368,7 @@ function exb_settings_page() {
 			<tr valign="top" class="exbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Time to','expressbar') ?></th>
 				<td>
-					<input class="regular-text exb_time_picker" type="text" name="exbcd_time_left" value="<?php echo get_option('exbcd_time_left'); ?>" />
+					<input class="regular-text exb_time_picker" type="text" name="exbcd_time_left" value="<?php echo esc_attr( get_option('exbcd_time_left') ); ?>" />
 					<span class="description"><?php _e('This time is based on the server time of your site!') ?></span>
 				</td>
 			</tr>
@@ -404,21 +376,21 @@ function exb_settings_page() {
 			<tr valign="top" class="exbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Text','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="exbcd_text" placeholder="<?php _e('Hello. Add your message here.','expressbar'); ?>" value="<?php echo get_option('exbcd_text'); ?>" />
+					<input class="regular-text" type="text" name="exbcd_text" placeholder="<?php _e('Hello. Add your message here.','expressbar'); ?>" value="<?php echo esc_attr( get_option('exbcd_text') ); ?>" />
 				</td>
 			</tr>
 
 			<tr valign="top" class="exbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Link Text','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="exbcd_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo get_option('exbcd_link_text'); ?>" />
+					<input class="regular-text" type="text" name="exbcd_link_text" placeholder="<?php _e('Add your link text here.','expressbar'); ?>" value="<?php echo esc_attr( get_option('exbcd_link_text') ); ?>" />
 				</td>
 			</tr>
 
 			<tr valign="top" class="exbcd <?php echo $exb_hide ?>">
 				<th scope="row"><?php _e('Countdown Link URL','expressbar') ?></th>
 				<td>
-					<input class="regular-text" type="text" name="exbcd_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo get_option('exbcd_link_url'); ?>" />
+					<input class="regular-text" type="text" name="exbcd_link_url" placeholder="<?php _e('http://yoursite.com','expressbar'); ?>" value="<?php echo esc_url( get_option('exbcd_link_url') ); ?>" />
 				</td>
 			</tr>
 
@@ -449,7 +421,7 @@ function exb_settings_page() {
 					}
 				?>
 				<th scope="row"><?php _e('Background Color','expressbar') ?></th>
-				<td><input class="regular-text color_picker exb_background_color" type="text" name="exb_background_color" value="<?php echo $exb_background_color; ?>" /></td>
+				<td><input class="regular-text color_picker exb_background_color" type="text" name="exb_background_color" value="<?php echo esc_attr( $exb_background_color ); ?>" /></td>
 			</tr>
 			<?php /* Remove background image
 			<tr valign="top">
@@ -474,7 +446,7 @@ function exb_settings_page() {
 					}
 				?>
 				<th scope="row"><?php _e('Text Color','expressbar') ?></th>
-				<td><input class="regular-text color_picker exb_font_color" type="text" name="exb_font_color" value="<?php echo $exb_font_color; ?>" /></td>
+				<td><input class="regular-text color_picker exb_font_color" type="text" name="exb_font_color" value="<?php echo esc_attr( $exb_font_color ); ?>" /></td>
 			</tr>
 
 			<tr valign="top">
@@ -485,7 +457,7 @@ function exb_settings_page() {
 					}
 				?>
 				<th scope="row"><?php _e('Bar Border Color','expressbar') ?></th>
-				<td><input class="regular-text color_picker exb_border_color" type="text" name="exb_border_color" value="<?php echo $exb_border_color; ?>" /></td>
+				<td><input class="regular-text color_picker exb_border_color" type="text" name="exb_border_color" value="<?php echo esc_attr( $exb_border_color ); ?>" /></td>
 			</tr>
 
 			<tr valign="top" class="exb-link-color">
@@ -496,7 +468,7 @@ function exb_settings_page() {
 					}
 				?>
 				<th scope="row"><?php _e('Link Color','expressbar') ?></th>
-				<td><input class="regular-text color_picker exb_link_color" type="text" name="exb_link_color" value="<?php echo $exb_link_color; ?>" /></td>
+				<td><input class="regular-text color_picker exb_link_color" type="text" name="exb_link_color" value="<?php echo esc_attr( $exb_link_color ); ?>" /></td>
 			</tr>
 
 			<tr class="exb-link-style">
@@ -529,7 +501,7 @@ function exb_settings_page() {
 					}
 				?>
 				<th scope="row"><?php _e('Button Color','expressbar') ?></th>
-				<td><input class="regular-text color_picker exb_button_color" type="text" name="exb_button_color" value="<?php echo $exb_button_color; ?>" /></td>
+				<td><input class="regular-text color_picker exb_button_color" type="text" name="exb_button_color" value="<?php echo esc_attr( $exb_button_color ); ?>" /></td>
 			</tr>
 
 			
@@ -550,8 +522,12 @@ function exb_settings_page() {
 // Ajax
 if( ! function_exists('exb_reset_cookie') ) {
 	function exb_reset_cookie() {
-		$ajax_referer = check_ajax_referer( '_exb_reset_cookie', 'nonce', false );
-		if( ! wp_verify_nonce( $_POST['nonce'], '_exb_reset_cookie' ) || ! $ajax_referer ) {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( __('Are you cheating huh?','expressbar') );
+		}
+
+		$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+		if( ! wp_verify_nonce( $nonce, '_exb_reset_cookie' ) ) {
 			wp_send_json_error( __('Are you cheating huh?','expressbar') );
 		}
 
