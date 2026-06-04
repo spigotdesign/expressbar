@@ -298,8 +298,9 @@ if ( ! function_exists('exb')) {
 		$exb_reset_cookie_value = get_option( 'exb_reset_cookie', 2 );
 
 		wp_localize_script( 'exb_countdown', 'exb', array(
-			'timeleft'	=> strtotime($timeleft) - strtotime(date_i18n($timezone_format)),
-			'reset_cookie' => $exb_reset_cookie_value
+			'timeleft'	    => strtotime($timeleft) - strtotime(date_i18n($timezone_format)),
+			'reset_cookie'  => $exb_reset_cookie_value,
+			'sticky_header' => exb_get_option('exb_sticky_header') === 'yes' ? exb_get_option('exb_header_name') : '',
 		));
 
 		endif; // Show on

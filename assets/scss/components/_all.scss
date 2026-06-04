@@ -4,7 +4,7 @@ body.expressbar-enabled {
   transition: top 0.5s;
 
   &.expressbar-open {
-    top: 43px;
+    top: 40px;
 
     #expressbar {
       top: 0 !important;
@@ -19,7 +19,7 @@ body {
     }
 
     &.expressbar-open #wpadminbar {
-      top: 43px;
+      top: 40px;
     }
   }
 

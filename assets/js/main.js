@@ -1,15 +1,23 @@
 +function($) {
-	function exb_fix_height() { 
+	function exb_fix_height() {
 		var exb_height = $('#expressbar').outerHeight();
 		var adminbar_height = $('.admin-bar #wpadminbar').outerHeight();
 		var total_height = exb_height + adminbar_height;
 		function exb_custom_style() {
 			$('#expressbar-custom-style').remove();
+			var css = '';
 			if($(window).width() <=600) {
-				$('<style id="expressbar-custom-style">body.exb-push-page.expressbar-open, body.exb-push-page.admin-bar.expressbar-open #wpadminbar {top:'+exb_height+'px} body.exb-push-page.expressbar-open.admin-bar .app-header{top:'+total_height+'px}</style>').appendTo('body');
+				css += 'body.exb-push-page.expressbar-open, body.exb-push-page.admin-bar.expressbar-open #wpadminbar {top:'+exb_height+'px}';
+				css += 'body.exb-push-page.expressbar-open.admin-bar .app-header{top:'+total_height+'px}';
 			} else {
-				$('<style id="expressbar-custom-style">body.exb-push-page.expressbar-open, body.exb-push-page.admin-bar.expressbar-open #wpadminbar {top:'+exb_height+'px}.expressbar-open.exb-push-page .app-header{top:'+exb_height+'px} body.exb-push-page.expressbar-open.admin-bar .app-header{top:'+total_height+'px}</style>').appendTo('body');
+				css += 'body.exb-push-page.expressbar-open, body.exb-push-page.admin-bar.expressbar-open #wpadminbar {top:'+exb_height+'px}';
+				css += '.expressbar-open.exb-push-page .app-header{top:'+exb_height+'px}';
+				css += 'body.exb-push-page.expressbar-open.admin-bar .app-header{top:'+total_height+'px}';
 			}
+			if ( exb.sticky_header ) {
+				css += '.expressbar-open .'+exb.sticky_header+'{top:'+exb_height+'px}';
+			}
+			$('<style id="expressbar-custom-style">'+css+'</style>').appendTo('body');
 		}
 
 		setTimeout(function(){

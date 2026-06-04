@@ -4,7 +4,7 @@ body.expressbar-enabled {
   transition: top 0.5s;
 }
 body.expressbar-enabled.expressbar-open {
-  top: 43px;
+  top: 40px;
 }
 body.expressbar-enabled.expressbar-open #expressbar {
   top: 0 !important;
@@ -14,7 +14,7 @@ body.expressbar-enabled.admin-bar #wpadminbar {
   transition: top 0.5s;
 }
 body.expressbar-enabled.admin-bar.expressbar-open #wpadminbar {
-  top: 43px;
+  top: 40px;
 }
 body.exb-cover-page.expressbar-open #expressbar {
   top: 0 !important;
