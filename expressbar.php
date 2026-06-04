@@ -29,7 +29,6 @@ if ( ! function_exists('exb')) {
 		function exb_body_class($classes) {
 			$exb_enabled = exb_get_option('exb_enable');
 			$exb_push_page = exb_get_option('exp_push_page');
-			$exb_sticky_header = exb_get_option('exb_sticky_header');
 			$exb_remain_top = exb_get_option('exb_remain_top');
 			// $exb_show_bottom = exb_get_option('exb_show_bottom');
 			$exb_close = exb_get_option('exb_close');
@@ -51,10 +50,6 @@ if ( ! function_exists('exb')) {
 					$classes[] = 'exb-allow-close';
 				} */
 				
-				if ( $exb_sticky_header== 'yes') {
-					$classes[] = 'sticky-header'; 
-				}
-
 				/* Remove remain at top option - default yes
 				if ( $exb_remain_top == 'remain-top' ) $classes[] = 'exb-remain-top';
 				*/

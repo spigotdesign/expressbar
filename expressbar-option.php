@@ -20,8 +20,6 @@ function register_mysettings() {
 		'exb_remain_top',
 		//'exp_push_page',
 		//'exb_show_bottom',
-		'exb_sticky_header',
-		'exb_header_name',
 		'exb_responsive_extra_small',
 		'exb_responsive_small',
 		'exb_responsive_medium',
@@ -187,35 +185,6 @@ function exb_settings_page() {
 				</td>
 			</tr> */ ?>
 			
-			<tr>
-				<th scope="row"><?php _e('Sticky header?','expressbar') ?></th>
-				<td>
-					<?php
-						$exb_sticky_header = get_option('exb_sticky_header');
-						$exb_sticky_header_select = '';
-						if ( $exb_sticky_header == 'yes' ) {
-							$exb_sticky_header_select = 'checked';
-						}
-					?>
-					<label style="margin-right: 50px;"><input type="radio" name="exb_sticky_header" value="no" checked><?php _e('No','expressbar') ?></label>
-					<label style="margin-right: 50px;"><input type="radio" name="exb_sticky_header" value="yes" <?php echo $exb_sticky_header_select; ?> ><?php _e('Yes','expressbar') ?></label>
-				</td>
-			</tr>
-
-			<?php
-				$exb_class_hide = 'hide';
-				if (get_option('exb_sticky_header') == 'yes') {
-					$exb_class_hide = '';
-				}
-			?>
-			<tr valign="top" class="exbclass <?php echo $exb_class_hide ?>">
-
-			<th scope="row"><?php _e('Header class name','expressbar') ?></th>
-				<td>
-					<?php $exb_header_name = get_option('exb_header_name'); ?>
-					<input class="regular-text exb_header_class" type="text" name="exb_header_name" value="<?php echo esc_attr( $exb_header_name ); ?>" placeholder="<?php _e('Header Class Name','expressbar'); ?>" />
-				</td>
-			</tr>
 
 			<?php /* Remove abiltity to put at bottom
 			<tr>

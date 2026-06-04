@@ -151,15 +151,6 @@
 			}
 		});
 
-		// Sticky header class toggle
-		$('[name=exb_sticky_header]').change(function(){
-			if ( $(this).val() === 'yes' ) {
-				$('.exbclass').removeClass('hide');
-			} else {
-				$('.exbclass').addClass('hide');
-			}
-		});
-
 		// Expressbar remain top
 		$('[name=exb_remain_top]').change(function(){
 			var exb_remain_top = $(this).val();
