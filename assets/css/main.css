@@ -1,31 +1,76 @@
+/*
+ * ExpressBar — front-end styles
+ *
+ * Hand-maintained plain CSS (no build step). Themeable values live in the
+ * :root custom properties below; per-bar user colors are injected inline by
+ * PHP and override these defaults at runtime.
+ *
+ * All element styling is scoped under `body.expressbar-enabled` so our rules
+ * out-rank a theme's class selectors (specificity 0,2,x) without resorting to
+ * IDs or !important. The admin settings page adds the same body class (see
+ * exb_admin_body_class) so this stylesheet also drives the live preview.
+ */
+
+:root {
+  /* Colors */
+  --exb-bg: #3B3B4F;
+  --exb-text-color: #fff;
+  --exb-link-color: #fff;
+  --exb-border-color: #fff;
+  --exb-button-bg: #333;
+  --exb-counter-bg: rgba(255, 255, 255, 0.2);
+
+  /* Typography */
+  --exb-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --exb-font-size: 16px;
+  --exb-font-size-mobile: 14px;
+  --exb-line-height: 1.4;
+
+  /* Spacing */
+  --exb-padding-y: 8px;
+  --exb-padding-x: 50px;
+  --exb-padding-x-mobile: 44px;
+  --exb-border-width: 3px;
+
+  /* Toggle / close button */
+  --exb-toggle-size: 30px;
+  --exb-toggle-offset: 10px;
+
+  /* Misc */
+  --exb-z-index: 999999;
+  --exb-transition-speed: 0.5s;
+}
+
+/* Page offset when the bar is open
+   ------------------------------------------------------------------------ */
 body.expressbar-enabled {
   position: relative;
   top: 0;
-  transition: top 0.5s;
+  transition: top var(--exb-transition-speed);
 }
 body.expressbar-enabled.expressbar-open {
   top: var(--exb-height, 40px);
 }
-body.expressbar-enabled.expressbar-open #expressbar {
-  top: 0 !important;
+body.expressbar-enabled.expressbar-open .exb-bar {
+  transform: translateY(0);
 }
 
 body.expressbar-enabled.admin-bar #wpadminbar {
-  transition: top 0.5s;
+  transition: top var(--exb-transition-speed);
 }
 body.expressbar-enabled.admin-bar.expressbar-open #wpadminbar {
   top: var(--exb-height, 40px);
 }
-body.exb-cover-page.expressbar-open #expressbar {
-  top: 0 !important;
+body.exb-cover-page.expressbar-open .exb-bar {
+  transform: translateY(0);
 }
-body.exb-allow-close .exb-close {
+body.expressbar-enabled.exb-allow-close .exb-close {
   background-color: transparent;
   color: transparent;
-  transition: color 0.5s 0.3s;
+  transition: color var(--exb-transition-speed) 0.3s;
 }
-body.exb-allow-close.expressbar-open .exb-close {
-  color: #fff;
+body.expressbar-enabled.exb-allow-close.expressbar-open .exb-close {
+  color: var(--exb-text-color);
 }
 
 @media (max-width: 599px) {
@@ -33,90 +78,100 @@ body.exb-allow-close.expressbar-open .exb-close {
     top: -46px !important;
   }
 }
-#expressbar {
-  background: #3B3B4F;
+
+/* The bar
+   ------------------------------------------------------------------------ */
+body.expressbar-enabled .exb-bar {
+  background: var(--exb-bg);
   position: fixed;
   left: 0;
-  top: -43px;
+  top: 0;
   width: 100%;
-  color: #fff;
+  color: var(--exb-text-color);
   z-index: -1;
-  padding: 5px 50px;
+  padding: var(--exb-padding-y) var(--exb-padding-x);
   text-align: center;
-  border-bottom: 3px solid #fff;
-  font-size: 16px;
-  line-height: 30px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-bottom: var(--exb-border-width) solid var(--exb-border-color);
+  font-size: var(--exb-font-size);
+  line-height: var(--exb-line-height);
+  font-family: var(--exb-font-family);
   box-sizing: border-box;
-  transition: 0.5s;
+  transform: translateY(-100%);
+  transition: transform var(--exb-transition-speed);
 }
 
-.expressbar-open #expressbar {
-  z-index: 999999;
+body.expressbar-enabled.expressbar-open .exb-bar {
+  z-index: var(--exb-z-index);
 }
 
-.exb-tracked {
-  transition: top 0.5s !important;
+body.expressbar-enabled .exb-tracked {
+  transition: top var(--exb-transition-speed) !important;
 }
 
-#expressbar .hide {
+body.expressbar-enabled .exb-bar .hide {
   display: none;
 }
-#expressbar.remain-top {
+body.expressbar-enabled .exb-bar.remain-top {
   position: absolute;
 }
-#expressbar a {
-  color: #fff;
+body.expressbar-enabled .exb-bar a {
+  color: var(--exb-link-color);
   display: inline-block;
   text-decoration: underline;
 }
 
-.exb-button {
-  background: #333;
+body.expressbar-enabled .exb-bar a.exb-button {
+  background: var(--exb-button-bg);
   border-radius: 50px;
   padding: 0 20px;
   margin: 0 10px;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
-.exb-content,
-.exbcd-content {
+body.expressbar-enabled .exb-content,
+body.expressbar-enabled .exbcd-content {
   display: inline-block;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 @media (max-width: 767px) {
-  .exb-content,
-.exbcd-content {
+  body.expressbar-enabled .exb-bar {
+    padding: var(--exb-padding-y) var(--exb-padding-x-mobile);
+    font-size: var(--exb-font-size-mobile);
+  }
+  body.expressbar-enabled .exb-content,
+  body.expressbar-enabled .exbcd-content {
     display: block;
   }
 }
-.exb-inner {
+
+body.expressbar-enabled .exb-inner {
   margin: 0 auto;
   overflow: hidden;
 }
 
-.exb-counter {
+/* Countdown
+   ------------------------------------------------------------------------ */
+body.expressbar-enabled .exb-counter {
   display: inline-block;
-  color: #fff;
+  color: var(--exb-text-color);
   vertical-align: bottom;
   margin-right: 10px;
 }
-.exb-counter .countDays,
-.exb-counter .countHours,
-.exb-counter .countMinutes,
-.exb-counter .countSeconds {
+body.expressbar-enabled .exb-counter .countDays,
+body.expressbar-enabled .exb-counter .countHours,
+body.expressbar-enabled .exb-counter .countMinutes,
+body.expressbar-enabled .exb-counter .countSeconds {
   display: block;
   float: left;
   position: relative;
   text-align: center;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--exb-counter-bg);
   border-radius: 2px;
   padding: 7px 5px;
 }
-.exb-counter .countDays .position,
-.exb-counter .countHours .position,
-.exb-counter .countMinutes .position,
-.exb-counter .countSeconds .position {
+body.expressbar-enabled .exb-counter .position {
   overflow: hidden;
   display: inline-block;
   position: relative;
@@ -124,30 +179,18 @@ body.exb-allow-close.expressbar-open .exb-close {
   line-height: 1;
   float: left;
 }
-.exb-counter .countDays .digit,
-.exb-counter .countHours .digit,
-.exb-counter .countMinutes .digit,
-.exb-counter .countSeconds .digit {
-  opacity: 1 !important;
+body.expressbar-enabled .exb-counter .digit {
+  opacity: 1 !important; /* override the countdown lib's inline flip animation */
   text-align: center;
   margin-left: 1px;
 }
-.exb-counter .countDays .digit:first-child + .digit,
-.exb-counter .countHours .digit:first-child + .digit,
-.exb-counter .countMinutes .digit:first-child + .digit,
-.exb-counter .countSeconds .digit:first-child + .digit {
+body.expressbar-enabled .exb-counter .digit:first-child + .digit {
   display: none;
 }
-.exb-counter .countDays .digit.static,
-.exb-counter .countHours .digit.static,
-.exb-counter .countMinutes .digit.static,
-.exb-counter .countSeconds .digit.static {
+body.expressbar-enabled .exb-counter .digit.static {
   display: block;
 }
-.exb-counter .countDays .boxName,
-.exb-counter .countHours .boxName,
-.exb-counter .countMinutes .boxName,
-.exb-counter .countSeconds .boxName {
+body.expressbar-enabled .exb-counter .boxName {
   display: inline-block;
   margin-left: 1px;
   position: relative;
@@ -155,56 +198,60 @@ body.exb-allow-close.expressbar-open .exb-close {
   float: left;
   line-height: 1;
 }
-.exb-counter .countDays,
-.exb-counter .countHours,
-.exb-counter .countMinutes {
+body.expressbar-enabled .exb-counter .countDays,
+body.expressbar-enabled .exb-counter .countHours,
+body.expressbar-enabled .exb-counter .countMinutes {
   margin-right: 2px;
 }
 
-.exb-action,
-.exb-close {
+/* Toggle / close button
+   ------------------------------------------------------------------------ */
+body.expressbar-enabled .exb-action,
+body.expressbar-enabled .exb-close {
   position: fixed;
-  background: #3B3B4F;
-  right: 10px;
+  background: var(--exb-bg);
+  right: var(--exb-toggle-offset);
   top: 0;
   text-align: center;
-  height: 30px;
-  width: 30px;
+  height: var(--exb-toggle-size);
+  width: var(--exb-toggle-size);
   border-radius: 0 0 2px 2px;
-  z-index: 999999;
+  z-index: var(--exb-z-index);
   cursor: pointer;
-  color: #fff;
-  transition: 0.5s;
+  color: var(--exb-text-color);
+  transition: var(--exb-transition-speed);
 }
 
-.exb-action:before,
-.exb-close:before {
+body.expressbar-enabled .exb-action:before,
+body.expressbar-enabled .exb-close:before {
   font-size: 18px;
-  line-height: 30px;
+  line-height: var(--exb-toggle-size);
   font-family: "dashicons";
+}
+body.expressbar-enabled .exb-action:before {
   content: "\f347";
 }
+body.expressbar-enabled .exb-close:before {
+  content: "\f335";
+}
 
-.expressbar-open .exb-action,
-.expressbar-open .exb-close {
+body.expressbar-enabled.expressbar-open .exb-action,
+body.expressbar-enabled.expressbar-open .exb-close {
   top: 5px;
   border-radius: 50%;
-  background: transparent !important;
+  background: transparent;
 }
-.expressbar-open .exb-action:before,
-.expressbar-open .exb-close:before {
+body.expressbar-enabled.expressbar-open .exb-action:before {
   content: "\f343";
 }
 
-.exb-remain-top .exb-action,
-.exb-remain-top .exb-close {
+body.expressbar-enabled.exb-remain-top .exb-action,
+body.expressbar-enabled.exb-remain-top .exb-close {
   position: absolute;
 }
 
-.exb-close:before {
-  content: "\f335" !important;
-}
-
+/* Responsive visibility toggles
+   ------------------------------------------------------------------------ */
 @media (max-width: 767px) {
   .exb_responsive_extra_small.expressbar-enabled {
     top: 0 !important;
@@ -212,9 +259,9 @@ body.exb-allow-close.expressbar-open .exb-close {
   .exb_responsive_extra_small.expressbar-enabled #wpadminbar {
     top: 0 !important;
   }
-  .exb_responsive_extra_small #expressbar,
-.exb_responsive_extra_small .exb-action,
-.exb_responsive_extra_small .exb-close {
+  .exb_responsive_extra_small .exb-bar,
+  .exb_responsive_extra_small .exb-action,
+  .exb_responsive_extra_small .exb-close {
     display: none !important;
   }
 }
@@ -225,9 +272,9 @@ body.exb-allow-close.expressbar-open .exb-close {
   .exb_responsive_small.expressbar-enabled #wpadminbar {
     top: 0 !important;
   }
-  .exb_responsive_small #expressbar,
-.exb_responsive_small .exb-action,
-.exb_responsive_small .exb-close {
+  .exb_responsive_small .exb-bar,
+  .exb_responsive_small .exb-action,
+  .exb_responsive_small .exb-close {
     display: none !important;
   }
 }
@@ -238,9 +285,9 @@ body.exb-allow-close.expressbar-open .exb-close {
   .exb_responsive_medium.expressbar-enabled #wpadminbar {
     top: 0 !important;
   }
-  .exb_responsive_medium #expressbar,
-.exb_responsive_medium .exb-action,
-.exb_responsive_medium .exb-close {
+  .exb_responsive_medium .exb-bar,
+  .exb_responsive_medium .exb-action,
+  .exb_responsive_medium .exb-close {
     display: none !important;
   }
 }
@@ -251,22 +298,24 @@ body.exb-allow-close.expressbar-open .exb-close {
   .exb_responsive_large.expressbar-enabled #wpadminbar {
     top: 0 !important;
   }
-  .exb_responsive_large #expressbar,
-.exb_responsive_large .exb-action,
-.exb_responsive_large .exb-close {
+  .exb_responsive_large .exb-bar,
+  .exb_responsive_large .exb-action,
+  .exb_responsive_large .exb-close {
     display: none !important;
   }
 }
-/* Hide when editing with BB */
-.fl-builder-edit #expressbar,
+
+/* Hide when editing with Beaver Builder
+   ------------------------------------------------------------------------ */
+.fl-builder-edit .exb-bar,
 .fl-builder-edit .exb-action {
   display: none !important;
 }
 
-.expressbar-enabled #wpadminbar .ab-top-secondary {
+body.expressbar-enabled #wpadminbar .ab-top-secondary {
   transition: all 0.3s ease-in-out;
   padding-right: 45px;
 }
-.expressbar-enabled.expressbar-open #wpadminbar .ab-top-secondary {
+body.expressbar-enabled.expressbar-open #wpadminbar .ab-top-secondary {
   padding-right: 0;
 }
