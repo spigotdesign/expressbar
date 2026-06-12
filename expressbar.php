@@ -65,6 +65,19 @@ if ( ! function_exists('exb')) {
 		add_filter('body_class','exb_body_class');
 	}
 
+	// Mirror the front-end body class onto the settings page so the live
+	// preview is driven by the same body.expressbar-enabled scoped styles.
+	if ( ! function_exists( 'exb_admin_body_class' )) {
+		function exb_admin_body_class( $classes ) {
+			$screen = get_current_screen();
+			if ( $screen && $screen->id === 'settings_page_expressbar' ) {
+				$classes .= ' expressbar-enabled';
+			}
+			return $classes;
+		}
+		add_filter('admin_body_class','exb_admin_body_class');
+	}
+
 	function expressbar() {
 		$current_theme = wp_get_theme();
 		$is_front_page = exb_get_option('exb_front_page', false);
@@ -115,73 +128,31 @@ if ( ! function_exists('exb')) {
 		}
 	?>
 		<style>
-
-			<?php if( $exb_background_color != '' ) : ?>
-			#expressbar,
-			.exb-action {
-				background-color: <?php echo esc_attr( $exb_background_color ); ?>;
+			:root {
+				<?php if( $exb_background_color != '' ) : ?>
+				--exb-bg: <?php echo esc_attr( $exb_background_color ); ?>;
+				<?php endif; ?>
+				<?php if( $exb_font_color != '' ) : ?>
+				--exb-text-color: <?php echo esc_attr( $exb_font_color ); ?>;
+				<?php endif; ?>
+				<?php if( $exb_border_color != '' ) : ?>
+				--exb-border-color: <?php echo esc_attr( $exb_border_color ); ?>;
+				<?php else : ?>
+				--exb-border-width: 0;
+				<?php endif; ?>
+				<?php if( $exb_link_color != '' ) : ?>
+				--exb-link-color: <?php echo esc_attr( $exb_link_color ); ?>;
+				<?php endif; ?>
+				<?php if( $exb_button_color != '' ) : ?>
+				--exb-button-bg: <?php echo esc_attr( $exb_button_color ); ?>;
+				<?php endif; ?>
 			}
-			<?php endif; ?>
-			<?php /*  Background image remove *Flag
-			<?php if( $exb_background_image != '' ) : ?>
-			#expressbar {
-				background-image: url(<?php echo $exb_background_image; ?>);
-				background-position: center;
-				background-size: 100% auto;
-			}
-			<?php endif; ?>
-			<?php */ ?>
-			<?php if( $exb_font_color != '' ) : ?>
-			#expressbar,
-			.exb-action,
-			body.exb-allow-close.expressbar-open .exb-close {
-				color: <?php echo esc_attr( $exb_font_color ); ?>;
-			}
-			<?php endif; ?>
-			<?php /* Remove font based options from styles
-			<?php if( $exb_font_size != '' ) : ?>
-			#expressbar {
-				font-size: <?php echo $exb_font_size; ?>px;
-			}
-			<?php endif; ?>
-
-			<?php if( $exb_font_size > 20 ) : ?>
-			#expressbar {
-				line-height: 1.2;
-			}
-			<?php endif; ?>
-			*/ ?>
-
-			<?php if( $exb_border_color != '' ) : ?>
-			#expressbar {
-				border-color: <?php echo esc_attr( $exb_border_color ); ?>;
-			}
-			<?php endif; ?>
-
-			<?php if( $exb_border_color == '' ) : ?>
-			#expressbar {
-				border-width: 0;
-			}
-			<?php endif; ?>
-
-			<?php if( $exb_link_color != '' ) : ?>
-			#expressbar a {
-				color: <?php echo esc_attr( $exb_link_color ); ?>;
-			}
-			<?php endif; ?>
-
-			<?php if( $exb_button_color != '' ) : ?>
-			#expressbar .exb-button {
-				background-color: <?php echo esc_attr( $exb_button_color ); ?>;
-			}
-			<?php endif; ?>
-
 			<?php if( $exb_custom_style != '' ) : ?>
-				<?php echo wp_strip_all_tags( $exb_custom_style ); ?>
+			<?php echo wp_strip_all_tags( $exb_custom_style ); ?>
 			<?php endif; ?>
 		</style>
 		
-		<div id="expressbar" class=" <?php echo esc_attr( $exb_remain_top ); ?> ">
+		<div id="expressbar" class="exb-bar <?php echo esc_attr( $exb_remain_top ); ?> ">
 			<div class="exb-inner">
 				<?php 
 					$exbcd_hide = 'hide';

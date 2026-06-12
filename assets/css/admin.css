@@ -1,3 +1,15 @@
+/*
+ * ExpressBar — admin settings-page styles
+ *
+ * Hand-maintained plain CSS (no build step). The settings page is given the
+ * `expressbar-enabled` body class (see exb_admin_body_class) so the live
+ * preview inherits the scoped appearance rules from main.css. The rules below
+ * adapt that preview for the admin context and cancel the two front-end
+ * body-offset rules that should not run inside wp-admin. The `body.` prefix
+ * keeps these on par with main.css's scoped selectors; admin.css is enqueued
+ * after main.css, so equal-specificity ties resolve in its favor.
+ */
+
 .settings_page_expressbar .hide {
   display: none;
 }
@@ -6,24 +18,38 @@
   width: 25em;
 }
 
-.settings_page_expressbar #expressbar {
+/* Always show the preview bar (cancel the off-screen transform) */
+body.settings_page_expressbar .exb-bar {
   top: 0;
-  z-index: 999999;
+  transform: none;
+  z-index: var(--exb-z-index, 999999);
 }
 
-.settings_page_expressbar .exb-action,
-.settings_page_expressbar .exb-close {
+body.settings_page_expressbar .exb-action,
+body.settings_page_expressbar .exb-close {
   top: 5px;
   background: transparent !important;
 }
 
-.settings_page_expressbar .exb-action:before,
-.settings_page_expressbar .exb-close:before {
+body.settings_page_expressbar .exb-action:before {
   content: "\f343";
 }
+/* Keep the X on the close variant; ordered after the action rule so it wins
+   when the preview toggles both classes onto the same element */
+body.settings_page_expressbar .exb-close:before {
+  content: "\f335";
+}
 
-.settings_page_expressbar #expressbar.remain-top {
+body.settings_page_expressbar .exb-bar.remain-top {
   position: fixed;
+}
+
+/* Cancel the front-end page-offset rules inside wp-admin */
+body.settings_page_expressbar.admin-bar #wpadminbar {
+  top: 0 !important;
+}
+body.settings_page_expressbar #wpadminbar .ab-top-secondary {
+  padding-right: 0;
 }
 
 .settings_page_expressbar .wp-picker-holder {
