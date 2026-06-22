@@ -3,7 +3,7 @@
 Plugin Name: ExpressBar
 Plugin URI: https://spigotdesign.com/
 Description:  Custom notification bar.
-Version: 1.0.1
+Version: 1.0.2
 Author: Spigot Design
 Author URI: https://spigotdesign.com
 */
@@ -327,5 +327,31 @@ if ( ! function_exists('exb')) {
 		);
 	}
 	add_action('admin_enqueue_scripts','exb_admin_scripts');
+
+	/*
+	 * Keep WP Rocket's "Remove Unused CSS" from stripping the bar's styles: the
+	 * bar is shown by toggling a body class, so RUCSS can wrongly treat its CSS
+	 * as unused. We deliberately do NOT exclude the bar's JS from "Delay
+	 * JavaScript Execution" — its scripts depend on jQuery, and excluding them
+	 * while jQuery stays delayed makes them run before jQuery exists ("$ is not
+	 * a function"). Leaving them delayed lets WP Rocket load them alongside
+	 * jQuery in dependency order. This filter no-ops when WP Rocket is absent.
+	 */
+	if ( ! function_exists( 'exb_rocket_rucss_safelist' )) {
+		function exb_rocket_rucss_safelist( $safelist ) {
+			return array_merge( $safelist, array(
+				'#expressbar',
+				'.exb-bar',
+				'.exb-inner',
+				'.exb-message',
+				'.exb-content',
+				'.exb-countdown',
+				'.exb-counter',
+				'.exb-close',
+				'.exb-action',
+			) );
+		}
+		add_filter( 'rocket_rucss_safelist', 'exb_rocket_rucss_safelist' );
+	}
 }
 ?>

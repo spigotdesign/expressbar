@@ -5,6 +5,18 @@ All notable changes to ExpressBar are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-06-22
+
+### Fixed
+- Wait for jQuery before initializing so the bar survives JavaScript optimizers that defer or delay scripts (e.g. WP Rocket "Delay JavaScript Execution"). Previously the script could run before jQuery loaded and fail silently, leaving the toggle button unresponsive.
+- Treat the jQuery countdown and cookie plugins as optional, so a missing or late dependency no longer aborts initialization.
+
+### Added
+- Register a WP Rocket "Remove Unused CSS" safelist so the bar's styles are not stripped on optimized sites.
+
+### Changed
+- Replace the SCSS build pipeline with hand-maintained CSS driven by custom properties.
+
 ## [1.0.1] - 2026-06-03
 
 ### Security

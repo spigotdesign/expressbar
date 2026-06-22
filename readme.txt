@@ -2,7 +2,7 @@
 Contributors: Spgigot Design, DesignWall
 Tags: promotion ,topbar, header bar, quick notice, bar, notification bar, countdown, responsive
 Tested up to: 5.6
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -20,6 +20,12 @@ A clean and simple WordPress plugin that allows you to have a promotion and mess
 2. Front-end appearance
 
 == Changelog ==
+
+= 1.0.2 =
+- Resilience: wait for jQuery before initializing so the bar keeps working with JavaScript optimizers (e.g. WP Rocket "Delay JavaScript Execution") instead of failing silently.
+- Treat the countdown and cookie plugins as optional so a missing or late dependency no longer breaks the bar.
+- Add a WP Rocket "Remove Unused CSS" safelist so the bar's styles are not stripped on optimized sites.
+- Replace the SCSS build with hand-maintained CSS driven by custom properties.
 
 = 1.0.1 =
 - Security: escape all settings-page output and sanitize all saved options to prevent stored XSS.
