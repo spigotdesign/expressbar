@@ -5,6 +5,11 @@ All notable changes to ExpressBar are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - 2026-07-14
+
+### Fixed
+- The bar now animates out when closed. Its `z-index` used to revert to -1 on the first frame of a close, dropping the bar behind the page content so it appeared to vanish instantly while the page offset animated. The z-index now exits on a delay matching the transition speed, so the closing bar stays on top while it slides up.
+
 ## [1.0.4] - 2026-07-14
 
 ### Fixed
