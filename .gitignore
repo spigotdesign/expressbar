@@ -1,10 +1,10 @@
 # Gitignore
 
-,DS_Store
-DS_Store
+.DS_Store
+**/.DS_Store
 node_modules
 package-lock.json
 composer.lock
 
-/.DS_Store
-/assets/.DS_Store
+# Build artifact — rebuilt from source with: zip -rq expressbar.zip expressbar -x "*.DS_Store"
+expressbar.zip

@@ -7,11 +7,16 @@
  * guard the optional jquery.countdown / jquery.cookie plugins and the localized
  * `exb` data so a missing or late dependency degrades gracefully instead of
  * throwing "$ is not a function" and leaving the bar inert.
+ *
+ * Fixed-header offsets are pure CSS: each tracked header's natural top is
+ * recorded once as --exb-original-top, and the .exb-tracked rule in main.css
+ * derives the pushed position from it plus --exb-height. JS never re-measures
+ * a header after tracking it — re-measuring an already-pushed or mid-transition
+ * header is what used to corrupt the stored offset and stack pushes.
  */
 (function() {
 
 	function exb_init($) {
-		var exb_headers = $();
 		var exb_data = window.exb || { timeleft: 0, reset_cookie: '2' };
 		var exb_has_cookie = typeof $.cookie === 'function';
 
@@ -40,31 +45,37 @@
 				}
 			});
 
+			// Record the natural top ONCE, before .exb-tracked is applied —
+			// at this moment the offset rule cannot be affecting the element,
+			// so the measurement is guaranteed clean.
+			found.not('.exb-tracked').each(function() {
+				var original = parseFloat(window.getComputedStyle(this).top) || 0;
+				this.style.setProperty('--exb-original-top', original + 'px');
+			});
+
 			found.addClass('exb-tracked');
 			return found;
 		}
 
-		function exb_push_headers(headers) {
+		// Briefly enable the top transition on tracked headers while the bar
+		// opens or closes (see the .exb-animating rule in main.css). Outside
+		// this window headers keep their theme's own transitions — e.g. the
+		// Bricks sticky slide-up animates `transform`, which a permanent
+		// `transition: top !important` would clobber into an instant snap.
+		function exb_animate_tracked() {
+			// Re-measure the bar height at the moment of open/close — the
+			// document.ready measurement can be stale (webfont swap, late
+			// layout) and a wrong --exb-height would offset everything until
+			// the next resize.
 			var exb_height = $('#expressbar').outerHeight();
-			headers.each(function() {
-				var original = parseFloat(window.getComputedStyle(this).top) || 0;
-				$(this).data('exb-original-top', original).css('top', (original + exb_height) + 'px');
-			});
-		}
-
-		function exb_restore_headers(headers, removeTracking) {
-			headers.each(function() {
-				var original = $(this).data('exb-original-top');
-				if (original !== undefined) {
-					$(this).css('top', original + 'px');
-					if (removeTracking) {
-						var el = this;
-						setTimeout(function() {
-							$(el).removeClass('exb-tracked').removeData('exb-original-top');
-						}, 500);
-					}
-				}
-			});
+			if (exb_height) {
+				document.documentElement.style.setProperty('--exb-height', exb_height + 'px');
+			}
+			var headers = $('.exb-tracked');
+			headers.addClass('exb-animating');
+			setTimeout(function() {
+				headers.removeClass('exb-animating');
+			}, 600); // --exb-transition-speed (0.5s) + settle buffer
 		}
 
 		function exb_fix_height() {
@@ -114,24 +125,21 @@
 
 			// Initial open after page settles
 			setTimeout(function(){
-				exb_headers = exb_find_fixed_headers();
+				exb_find_fixed_headers();
 				if (cookie !== 'exb-hide') {
-					$('body').addClass('expressbar-open');
-					// rAF ensures .exb-tracked renders before top changes so transition fires
+					// rAF ensures .exb-tracked renders before the body class
+					// flips, so the push animates
 					requestAnimationFrame(function() {
-						exb_push_headers(exb_headers);
+						exb_animate_tracked();
+						$('body').addClass('expressbar-open');
 					});
 				}
 			},1000);
 
-			// Toggle
+			// Toggle — header offsets follow the body class via CSS
 			$('.exb-action').click(function(){
+				exb_animate_tracked();
 				$('body').toggleClass('expressbar-open');
-				if ($('body').hasClass('expressbar-open')) {
-					exb_push_headers(exb_headers);
-				} else {
-					exb_restore_headers(exb_headers);
-				}
 			});
 
 			// Persist open/closed state — only when the cookie plugin is available
@@ -148,9 +156,15 @@
 			// Close Expressbar
 			if ( $('body').hasClass('exb-allow-close') ) {
 				function remove_expressbar() {
-					exb_restore_headers(exb_headers, true);
+					exb_animate_tracked();
 					$('#expressbar, .exb-close').remove();
 					$('body').removeClass('exb-cover-page exb-remain-top expressbar-open exb-push-page');
+					// Keep .exb-tracked briefly so the header animates back
+					// to its natural top before the transition rule goes away
+					var headers = $('.exb-tracked');
+					setTimeout(function() {
+						headers.removeClass('exb-tracked');
+					}, 500);
 				}
 
 				$('.exb-close').click(function(){
@@ -174,12 +188,11 @@
 
 		$(window).resize(function(){
 			exb_fix_height();
+			// Pick up elements that became fixed/sticky at this viewport size.
+			// Already-tracked headers keep their recorded --exb-original-top;
+			// the CSS rule re-derives their offset from --exb-height alone.
 			if ($('body').hasClass('expressbar-open')) {
-				exb_restore_headers(exb_headers);
-				exb_headers = exb_find_fixed_headers();
-				requestAnimationFrame(function() {
-					exb_push_headers(exb_headers);
-				});
+				exb_find_fixed_headers();
 			}
 		});
 	}

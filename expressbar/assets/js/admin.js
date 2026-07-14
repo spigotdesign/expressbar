@@ -120,26 +120,14 @@
 			exb_fix_height();
 		});
 
-		/* exb font family
-		$('[name=exb_font_family]').change(function(){
-			var val = $(this).val();
-			if (val !== '0') {
-				var val_array = val.split(':dw:');
-				var style = '<style>';
-					style += '@font-face { font-family: "'+ val_array[0] +'"; src: url('+val_array[1]+');}';
-					style += '#expressbar {font-family:' + val_array[0] +'}'; 
-					style += '</style>';
-			} else {
-				var style = '<style>';
-					style += '#expressbar {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}'; 
-					style += '</style>';
-			}
-			$('#expressbar').before( style );
-			console.log(val);
+		// Expressbar font family — live preview.
+		// Blank reverts to the inherited (theme) font; otherwise apply the stack.
+		$('[name=exb_font_family]').on('keyup change', function(){
+			var val = $.trim( $(this).val() );
+			$('#expressbar').css('font-family', val === '' ? '' : val);
 		}).focusout(function(){
 			exb_fix_height();
 		});
-		*/ 
 
 		// Allow to Close ExpressBar
 		$('[name=exb_close]').change(function(){

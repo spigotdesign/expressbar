@@ -45,6 +45,9 @@ function register_mysettings() {
 		'exbcd_text',
 		'exbcd_link_text',
 		'exbcd_link_url',
+
+		//Typography — font-family stack; blank inherits the theme font.
+		'exb_font_family',
 	);
 
 	$text_args = array(
@@ -412,6 +415,17 @@ function exb_settings_page() {
 
 		<h3><?php _e('Style settings','expressbar') ?></h3>
 		<table class="form-table">
+
+			<tr valign="top">
+				<?php
+					$exb_font_family = get_option('exb_font_family');
+				?>
+				<th scope="row"><?php _e('Font Family','expressbar') ?></th>
+				<td>
+					<input class="regular-text exb_font_family" type="text" name="exb_font_family" value="<?php echo esc_attr( $exb_font_family ); ?>" placeholder="<?php esc_attr_e('Inherit from theme','expressbar'); ?>" />
+					<p class="description"><?php _e('Leave blank to use your theme&rsquo;s font. To override, enter a font-family stack, e.g. <code>&quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif</code>.','expressbar'); ?></p>
+				</td>
+			</tr>
 
 			<tr valign="top">
 				<?php
