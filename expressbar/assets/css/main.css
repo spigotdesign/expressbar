@@ -21,7 +21,9 @@
   --exb-counter-bg: rgba(255, 255, 255, 0.2);
 
   /* Typography */
-  --exb-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Default: inherit the theme's font. The settings page can override this
+     via the inline :root block emitted in expressbar.php (exb_font_family). */
+  --exb-font-family: inherit;
   --exb-font-size: 16px;
   --exb-font-size-mobile: 14px;
   --exb-line-height: 1.4;
@@ -104,8 +106,22 @@ body.expressbar-enabled.expressbar-open .exb-bar {
   z-index: var(--exb-z-index);
 }
 
-body.expressbar-enabled .exb-tracked {
+/* The top transition is applied only while the bar itself opens or closes
+   (JS pulses .exb-animating around the body-class toggle). It must not be
+   permanent: `transition !important` replaces a theme's own transition list,
+   which breaks scroll-driven header animations (e.g. Bricks sticky slide-up,
+   which animates `transform`) into instant snaps. */
+body.expressbar-enabled .exb-tracked.exb-animating {
   transition: top var(--exb-transition-speed) !important;
+}
+
+/* Fixed/sticky headers are offset here, not by JS measurement. The JS
+   records each header's natural top once (--exb-original-top, set before
+   .exb-tracked is applied) and maintains --exb-height on <html>; the
+   browser recomputes this rule on open/close/resize, so offsets can
+   never compound. */
+body.expressbar-enabled.expressbar-open .exb-tracked {
+  top: calc(var(--exb-original-top, 0px) + var(--exb-height, 40px)) !important;
 }
 
 body.expressbar-enabled .exb-bar .hide {

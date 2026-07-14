@@ -2,7 +2,7 @@
 Contributors: Spgigot Design, DesignWall
 Tags: promotion ,topbar, header bar, quick notice, bar, notification bar, countdown, responsive
 Tested up to: 5.6
-Stable tag: 1.0.1
+Stable tag: 1.0.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -20,6 +20,21 @@ A clean and simple WordPress plugin that allows you to have a promotion and mess
 2. Front-end appearance
 
 == Changelog ==
+
+= 1.0.4 =
+- Fix fixed/sticky headers drifting or double-offsetting while the bar is open. Header offsets are now computed by CSS from a once-recorded natural position instead of re-measured by JavaScript, so resize bursts and mid-transition reads can no longer corrupt them.
+- Stop overriding the theme's own header transitions: scroll-driven animations like the Bricks sticky slide-up now animate normally while the bar is present.
+- Version the front-end style/script enqueues for reliable cache busting.
+
+= 1.0.3 =
+- Add a Font Family setting to control the bar's typeface; leave it blank to inherit the theme's font, or enter a font-family stack to override it.
+- The bar now inherits the active theme's font by default instead of a hardcoded Helvetica Neue stack.
+
+= 1.0.2 =
+- Resilience: wait for jQuery before initializing so the bar keeps working with JavaScript optimizers (e.g. WP Rocket "Delay JavaScript Execution") instead of failing silently.
+- Treat the countdown and cookie plugins as optional so a missing or late dependency no longer breaks the bar.
+- Add a WP Rocket "Remove Unused CSS" safelist so the bar's styles are not stripped on optimized sites.
+- Replace the SCSS build with hand-maintained CSS driven by custom properties.
 
 = 1.0.1 =
 - Security: escape all settings-page output and sanitize all saved options to prevent stored XSS.

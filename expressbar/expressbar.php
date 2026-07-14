@@ -3,7 +3,7 @@
 Plugin Name: ExpressBar
 Plugin URI: https://spigotdesign.com/
 Description:  Custom notification bar.
-Version: 1.0.1
+Version: 1.0.4
 Author: Spigot Design
 Author URI: https://spigotdesign.com
 */
@@ -78,7 +78,26 @@ if ( ! function_exists('exb')) {
 		add_filter('admin_body_class','exb_admin_body_class');
 	}
 
+	// Detect page builder edit/preview contexts where the live front-end footer
+	// runs inside the builder canvas. The bar should never render there — it
+	// clutters the editor and can sit on top of the builder UI.
+	if ( ! function_exists( 'exb_is_builder' )) {
+		function exb_is_builder() {
+			// Bricks: true in both the builder panel and its preview iframe.
+			if ( function_exists( 'bricks_is_builder' ) && bricks_is_builder() ) {
+				return true;
+			}
+			if ( function_exists( 'bricks_is_builder_call' ) && bricks_is_builder_call() ) {
+				return true;
+			}
+			return false;
+		}
+	}
+
 	function expressbar() {
+		if ( exb_is_builder() ) {
+			return;
+		}
 		$current_theme = wp_get_theme();
 		$is_front_page = exb_get_option('exb_front_page', false);
 		$is_archives = exb_get_option('exb_archives', false);
@@ -106,7 +125,7 @@ if ( ! function_exists('exb')) {
 		$exb_link_url = exb_get_option('exb_link_url');
 		$exb_link_target = exb_get_option('exb_link_target');
 
-		//$exb_font_family = exb_get_option('exb_font_family');
+		$exb_font_family = exb_get_option('exb_font_family');
 		// $exb_font_size = exb_get_option('exb_font_size');
 		$exb_background_color = exb_get_option('exb_background_color');
 		// $exb_background_image = exb_get_option('exb_background_image');
@@ -129,6 +148,9 @@ if ( ! function_exists('exb')) {
 	?>
 		<style>
 			:root {
+				<?php if( $exb_font_family != '' ) : ?>
+				--exb-font-family: <?php echo preg_replace( '/[^a-zA-Z0-9 ,\'"\-]/', '', $exb_font_family ); ?>;
+				<?php endif; ?>
 				<?php if( $exb_background_color != '' ) : ?>
 				--exb-bg: <?php echo esc_attr( $exb_background_color ); ?>;
 				<?php endif; ?>
@@ -210,6 +232,9 @@ if ( ! function_exists('exb')) {
 
 	// Enqueue scripts
 	function exb_scripts() {
+		if ( exb_is_builder() ) {
+			return;
+		}
 		$is_front_page = exb_get_option('exb_front_page', false);
 		$is_archives = exb_get_option('exb_archives', false);
 		$is_tags = exb_get_option('exb_tags', false);
@@ -225,7 +250,7 @@ if ( ! function_exists('exb')) {
 		) :
 
 		// Front end
-		wp_enqueue_style( 'exb_style', EXB_PATH . 'assets/css/main.css');
+		wp_enqueue_style( 'exb_style', EXB_PATH . 'assets/css/main.css', array(), '1.0.4');
 
 		if ( ! wp_script_is( 'jquery', 'enqueued' )) {
 			wp_enqueue_script( 'jquery');
@@ -251,7 +276,7 @@ if ( ! function_exists('exb')) {
 				'exb_countdown',
 				'exb_cookie'
 			),
-			'1.0',
+			'1.0.4',
 			true
 		);
 
@@ -281,7 +306,7 @@ if ( ! function_exists('exb')) {
 		}
 
 		// Front end
-		wp_enqueue_style( 'exb_style', EXB_PATH . 'assets/css/main.css');
+		wp_enqueue_style( 'exb_style', EXB_PATH . 'assets/css/main.css', array(), '1.0.4');
 		
 		if ( ! wp_script_is( 'jquery.countdown.js', 'enqueued' )) {
 			wp_enqueue_script( 'exb_countdown', EXB_PATH . 'assets/js/vendor/jquery.countdown.js',true);
@@ -327,5 +352,31 @@ if ( ! function_exists('exb')) {
 		);
 	}
 	add_action('admin_enqueue_scripts','exb_admin_scripts');
+
+	/*
+	 * Keep WP Rocket's "Remove Unused CSS" from stripping the bar's styles: the
+	 * bar is shown by toggling a body class, so RUCSS can wrongly treat its CSS
+	 * as unused. We deliberately do NOT exclude the bar's JS from "Delay
+	 * JavaScript Execution" — its scripts depend on jQuery, and excluding them
+	 * while jQuery stays delayed makes them run before jQuery exists ("$ is not
+	 * a function"). Leaving them delayed lets WP Rocket load them alongside
+	 * jQuery in dependency order. This filter no-ops when WP Rocket is absent.
+	 */
+	if ( ! function_exists( 'exb_rocket_rucss_safelist' )) {
+		function exb_rocket_rucss_safelist( $safelist ) {
+			return array_merge( $safelist, array(
+				'#expressbar',
+				'.exb-bar',
+				'.exb-inner',
+				'.exb-message',
+				'.exb-content',
+				'.exb-countdown',
+				'.exb-counter',
+				'.exb-close',
+				'.exb-action',
+			) );
+		}
+		add_filter( 'rocket_rucss_safelist', 'exb_rocket_rucss_safelist' );
+	}
 }
 ?>
