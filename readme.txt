@@ -2,7 +2,7 @@
 Contributors: Spgigot Design, DesignWall
 Tags: promotion ,topbar, header bar, quick notice, bar, notification bar, countdown, responsive
 Tested up to: 5.6
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -20,6 +20,9 @@ A clean and simple WordPress plugin that allows you to have a promotion and mess
 2. Front-end appearance
 
 == Changelog ==
+
+= 1.0.5 =
+- Fix the bar vanishing instantly when closed: it now stays above the page and slides out, matching the open animation.
 
 = 1.0.4 =
 - Fix fixed/sticky headers drifting or double-offsetting while the bar is open. Header offsets are now computed by CSS from a once-recorded natural position instead of re-measured by JavaScript, so resize bursts and mid-transition reads can no longer corrupt them.

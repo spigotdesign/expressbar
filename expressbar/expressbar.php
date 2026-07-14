@@ -3,7 +3,7 @@
 Plugin Name: ExpressBar
 Plugin URI: https://spigotdesign.com/
 Description:  Custom notification bar.
-Version: 1.0.4
+Version: 1.0.5
 Author: Spigot Design
 Author URI: https://spigotdesign.com
 */
@@ -250,7 +250,7 @@ if ( ! function_exists('exb')) {
 		) :
 
 		// Front end
-		wp_enqueue_style( 'exb_style', EXB_PATH . 'assets/css/main.css', array(), '1.0.4');
+		wp_enqueue_style( 'exb_style', EXB_PATH . 'assets/css/main.css', array(), '1.0.5');
 
 		if ( ! wp_script_is( 'jquery', 'enqueued' )) {
 			wp_enqueue_script( 'jquery');
@@ -276,7 +276,7 @@ if ( ! function_exists('exb')) {
 				'exb_countdown',
 				'exb_cookie'
 			),
-			'1.0.4',
+			'1.0.5',
 			true
 		);
 
@@ -306,7 +306,7 @@ if ( ! function_exists('exb')) {
 		}
 
 		// Front end
-		wp_enqueue_style( 'exb_style', EXB_PATH . 'assets/css/main.css', array(), '1.0.4');
+		wp_enqueue_style( 'exb_style', EXB_PATH . 'assets/css/main.css', array(), '1.0.5');
 		
 		if ( ! wp_script_is( 'jquery.countdown.js', 'enqueued' )) {
 			wp_enqueue_script( 'exb_countdown', EXB_PATH . 'assets/js/vendor/jquery.countdown.js',true);
